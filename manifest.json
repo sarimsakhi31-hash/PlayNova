@@ -1,0 +1,1 @@
+{"name":"PlayNova","short_name":"PlayNova","description":"Play free browser games on PlayNova.","start_url":"./index.html","display":"standalone","background_color":"#09090d","theme_color":"#9d4edd","icons":[{"src":"images/icon.svg","sizes":"any","type":"image/svg+xml"}]}

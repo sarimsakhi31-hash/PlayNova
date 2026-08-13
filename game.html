@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Play Game — PlayNova</title>
+<link rel="icon" href="images/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+<a class="logo" href="index.html">🎮 <span>PlayNova</span></a>
+<nav><a href="index.html">Home</a><a href="games.html">Games</a><a href="categories.html">Categories</a><a href="favorites.html">❤️ Favorites</a></nav>
+</header>
+<main class="player-page">
+<a class="back-btn" href="games.html">← Back to Games</a>
+<div class="player-title"><span class="section-label" id="gameCategory"></span><h1 id="gameTitle">Loading...</h1></div>
+<div class="game-player">
+  <iframe id="gameFrame" title="PlayNova Game" allow="fullscreen; gamepad" allowfullscreen></iframe>
+  <button id="fullscreenBtn">⛶ Fullscreen</button>
+</div>
+<div class="game-description">
+  <button class="favorite-action" id="favoriteBtn">♡ Add to Favorites</button>
+  <h2 id="gameHeading">Game</h2>
+  <p>Play this browser game directly on PlayNova. Replace the sample URL in <code>data/games.json</code> with a game URL you are legally allowed to embed.</p>
+</div>
+</main>
+<footer>© 2026 PlayNova — Play. Explore. Enjoy.</footer>
+<script src="js/game.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+let games=[];
+const $=id=>document.getElementById(id);
+function favs(){return JSON.parse(localStorage.getItem("playnovaFavorites")||"[]").map(Number)}
+function render(){const ids=favs();const list=games.filter(g=>ids.includes(Number(g.id)));$("favoriteGames").innerHTML=list.length?list.map(g=>`<article class="game-card"><a class="game-image" href="game.html?id=${g.id}"><img src="${g.image}" alt="${g.title}"><span class="play-overlay">▶</span></a><div class="game-info"><span class="game-category">${g.category}</span><h3>${g.title}</h3><a class="play-link" href="game.html?id=${g.id}">Play Now →</a><button class="remove-favorite" data-remove="${g.id}">Remove ♥</button></div></article>`).join(""):`<div class="no-results"><div>❤️</div><h2>No Favorites Yet</h2><p>Favorite games from their game page or game cards.</p><br><a class="primary-btn" href="games.html">Browse Games</a></div>`;document.querySelectorAll("[data-remove]").forEach(b=>b.onclick=()=>{localStorage.setItem("playnovaFavorites",JSON.stringify(favs().filter(x=>x!==Number(b.dataset.remove))));render()})}
+$("menuToggle")?.addEventListener("click",()=>$("mainNav")?.classList.toggle("active"));
+fetch("data/games.json").then(r=>r.json()).then(d=>{games=d;render()}).catch(console.error);
