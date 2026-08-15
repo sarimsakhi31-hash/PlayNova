@@ -6,80 +6,117 @@
 <title>Puzzle Master</title>
 
 <style>
-*{
-  box-sizing:border-box;
+* {
+  box-sizing: border-box;
 }
 
-body{
-  margin:0;
-  background:#09090d;
-  color:white;
-  font-family:Arial,sans-serif;
-  text-align:center;
-  min-height:100vh;
-  padding:20px;
+body {
+  margin: 0;
+  background: #09090d;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  min-height: 100vh;
+  padding: 20px;
 }
 
-.game{
-  max-width:500px;
-  margin:auto;
+.game {
+  max-width: 500px;
+  margin: auto;
 }
 
-h1{
-  color:#c77dff;
-  margin-bottom:5px;
+h1 {
+  color: #c77dff;
+  margin-bottom: 5px;
 }
 
-.info{
-  color:#aaa;
-  margin-bottom:18px;
+.info {
+  color: #aaa;
+  margin-bottom: 15px;
 }
 
-.board{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:8px;
-  background:#15151d;
-  padding:10px;
-  border-radius:15px;
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 15px;
 }
 
-.tile{
-  aspect-ratio:1;
-  background:#252535;
-  border:0;
-  border-radius:10px;
-  color:white;
-  font-size:28px;
-  font-weight:bold;
-  cursor:pointer;
+.stat {
+  background: #191922;
+  padding: 10px 18px;
+  border-radius: 10px;
+  min-width: 110px;
 }
 
-.tile:hover{
-  background:#7139a8;
+.stat span {
+  display: block;
+  color: #c77dff;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 4px;
 }
 
-.empty{
-  background:#09090d;
-  cursor:default;
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  background: #15151d;
+  padding: 10px;
+  border-radius: 15px;
 }
 
-button.restart{
-  margin-top:20px;
-  padding:12px 25px;
-  border:0;
-  border-radius:10px;
-  background:#9b4dca;
-  color:white;
-  font-size:16px;
-  cursor:pointer;
+.tile {
+  aspect-ratio: 1;
+  background: #252535;
+  border: 0;
+  border-radius: 10px;
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-#win{
-  color:#70e000;
-  font-weight:bold;
-  margin-top:15px;
-  min-height:24px;
+.tile:hover {
+  background: #7139a8;
+}
+
+.empty {
+  background: #09090d;
+  cursor: default;
+}
+
+button.restart {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: 0;
+  border-radius: 10px;
+  background: #9b4dca;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button.restart:hover {
+  background: #b96be8;
+}
+
+#win {
+  color: #70e000;
+  font-weight: bold;
+  margin-top: 15px;
+  min-height: 24px;
+  font-size: 18px;
+}
+
+@media (max-width: 500px) {
+  body {
+    padding: 12px;
+  }
+
+  .tile {
+    font-size: 22px;
+  }
 }
 </style>
 </head>
@@ -94,7 +131,21 @@ button.restart{
 Arrange the numbers from 1 to 15
 </div>
 
-<div id="board" class="board"></div>
+<div class="stats">
+
+<div class="stat">
+Moves
+<span id="moves">0</span>
+</div>
+
+<div class="stat">
+Time
+<span id="time">00:00</span>
+</div>
+
+</div>
+
+<div class="board" id="board"></div>
 
 <button class="restart" onclick="startGame()">
 🔄 New Game
@@ -106,97 +157,131 @@ Arrange the numbers from 1 to 15
 
 <script>
 
-let tiles=[];
+let tiles = [];
+let moves = 0;
+let seconds = 0;
+let timer = null;
 
-function startGame(){
+function startGame() {
 
-  tiles=[...Array(15).keys()].map(x=>x+1);
+  clearInterval(timer);
+
+  moves = 0;
+  seconds = 0;
+
+  document.getElementById("moves").textContent = "0";
+  document.getElementById("time").textContent = "00:00";
+  document.getElementById("win").textContent = "";
+
+  tiles = [...Array(15).keys()].map(x => x + 1);
   tiles.push(0);
 
-  /* Shuffle */
-  for(let i=0;i<300;i++){
+  // Shuffle
+  for (let i = 0; i < 300; i++) {
 
-    let empty=tiles.indexOf(0);
-    let moves=[];
+    let empty = tiles.indexOf(0);
+    let possible = [];
 
-    if(empty>=4) moves.push(empty-4);
-    if(empty<12) moves.push(empty+4);
-    if(empty%4!==0) moves.push(empty-1);
-    if(empty%4!==3) moves.push(empty+1);
+    if (empty >= 4)
+      possible.push(empty - 4);
 
-    let move=moves[Math.floor(Math.random()*moves.length)];
+    if (empty < 12)
+      possible.push(empty + 4);
 
-    [tiles[empty],tiles[move]]=
-    [tiles[move],tiles[empty]];
+    if (empty % 4 !== 0)
+      possible.push(empty - 1);
+
+    if (empty % 4 !== 3)
+      possible.push(empty + 1);
+
+    let move = possible[Math.floor(Math.random() * possible.length)];
+
+    [tiles[empty], tiles[move]] =
+    [tiles[move], tiles[empty]];
   }
 
-  document.getElementById("win").textContent="";
   draw();
+
+  timer = setInterval(function() {
+
+    seconds++;
+
+    let min = Math.floor(seconds / 60);
+    let sec = seconds % 60;
+
+    document.getElementById("time").textContent =
+      String(min).padStart(2, "0") + ":" +
+      String(sec).padStart(2, "0");
+
+  }, 1000);
 }
 
-function draw(){
+function draw() {
 
-  const board=document.getElementById("board");
+  const board = document.getElementById("board");
 
-  board.innerHTML="";
+  board.innerHTML = "";
 
-  tiles.forEach((n,i)=>{
+  tiles.forEach((n, i) => {
 
-    const b=document.createElement("button");
+    const b = document.createElement("button");
 
-    b.className="tile";
+    b.className = n === 0 ? "tile empty" : "tile";
 
-    if(n===0){
+    b.textContent = n === 0 ? "" : n;
 
-      b.classList.add("empty");
-      b.textContent="";
-
-    }else{
-
-      b.textContent=n;
-      b.onclick=()=>move(i);
-
+    if (n !== 0) {
+      b.onclick = () => moveTile(i);
     }
 
     board.appendChild(b);
-
   });
 }
 
-function move(i){
+function moveTile(i) {
 
-  let empty=tiles.indexOf(0);
+  const empty = tiles.indexOf(0);
 
-  let valid=[
-    empty-1,
-    empty+1,
-    empty-4,
-    empty+4
-  ];
+  const valid =
+    i === empty - 1 ||
+    i === empty + 1 ||
+    i === empty - 4 ||
+    i === empty + 4;
 
-  /* Prevent left/right wrapping */
-  if(i===empty-1 && empty%4===0) return;
-  if(i===empty+1 && empty%4===3) return;
-
-  if(valid.includes(i)){
-
-    [tiles[i],tiles[empty]]=
-    [tiles[empty],tiles[i]];
-
-    draw();
-
-    if(
-      tiles.join(",") ===
-      [...Array(15).keys()]
-      .map(x=>x+1)
-      .concat(0)
-      .join(",")
-    ){
-
-      document.getElementById("win").textContent=
-      "🎉 Congratulations! You solved it!";
-    }
+  // Prevent left/right crossing
+  if (Math.floor(i / 4) !== Math.floor(empty / 4) &&
+      Math.abs(i - empty) === 1) {
+    return;
   }
+
+  if (!valid)
+    return;
+
+  [tiles[i], tiles[empty]] =
+  [tiles[empty], tiles[i]];
+
+  moves++;
+
+  document.getElementById("moves").textContent = moves;
+
+  draw();
+
+  checkWin();
+}
+
+function checkWin() {
+
+  for (let i = 0; i < 15; i++) {
+
+    if (tiles[i] !== i + 1)
+      return;
+  }
+
+  clearInterval(timer);
+
+  document.getElementById("win").textContent =
+    "🏆 Congratulations! You solved it!";
+
 }
 
 startGame();
