@@ -1,252 +1,570 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Zombie Survival - PlayNova</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Zombie Survival - Free Zombie Game | PlayNova</title>
+
+<meta name="description" content="Play Zombie Survival for free on PlayNova. Survive incoming zombies, shoot enemies and try to achieve the highest score in this exciting browser game.">
+
+<meta name="keywords" content="Zombie Survival, zombie game, free zombie game, online zombie game, survival game, browser game, shooting game, PlayNova">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://sarimsakhi31-hash.github.io/PlayNova/games/zombie-survival.html">
+
+<meta property="og:title" content="Zombie Survival - Free Zombie Game | PlayNova">
+<meta property="og:description" content="Survive the zombies, shoot enemies and get the highest score in Zombie Survival on PlayNova.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sarimsakhi31-hash.github.io/PlayNova/games/zombie-survival.html">
+
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#080b08;color:#fff;font-family:Arial,sans-serif;text-align:center;padding:15px}
-.game{width:min(95vw,600px);margin:auto}
-h1{color:#65ff72;margin:8px 0}
-.info{color:#aaa;margin-bottom:12px}
-.stats{display:flex;justify-content:center;gap:10px;margin-bottom:12px}
-.stat{background:#151b15;padding:9px 18px;border-radius:10px}
-.stat span{color:#65ff72;font-weight:bold}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  background:#080b08;
+  color:#fff;
+  font-family:Arial,sans-serif;
+  text-align:center;
+  padding:15px;
+}
+
+.game{
+  width:min(95vw,600px);
+  margin:auto;
+}
+
+h1{
+  color:#65ff72;
+  margin:8px 0;
+}
+
+.info{
+  color:#aaa;
+  margin-bottom:12px;
+}
+
+.stats{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:12px;
+}
+
+.stat{
+  background:#151b15;
+  padding:9px 18px;
+  border-radius:10px;
+}
+
+.stat span{
+  color:#65ff72;
+  font-weight:bold;
+}
+
 .arena{
-position:relative;width:100%;height:520px;max-height:70vh;
-overflow:hidden;background:#111814;
-border:3px solid #65ff72;border-radius:15px;
+  position:relative;
+  width:100%;
+  height:520px;
+  max-height:70vh;
+  overflow:hidden;
+  background:#111814;
+  border:3px solid #65ff72;
+  border-radius:15px;
 }
+
 .player{
-position:absolute;width:42px;height:42px;left:50%;top:50%;
-transform:translate(-50%,-50%);background:#39a9ff;
-border:3px solid white;border-radius:50%;
-box-shadow:0 0 15px #39a9ff;z-index:3;
+  position:absolute;
+  width:42px;
+  height:42px;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  background:#39a9ff;
+  border:3px solid white;
+  border-radius:50%;
+  box-shadow:0 0 15px #39a9ff;
+  z-index:3;
 }
+
 .zombie{
-position:absolute;width:38px;height:38px;
-background:#79a832;border:2px solid #d9ff7a;
-border-radius:50%;z-index:2;
+  position:absolute;
+  width:38px;
+  height:38px;
+  background:#79a832;
+  border:2px solid #d9ff7a;
+  border-radius:50%;
+  z-index:2;
 }
+
 .bullet{
-position:absolute;width:7px;height:7px;
-background:#ffe600;border-radius:50%;
-box-shadow:0 0 10px #ffe600;z-index:4;
+  position:absolute;
+  width:7px;
+  height:7px;
+  background:#ffe600;
+  border-radius:50%;
+  box-shadow:0 0 10px #ffe600;
+  z-index:4;
 }
-.controls{margin-top:15px;display:flex;justify-content:center;gap:12px}
-button{border:0;border-radius:10px;padding:13px 22px;
-background:#1b271b;color:#fff;font-size:18px;cursor:pointer}
-button:hover{background:#304630}
-.shoot{margin-top:12px;background:#a32626}
-.restart{margin-top:10px;background:#287c32}
-#message{min-height:25px;margin-top:12px;color:#ffe600;font-weight:bold}
-.gameover{color:#ff4444!important}
+
+.controls{
+  margin-top:15px;
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+button{
+  border:0;
+  border-radius:10px;
+  padding:13px 22px;
+  background:#1b271b;
+  color:#fff;
+  font-size:18px;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#304630;
+}
+
+.shoot{
+  margin-top:12px;
+  background:#a32626;
+}
+
+.restart{
+  margin-top:10px;
+  background:#287c32;
+}
+
+#message{
+  min-height:25px;
+  margin-top:12px;
+  color:#ffe600;
+  font-weight:bold;
+}
+
+.gameover{
+  color:#ff4444!important;
+}
+
+@media(max-width:500px){
+
+  .arena{
+    height:500px;
+  }
+
+  button{
+    padding:12px 18px;
+  }
+
+}
+
 </style>
+
 </head>
+
 <body>
 
 <div class="game">
+
 <h1>🧟 Zombie Survival</h1>
-<div class="info">Survive the zombies and get the highest score!</div>
+
+<div class="info">
+Survive the zombies and get the highest score!
+</div>
 
 <div class="stats">
-<div class="stat">Score: <span id="score">0</span></div>
-<div class="stat">Lives: <span id="lives">3</span></div>
+
+<div class="stat">
+Score: <span id="score">0</span>
+</div>
+
+<div class="stat">
+Lives: <span id="lives">3</span>
+</div>
+
 </div>
 
 <div class="arena" id="arena">
+
 <div class="player" id="player"></div>
+
 </div>
 
 <div class="controls">
+
 <button onclick="move(-1,0)">⬅️</button>
 <button onclick="move(1,0)">➡️</button>
 <button onclick="move(0,-1)">⬆️</button>
 <button onclick="move(0,1)">⬇️</button>
+
 </div>
 
-<button class="shoot" onclick="shoot()">🔫 SHOOT</button>
+<button class="shoot" onclick="shoot()">
+🔫 SHOOT
+</button>
+
 <br>
-<button class="restart" onclick="startGame()">🔄 Restart</button>
+
+<button class="restart" onclick="startGame()">
+🔄 Restart
+</button>
 
 <div id="message"></div>
+
 </div>
 
 <script>
+
 const arena=document.getElementById("arena");
 const player=document.getElementById("player");
 
-let px=50,py=50,score=0,lives=3,running=false;
-let zombies=[],bullets=[],loop,spawnTimer;
+let px=50;
+let py=50;
+
+let score=0;
+let lives=3;
+let running=false;
+
+let zombies=[];
+let bullets=[];
+
+let loop;
+let spawnTimer;
 
 function setPlayer(){
-player.style.left=px+"%";
-player.style.top=py+"%";
+
+  player.style.left=px+"%";
+  player.style.top=py+"%";
+
 }
 
 function move(x,y){
-if(!running)return;
-px+=x*4; py+=y*4;
-px=Math.max(5,Math.min(95,px));
-py=Math.max(7,Math.min(93,py));
-setPlayer();
+
+  if(!running)return;
+
+  px+=x*4;
+  py+=y*4;
+
+  px=Math.max(5,Math.min(95,px));
+  py=Math.max(7,Math.min(93,py));
+
+  setPlayer();
+
 }
 
 document.addEventListener("keydown",e=>{
-if(e.key==="ArrowLeft")move(-1,0);
-if(e.key==="ArrowRight")move(1,0);
-if(e.key==="ArrowUp")move(0,-1);
-if(e.key==="ArrowDown")move(0,1);
-if(e.code==="Space"){e.preventDefault();shoot();}
+
+  if(e.key==="ArrowLeft")
+    move(-1,0);
+
+  if(e.key==="ArrowRight")
+    move(1,0);
+
+  if(e.key==="ArrowUp")
+    move(0,-1);
+
+  if(e.key==="ArrowDown")
+    move(0,1);
+
+  if(e.code==="Space"){
+
+    e.preventDefault();
+    shoot();
+
+  }
+
 });
 
 function shoot(){
-if(!running)return;
 
-let b=document.createElement("div");
-b.className="bullet";
-b.style.left=px+"%";
-b.style.top=py+"%";
-arena.appendChild(b);
+  if(!running)return;
 
-let nearest=null;
-let distance=Infinity;
+  let b=document.createElement("div");
 
-zombies.forEach(z=>{
-let dx=z.x-px,dy=z.y-py;
-let d=Math.sqrt(dx*dx+dy*dy);
-if(d<distance){distance=d;nearest=z;}
-});
+  b.className="bullet";
 
-if(nearest){
-let dx=nearest.x-px,dy=nearest.y-py;
-let d=Math.sqrt(dx*dx+dy*dy);
-bullets.push({element:b,x:px,y:py,dx:dx/d,dy:dy/d});
-}else{
-bullets.push({element:b,x:px,y:py,dx:1,dy:0});
-}
+  b.style.left=px+"%";
+  b.style.top=py+"%";
+
+  arena.appendChild(b);
+
+  let nearest=null;
+  let distance=Infinity;
+
+  zombies.forEach(z=>{
+
+    let dx=z.x-px;
+    let dy=z.y-py;
+
+    let d=Math.sqrt(dx*dx+dy*dy);
+
+    if(d<distance){
+
+      distance=d;
+      nearest=z;
+
+    }
+
+  });
+
+  if(nearest){
+
+    let dx=nearest.x-px;
+    let dy=nearest.y-py;
+
+    let d=Math.sqrt(dx*dx+dy*dy);
+
+    bullets.push({
+      element:b,
+      x:px,
+      y:py,
+      dx:dx/d,
+      dy:dy/d
+    });
+
+  }else{
+
+    bullets.push({
+      element:b,
+      x:px,
+      y:py,
+      dx:1,
+      dy:0
+    });
+
+  }
+
 }
 
 function createZombie(){
-if(!running)return;
 
-let z=document.createElement("div");
-z.className="zombie";
+  if(!running)return;
 
-let side=Math.floor(Math.random()*4);
-let x,y;
+  let z=document.createElement("div");
 
-if(side===0){x=Math.random()*100;y=-5}
-if(side===1){x=Math.random()*100;y=105}
-if(side===2){x=-5;y=Math.random()*100}
-if(side===3){x=105;y=Math.random()*100}
+  z.className="zombie";
 
-z.style.left=x+"%";
-z.style.top=y+"%";
-arena.appendChild(z);
+  let side=Math.floor(Math.random()*4);
 
-zombies.push({
-element:z,x:x,y:y,
-speed:.35+Math.random()*.25
-});
+  let x,y;
+
+  if(side===0){
+    x=Math.random()*100;
+    y=-5;
+  }
+
+  if(side===1){
+    x=Math.random()*100;
+    y=105;
+  }
+
+  if(side===2){
+    x=-5;
+    y=Math.random()*100;
+  }
+
+  if(side===3){
+    x=105;
+    y=Math.random()*100;
+  }
+
+  z.style.left=x+"%";
+  z.style.top=y+"%";
+
+  arena.appendChild(z);
+
+  zombies.push({
+    element:z,
+    x:x,
+    y:y,
+    speed:.35+Math.random()*.25
+  });
+
 }
 
 function hit(a,b){
-let r1=a.getBoundingClientRect();
-let r2=b.getBoundingClientRect();
-return !(r1.right<r2.left||r1.left>r2.right||
-r1.bottom<r2.top||r1.top>r2.bottom);
+
+  let r1=a.getBoundingClientRect();
+  let r2=b.getBoundingClientRect();
+
+  return !(
+    r1.right<r2.left ||
+    r1.left>r2.right ||
+    r1.bottom<r2.top ||
+    r1.top>r2.bottom
+  );
+
 }
 
 function update(){
-if(!running)return;
 
-bullets.forEach((b,bi)=>{
-b.x+=b.dx*3;
-b.y+=b.dy*3;
-b.element.style.left=b.x+"%";
-b.element.style.top=b.y+"%";
+  if(!running)return;
 
-if(b.x<0||b.x>100||b.y<0||b.y>100){
-b.element.remove();
-bullets.splice(bi,1);
-return;
-}
+  /* Bullets */
 
-zombies.forEach((z,zi)=>{
-if(b.element&&z.element&&hit(b.element,z.element)){
-z.element.remove();
-b.element.remove();
-zombies.splice(zi,1);
-bullets.splice(bi,1);
-score+=10;
-document.getElementById("score").textContent=score;
-}
-});
-});
+  bullets.forEach((b,bi)=>{
 
-zombies.forEach((z,zi)=>{
-let dx=px-z.x,dy=py-z.y;
-let d=Math.sqrt(dx*dx+dy*dy);
+    b.x+=b.dx*3;
+    b.y+=b.dy*3;
 
-if(d>0){
-z.x+=(dx/d)*z.speed;
-z.y+=(dy/d)*z.speed;
-}
+    b.element.style.left=b.x+"%";
+    b.element.style.top=b.y+"%";
 
-z.element.style.left=z.x+"%";
-z.element.style.top=z.y+"%";
+    if(
+      b.x<0 ||
+      b.x>100 ||
+      b.y<0 ||
+      b.y>100
+    ){
 
-if(d<6){
-z.element.remove();
-zombies.splice(zi,1);
-lives--;
-document.getElementById("lives").textContent=lives;
+      b.element.remove();
+      bullets.splice(bi,1);
 
-if(lives<=0)endGame();
-}
-});
+      return;
 
-loop=requestAnimationFrame(update);
+    }
+
+    zombies.forEach((z,zi)=>{
+
+      if(
+        b.element &&
+        z.element &&
+        hit(b.element,z.element)
+      ){
+
+        z.element.remove();
+        b.element.remove();
+
+        zombies.splice(zi,1);
+        bullets.splice(bi,1);
+
+        score+=10;
+
+        document.getElementById("score")
+          .textContent=score;
+
+      }
+
+    });
+
+  });
+
+  /* Zombies */
+
+  zombies.forEach((z,zi)=>{
+
+    let dx=px-z.x;
+    let dy=py-z.y;
+
+    let d=Math.sqrt(dx*dx+dy*dy);
+
+    if(d>0){
+
+      z.x+=(dx/d)*z.speed;
+      z.y+=(dy/d)*z.speed;
+
+    }
+
+    z.element.style.left=z.x+"%";
+    z.element.style.top=z.y+"%";
+
+    if(d<6){
+
+      z.element.remove();
+
+      zombies.splice(zi,1);
+
+      lives--;
+
+      document.getElementById("lives")
+        .textContent=lives;
+
+      if(lives<=0){
+
+        endGame();
+
+      }
+
+    }
+
+  });
+
+  loop=requestAnimationFrame(update);
+
 }
 
 function startGame(){
-cancelAnimationFrame(loop);
-clearInterval(spawnTimer);
 
-zombies.forEach(z=>z.element.remove());
-bullets.forEach(b=>b.element.remove());
+  cancelAnimationFrame(loop);
 
-zombies=[];bullets=[];
-px=50;py=50;score=0;lives=3;
+  clearInterval(spawnTimer);
 
-document.getElementById("score").textContent=0;
-document.getElementById("lives").textContent=3;
-document.getElementById("message").textContent="";
-document.getElementById("message").className="";
+  zombies.forEach(z=>z.element.remove());
+  bullets.forEach(b=>b.element.remove());
 
-setPlayer();
-running=true;
+  zombies=[];
+  bullets=[];
 
-spawnTimer=setInterval(createZombie,900);
-loop=requestAnimationFrame(update);
+  px=50;
+  py=50;
+
+  score=0;
+  lives=3;
+
+  document.getElementById("score")
+    .textContent="0";
+
+  document.getElementById("lives")
+    .textContent="3";
+
+  document.getElementById("message")
+    .textContent="";
+
+  document.getElementById("message")
+    .className="";
+
+  setPlayer();
+
+  running=true;
+
+  spawnTimer=setInterval(createZombie,900);
+
+  loop=requestAnimationFrame(update);
+
 }
 
 function endGame(){
-if(!running)return;
 
-running=false;
-clearInterval(spawnTimer);
-cancelAnimationFrame(loop);
+  if(!running)return;
 
-let m=document.getElementById("message");
-m.textContent="💀 Game Over! Final Score: "+score;
-m.className="gameover";
+  running=false;
+
+  clearInterval(spawnTimer);
+
+  cancelAnimationFrame(loop);
+
+  let m=document.getElementById("message");
+
+  m.textContent=
+    "💀 Game Over! Final Score: "+score;
+
+  m.className="gameover";
+
 }
 
 setPlayer();
 startGame();
+
 </script>
 
 </body>
