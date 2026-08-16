@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://YOUR-USERNAME.github.io/playnova/sitemap.xml
+Sitemap: https://sarimsakhi31-hash.github.io/PlayNova/sitemap.xml
