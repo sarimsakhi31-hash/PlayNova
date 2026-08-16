@@ -1,7 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://YOUR-USERNAME.github.io/playnova/</loc></url>
-<url><loc>https://YOUR-USERNAME.github.io/playnova/games.html</loc></url>
-<url><loc>https://YOUR-USERNAME.github.io/playnova/categories.html</loc></url>
-<url><loc>https://YOUR-USERNAME.github.io/playnova/favorites.html</loc></url>
+
+<url>
+  <loc>https://sarimsakhi31-hash.github.io/PlayNova/</loc>
+</url>
+
+<url>
+  <loc>https://sarimsakhi31-hash.github.io/PlayNova/games.html</loc>
+</url>
+
+<url>
+  <loc>https://sarimsakhi31-hash.github.io/PlayNova/categories.html</loc>
+</url>
+
+<url>
+  <loc>https://sarimsakhi31-hash.github.io/PlayNova/favorites.html</loc>
+</url>
+
+<url>
+  <loc>https://sarimsakhi31-hash.github.io/PlayNova/games/neon-racer.html</loc>
+</url>
+
+<url>
+  <loc>https://sarimsakhi31-hash.github.io/PlayNova/games/space-defender.html</loc>
+</url>
+
+<url>
+  <loc>https://sarimsakhi31-hash.github.io/PlayNova/games/puzzle-master.html</loc>
+</url>
+
+<url>
+  <loc>https://sarimsakhi31-hash.github.io/PlayNova/games/football-star.html</loc>
+</url>
+
+<url>
+  <loc>https://sarimsakhi31-hash.github.io/PlayNova/games/zombie-survival.html</loc>
+</url>
+
+<url>
+  <loc>https://sarimsakhi31-hash.github.io/PlayNova/games/jungle-adventure.html</loc>
+</url>
+
 </urlset>
