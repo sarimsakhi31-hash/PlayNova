@@ -1,8 +1,56 @@
 [
-  {"id":1,"title":"Neon Racer","category":"Racing","image":"images/games/neon-racer.svg","url":"games/neon-racer.html","featured":true,"trending":true},
-  {"id":2,"title":"Space Defender","category":"Action","image":"images/games/space-defender.svg","url":"games/space-defender.html","featured":true,"trending":false},
-  {"id":3,"title":"Puzzle Master","category":"Puzzle","image":"images/games/puzzle-master.svg","url":"games/puzzle-master.html","featured":false,"trending":true},
-  {"id":4,"title":"Football Star","category":"Sports","image":"images/games/football-star.svg","url":"games/football-star.html","featured":false,"trending":true},
-  {"id":5,"title":"Zombie Survival","category":"Action","image":"images/games/zombie-survival.svg","url":"games/zombie-survival.html","featured":true,"trending":true},
-  {"id":6,"title":"Jungle Adventure","category":"Adventure","image":"images/games/jungle-adventure.svg","url":"games/jungle-adventure.html","featured":false,"trending":false}
+  {
+    "id": 1,
+    "title": "Neon Racer",
+    "category": "Racing",
+    "image": "images/games/neon-racer.svg",
+    "url": "games/neon-racer.html",
+    "featured": true,
+    "trending": true
+  },
+  {
+    "id": 2,
+    "title": "Space Defender",
+    "category": "Action",
+    "image": "images/games/space-defender.svg",
+    "url": "games/space-defender.html",
+    "featured": true,
+    "trending": true
+  },
+  {
+    "id": 3,
+    "title": "Puzzle Master",
+    "category": "Puzzle",
+    "image": "images/games/puzzle-master.svg",
+    "url": "games/puzzle-master.html",
+    "featured": true,
+    "trending": false
+  },
+  {
+    "id": 4,
+    "title": "Football Star",
+    "category": "Sports",
+    "image": "images/games/football-star.svg",
+    "url": "games/football-star.html",
+    "featured": true,
+    "trending": true
+  },
+  {
+    "id": 5,
+    "title": "Zombie Survival",
+    "category": "Action",
+    "image": "images/games/zombie-survival.svg",
+    "url": "games/zombie-survival.html",
+    "featured": true,
+    "trending": true
+  },
+  {
+    "id": 6,
+    "title": "Jungle Adventure",
+    "category": "Adventure",
+    "image": "images/games/jungle-adventure.svg",
+    "url": "games/jungle-adventure.html",
+    "featured": true,
+    "trending": false
+  }
 ]
