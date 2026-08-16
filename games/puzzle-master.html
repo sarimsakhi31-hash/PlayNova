@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Puzzle Master</title>
+
+<title>Puzzle Master - Free Online Puzzle Game | PlayNova</title>
+
+<meta name="description" content="Play Puzzle Master for free on PlayNova. Arrange the numbers from 1 to 15, challenge yourself and solve the puzzle as quickly as possible.">
+
+<meta name="keywords" content="Puzzle Master, 15 puzzle, number puzzle, free puzzle game, online puzzle game, brain game, browser puzzle game, PlayNova">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://sarimsakhi31-hash.github.io/PlayNova/games/puzzle-master.html">
+
+<meta property="og:title" content="Puzzle Master - Free Online Puzzle Game | PlayNova">
+<meta property="og:description" content="Arrange the numbers from 1 to 15 and solve Puzzle Master for free on PlayNova.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sarimsakhi31-hash.github.io/PlayNova/games/puzzle-master.html">
 
 <style>
+
 * {
   box-sizing: border-box;
 }
@@ -110,6 +126,7 @@ button.restart:hover {
 }
 
 @media (max-width: 500px) {
+
   body {
     padding: 12px;
   }
@@ -117,8 +134,11 @@ button.restart:hover {
   .tile {
     font-size: 22px;
   }
+
 }
+
 </style>
+
 </head>
 
 <body>
@@ -194,7 +214,8 @@ function startGame() {
     if (empty % 4 !== 3)
       possible.push(empty + 1);
 
-    let move = possible[Math.floor(Math.random() * possible.length)];
+    let move =
+      possible[Math.floor(Math.random() * possible.length)];
 
     [tiles[empty], tiles[move]] =
     [tiles[move], tiles[empty]];
@@ -214,6 +235,7 @@ function startGame() {
       String(sec).padStart(2, "0");
 
   }, 1000);
+
 }
 
 function draw() {
@@ -226,16 +248,22 @@ function draw() {
 
     const b = document.createElement("button");
 
-    b.className = n === 0 ? "tile empty" : "tile";
+    b.className =
+      n === 0 ? "tile empty" : "tile";
 
-    b.textContent = n === 0 ? "" : n;
+    b.textContent =
+      n === 0 ? "" : n;
 
     if (n !== 0) {
+
       b.onclick = () => moveTile(i);
+
     }
 
     board.appendChild(b);
+
   });
+
 }
 
 function moveTile(i) {
@@ -249,9 +277,13 @@ function moveTile(i) {
     i === empty + 4;
 
   // Prevent left/right crossing
-  if (Math.floor(i / 4) !== Math.floor(empty / 4) &&
-      Math.abs(i - empty) === 1) {
+  if (
+    Math.floor(i / 4) !== Math.floor(empty / 4) &&
+    Math.abs(i - empty) === 1
+  ) {
+
     return;
+
   }
 
   if (!valid)
@@ -262,11 +294,13 @@ function moveTile(i) {
 
   moves++;
 
-  document.getElementById("moves").textContent = moves;
+  document.getElementById("moves").textContent =
+    moves;
 
   draw();
 
   checkWin();
+
 }
 
 function checkWin() {
@@ -275,6 +309,7 @@ function checkWin() {
 
     if (tiles[i] !== i + 1)
       return;
+
   }
 
   clearInterval(timer);
