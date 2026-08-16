@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Jungle Adventure - PlayNova</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jungle Adventure - Free Adventure Game | PlayNova</title>
+
+<meta name="description" content="Play Jungle Adventure for free on PlayNova. Collect coins, avoid enemies and survive the jungle in this fun browser adventure game.">
+
+<meta name="keywords" content="Jungle Adventure, jungle game, adventure game, free adventure game, online jungle game, browser game, survival game, PlayNova">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://sarimsakhi31-hash.github.io/PlayNova/games/jungle-adventure.html">
+
+<meta property="og:title" content="Jungle Adventure - Free Adventure Game | PlayNova">
+<meta property="og:description" content="Collect coins, avoid enemies and survive the jungle in Jungle Adventure on PlayNova.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sarimsakhi31-hash.github.io/PlayNova/games/jungle-adventure.html">
 
 <style>
-*{box-sizing:border-box}
+
+*{
+  box-sizing:border-box;
+}
 
 body{
   margin:0;
@@ -14,40 +32,40 @@ body{
   color:#fff;
   font-family:Arial,sans-serif;
   text-align:center;
-  padding:15px
+  padding:15px;
 }
 
 .game{
   width:min(95vw,600px);
-  margin:auto
+  margin:auto;
 }
 
 h1{
   color:#7cff72;
-  margin:8px 0
+  margin:8px 0;
 }
 
 .info{
   color:#b9c8ba;
-  margin-bottom:12px
+  margin-bottom:12px;
 }
 
 .stats{
   display:flex;
   justify-content:center;
   gap:10px;
-  margin-bottom:12px
+  margin-bottom:12px;
 }
 
 .stat{
   background:#142319;
   padding:9px 18px;
-  border-radius:10px
+  border-radius:10px;
 }
 
 .stat span{
   color:#7cff72;
-  font-weight:bold
+  font-weight:bold;
 }
 
 .jungle{
@@ -60,7 +78,7 @@ h1{
     radial-gradient(circle at 80% 30%,#2d7135 0 10%,transparent 11%),
     linear-gradient(#165b2a,#0b3018);
   border:3px solid #7cff72;
-  border-radius:15px
+  border-radius:15px;
 }
 
 .player{
@@ -74,7 +92,7 @@ h1{
   border:3px solid white;
   border-radius:50%;
   box-shadow:0 0 15px #ffb703;
-  z-index:5
+  z-index:5;
 }
 
 .coin{
@@ -94,7 +112,7 @@ h1{
   background:#d62828;
   border:2px solid #ff8a8a;
   border-radius:50%;
-  box-shadow:0 0 12px #d62828
+  box-shadow:0 0 12px #d62828;
 }
 
 .obstacle{
@@ -102,14 +120,15 @@ h1{
   width:45px;
   height:45px;
   background:#633b1f;
-  border-radius:8px
+  border-radius:8px;
 }
 
 .controls{
   margin-top:15px;
   display:flex;
   justify-content:center;
-  gap:10px
+  gap:10px;
+  flex-wrap:wrap;
 }
 
 button{
@@ -119,29 +138,43 @@ button{
   background:#18331f;
   color:#fff;
   font-size:18px;
-  cursor:pointer
+  cursor:pointer;
 }
 
 button:hover{
-  background:#2c5837
+  background:#2c5837;
 }
 
 .restart{
   margin-top:10px;
-  background:#26733a
+  background:#26733a;
 }
 
 #message{
   min-height:25px;
   margin-top:12px;
   color:#ffe600;
-  font-weight:bold
+  font-weight:bold;
 }
 
 .gameover{
-  color:#ff4d4d!important
+  color:#ff4d4d!important;
 }
+
+@media(max-width:500px){
+
+  .jungle{
+    height:500px;
+  }
+
+  button{
+    padding:12px 18px;
+  }
+
+}
+
 </style>
+
 </head>
 
 <body>
@@ -155,6 +188,7 @@ Collect the coins and survive the jungle!
 </div>
 
 <div class="stats">
+
 <div class="stat">
 Coins: <span id="score">0</span>
 </div>
@@ -162,6 +196,7 @@ Coins: <span id="score">0</span>
 <div class="stat">
 Lives: <span id="lives">3</span>
 </div>
+
 </div>
 
 <div class="jungle" id="jungle">
@@ -171,10 +206,12 @@ Lives: <span id="lives">3</span>
 </div>
 
 <div class="controls">
+
 <button onclick="move(-1,0)">⬅️</button>
 <button onclick="move(1,0)">➡️</button>
 <button onclick="move(0,-1)">⬆️</button>
 <button onclick="move(0,1)">⬇️</button>
+
 </div>
 
 <button class="restart" onclick="startGame()">
@@ -191,7 +228,7 @@ const jungle=document.getElementById("jungle");
 const player=document.getElementById("player");
 
 let px=50;
-let py=85;
+let py=50;
 
 let score=0;
 let lives=3;
@@ -199,6 +236,7 @@ let running=false;
 
 let coins=[];
 let enemies=[];
+
 let loop;
 let spawnTimer;
 
@@ -228,10 +266,17 @@ function move(x,y){
 
 document.addEventListener("keydown",function(e){
 
-  if(e.key==="ArrowLeft")move(-1,0);
-  if(e.key==="ArrowRight")move(1,0);
-  if(e.key==="ArrowUp")move(0,-1);
-  if(e.key==="ArrowDown")move(0,1);
+  if(e.key==="ArrowLeft")
+    move(-1,0);
+
+  if(e.key==="ArrowRight")
+    move(1,0);
+
+  if(e.key==="ArrowUp")
+    move(0,-1);
+
+  if(e.key==="ArrowDown")
+    move(0,1);
 
 });
 
@@ -318,12 +363,15 @@ function checkObjects(){
 
   coins.forEach((c,i)=>{
 
-    if(distance(
-      {x:px,y:py},
-      {x:c.x,y:c.y}
-    )<7){
+    if(
+      distance(
+        {x:px,y:py},
+        {x:c.x,y:c.y}
+      )<7
+    ){
 
       c.element.remove();
+
       coins.splice(i,1);
 
       score++;
@@ -337,12 +385,15 @@ function checkObjects(){
 
   enemies.forEach((e,i)=>{
 
-    if(distance(
-      {x:px,y:py},
-      {x:e.x,y:e.y}
-    )<7){
+    if(
+      distance(
+        {x:px,y:py},
+        {x:e.x,y:e.y}
+      )<7
+    ){
 
       e.element.remove();
+
       enemies.splice(i,1);
 
       lives--;
@@ -408,18 +459,26 @@ function startGame(){
   px=50;
   py=85;
 
-  document.getElementById("score").textContent="0";
-  document.getElementById("lives").textContent="3";
+  document.getElementById("score")
+    .textContent="0";
 
-  document.getElementById("message").textContent="";
-  document.getElementById("message").className="";
+  document.getElementById("lives")
+    .textContent="3";
+
+  document.getElementById("message")
+    .textContent="";
+
+  document.getElementById("message")
+    .className="";
 
   setPlayer();
 
   running=true;
 
   for(let i=0;i<5;i++){
+
     createCoin();
+
   }
 
   spawnTimer=setInterval(function(){
@@ -427,7 +486,9 @@ function startGame(){
     createCoin();
 
     if(Math.random()>.25){
+
       createEnemy();
+
     }
 
   },1200);
