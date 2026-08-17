@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Neon Racer - Free Online Racing Game | PlayNova</title>
 
-<meta name="description" content="Play Neon Racer for free on PlayNova. Avoid traffic, dodge obstacles and survive as long as possible in this exciting browser racing game.">
-
-<meta name="keywords" content="Neon Racer, free racing game, online racing game, browser racing game, car game, traffic game, PlayNova">
+<meta name="description" content="Play Neon Racer free online on PlayNova. Avoid traffic, survive as long as possible and beat your highest score. No download required.">
 
 <meta name="robots" content="index, follow">
 
 <link rel="canonical" href="https://sarimsakhi31-hash.github.io/PlayNova/games/neon-racer.html">
 
-<meta property="og:title" content="Neon Racer - Free Online Racing Game | PlayNova">
-<meta property="og:description" content="Avoid traffic and survive as long as possible in Neon Racer. Play this free browser racing game on PlayNova.">
+<meta property="og:title" content="Neon Racer - PlayNova">
+<meta property="og:description" content="Play Neon Racer free online. Avoid traffic and beat your highest score.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sarimsakhi31-hash.github.io/PlayNova/games/neon-racer.html">
 
@@ -166,8 +163,19 @@ h1{
 .gameover{
   color:#ff1744 !important;
 }
-</style>
 
+.back{
+  display:inline-block;
+  margin-top:15px;
+  color:#00eaff;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.back:hover{
+  text-decoration:underline;
+}
+</style>
 </head>
 
 <body>
@@ -177,7 +185,7 @@ h1{
 <h1>🏎️ Neon Racer</h1>
 
 <div class="info">
-Avoid the traffic and survive as long as possible!
+Avoid the traffic and survive as long as possible in this free online racing game.
 </div>
 
 <div class="stats">
@@ -213,6 +221,10 @@ Best: <span id="best">0</span>
 </button>
 
 <div id="message"></div>
+
+<a class="back" href="../games.html">
+← Back to PlayNova Games
+</a>
 
 </div>
 
@@ -325,7 +337,7 @@ function update(){
 
     ob.y += speed;
 
-    ob.element.style.top = ob.y+"px";
+    ob.element.style.top = ob.y + "px";
 
     if(
       ob.lane === carLane &&
@@ -363,6 +375,7 @@ function update(){
 function startGame(){
 
   cancelAnimationFrame(gameLoop);
+
   clearInterval(spawnLoop);
 
   obstacles.forEach(o => o.element.remove());
@@ -370,7 +383,9 @@ function startGame(){
   obstacles = [];
 
   score = 0;
+
   speed = 4;
+
   carLane = 1;
 
   document.getElementById("score").textContent = "0";
@@ -396,6 +411,7 @@ function endGame(){
   running = false;
 
   clearInterval(spawnLoop);
+
   cancelAnimationFrame(gameLoop);
 
   if(score > best){
@@ -418,6 +434,7 @@ function endGame(){
 }
 
 setCar();
+
 startGame();
 
 </script>
