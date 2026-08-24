@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sarimsakhi31-hash.github.io/PlayNova/sitemap.xml
