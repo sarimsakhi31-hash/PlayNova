@@ -1,26 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Jungle Adventure - Free Adventure Game | PlayNova</title>
-
-<meta name="description" content="Play Jungle Adventure for free on PlayNova. Collect coins, avoid enemies and survive the jungle in this fun browser adventure game.">
-
-<meta name="keywords" content="Jungle Adventure, jungle game, adventure game, free adventure game, online jungle game, browser game, survival game, PlayNova">
-
-<meta name="robots" content="index, follow">
-
-<link rel="canonical" href="https://sarimsakhi31-hash.github.io/PlayNova/games/jungle-adventure.html">
-
-<meta property="og:title" content="Jungle Adventure - Free Adventure Game | PlayNova">
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Jungle Adventure - Free Online Adventure Game | PlayNova</title><meta name="description" content="Play Jungle Adventure for free on PlayNova. Collect coins, avoid enemies and survive the jungle in this exciting browser adventure game. No download required."><meta name="keywords" content="Jungle Adventure, jungle game, adventure game, free adventure game, online jungle game, browser game, survival game, PlayNova"><meta name="robots" content="index, follow"><link rel="canonical" href="https://sarimsakhi31-hash.github.io/PlayNova/games/jungle-adventure.html"><meta property="og:title" content="Jungle Adventure - Free Online Adventure Game | PlayNova">
 <meta property="og:description" content="Collect coins, avoid enemies and survive the jungle in Jungle Adventure on PlayNova.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://sarimsakhi31-hash.github.io/PlayNova/games/jungle-adventure.html">
-
-<style>
+<meta property="og:url" content="https://sarimsakhi31-hash.github.io/PlayNova/games/jungle-adventure.html"><style>
 
 *{
   box-sizing:border-box;
@@ -161,6 +144,36 @@ button:hover{
   color:#ff4d4d!important;
 }
 
+/* SEO CONTENT */
+
+.seo-content{
+  width:min(95vw,700px);
+  margin:35px auto;
+  text-align:left;
+  background:#142319;
+  padding:25px;
+  border-radius:15px;
+  line-height:1.7;
+}
+
+.seo-content h2{
+  color:#7cff72;
+  margin-top:30px;
+}
+
+.seo-content h3{
+  color:#ffe600;
+}
+
+.seo-content p,
+.seo-content li{
+  color:#d5e5d8;
+}
+
+.seo-content ul{
+  padding-left:22px;
+}
+
 @media(max-width:500px){
 
   .jungle{
@@ -171,58 +184,57 @@ button:hover{
     padding:12px 18px;
   }
 
+  .seo-content{
+    padding:18px;
+  }
+
+  .seo-content h2{
+    font-size:22px;
+  }
+
 }
 
-</style>
-
-</head>
-
-<body>
-
-<div class="game">
-
-<h1>🌴 Jungle Adventure</h1>
-
-<div class="info">
+</style></head><body><div class="game"><h1>🌴 Jungle Adventure</h1><div class="info">
 Collect the coins and survive the jungle!
-</div>
-
-<div class="stats">
-
-<div class="stat">
+</div><div class="stats"><div class="stat">
 Coins: <span id="score">0</span>
-</div>
-
-<div class="stat">
+</div><div class="stat">
 Lives: <span id="lives">3</span>
-</div>
-
-</div>
-
-<div class="jungle" id="jungle">
-
-<div class="player" id="player"></div>
-
-</div>
-
-<div class="controls">
-
-<button onclick="move(-1,0)">⬅️</button>
+</div></div><div class="jungle" id="jungle"><div class="player" id="player"></div></div><div class="controls"><button onclick="move(-1,0)">⬅️</button>
 <button onclick="move(1,0)">➡️</button>
 <button onclick="move(0,-1)">⬆️</button>
 <button onclick="move(0,1)">⬇️</button>
 
-</div>
-
-<button class="restart" onclick="startGame()">
+</div><button class="restart" onclick="startGame()">
 🔄 Restart
-</button>
-
-<div id="message"></div>
-
-</div>
-
-<script>
+</button><div id="message"></div></div><!-- SEO CONTENT --><div class="seo-content"><h2>About Jungle Adventure</h2><p>
+Jungle Adventure is a fun and exciting free online adventure game where you explore a dangerous jungle, collect valuable coins and try to survive as long as possible.
+</p><p>
+Watch out for enemies that chase your player through the jungle. Collect as many coins as you can while protecting your three lives and avoiding danger.
+</p><h2>How to Play Jungle Adventure</h2><p>
+Playing Jungle Adventure is simple and fun. Move your player around the jungle and collect the coins that appear on the screen.
+</p><ul>
+<li>Use the arrow buttons or keyboard arrow keys to move.</li>
+<li>Collect coins to increase your score.</li>
+<li>Avoid enemies that chase your player.</li>
+<li>Protect your lives and survive as long as possible.</li>
+</ul><h2>Jungle Adventure Game Controls</h2><h3>Move Left and Right</h3><p>
+Use the left and right arrow buttons to move your player across the jungle.
+</p><h3>Move Up and Down</h3><p>
+Use the up and down arrow buttons to explore different areas of the jungle and avoid enemies.
+</p><h3>Restart the Game</h3><p>
+Press the Restart button at any time to begin a new Jungle Adventure and try to collect more coins.
+</p><h2>Tips and Tricks</h2><ul>
+<li>Keep moving to avoid enemies chasing you.</li>
+<li>Collect nearby coins quickly before enemies reach you.</li>
+<li>Watch your lives carefully during the game.</li>
+<li>Use the entire jungle area to escape from enemies.</li>
+<li>Try to beat your previous high score.</li>
+</ul><h2>Play Free Jungle Games Online</h2><p>
+Jungle Adventure is completely free to play directly in your web browser. There are no downloads, installations or registrations required.
+</p><p>
+Play on your mobile phone, tablet or computer and enjoy a fun jungle survival adventure anytime.
+</p></div><script>
 
 const jungle=document.getElementById("jungle");
 const player=document.getElementById("player");
@@ -518,7 +530,5 @@ function endGame(){
 setPlayer();
 startGame();
 
-</script>
-
-</body>
+</script></body>
 </html>
