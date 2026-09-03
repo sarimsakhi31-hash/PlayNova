@@ -1,262 +1,287 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Puzzle Master - Free Online Puzzle Game | PlayNova</title>
-
-<meta name="description" content="Play Puzzle Master for free on PlayNova. Arrange the numbers from 1 to 15, challenge yourself and solve the puzzle as quickly as possible.">
-
-<meta name="keywords" content="Puzzle Master, 15 puzzle, number puzzle, free puzzle game, online puzzle game, brain game, browser puzzle game, PlayNova">
-
-<meta name="robots" content="index, follow">
-
-<link rel="canonical" href="https://sarimsakhi31-hash.github.io/PlayNova/games/puzzle-master.html">
-
-<meta property="og:title" content="Puzzle Master - Free Online Puzzle Game | PlayNova">
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Puzzle Master - Free Online Puzzle Game | PlayNova</title><meta name="description" content="Play Puzzle Master for free on PlayNova. Arrange the numbers from 1 to 15, challenge your brain and solve the puzzle as quickly as possible. No download required."><meta name="keywords" content="Puzzle Master, 15 puzzle, number puzzle, free puzzle game, online puzzle game, brain game, browser puzzle game, sliding puzzle, PlayNova"><meta name="robots" content="index, follow"><link rel="canonical" href="https://sarimsakhi31-hash.github.io/PlayNova/games/puzzle-master.html"><meta property="og:title" content="Puzzle Master - Free Online Puzzle Game | PlayNova">
 <meta property="og:description" content="Arrange the numbers from 1 to 15 and solve Puzzle Master for free on PlayNova.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://sarimsakhi31-hash.github.io/PlayNova/games/puzzle-master.html">
+<meta property="og:url" content="https://sarimsakhi31-hash.github.io/PlayNova/games/puzzle-master.html"><style>
 
-<style>
-
-* {
-  box-sizing: border-box;
+*{
+  box-sizing:border-box;
 }
 
-body {
-  margin: 0;
-  background: #09090d;
-  color: white;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  min-height: 100vh;
-  padding: 20px;
+body{
+  margin:0;
+  background:#09090d;
+  color:white;
+  font-family:Arial,sans-serif;
+  text-align:center;
+  min-height:100vh;
+  padding:20px;
 }
 
-.game {
-  max-width: 500px;
-  margin: auto;
+.game{
+  max-width:500px;
+  margin:auto;
 }
 
-h1 {
-  color: #c77dff;
-  margin-bottom: 5px;
+h1{
+  color:#c77dff;
+  margin-bottom:5px;
 }
 
-.info {
-  color: #aaa;
-  margin-bottom: 15px;
+.info{
+  color:#aaa;
+  margin-bottom:15px;
 }
 
-.stats {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 15px;
+.stats{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-bottom:15px;
 }
 
-.stat {
-  background: #191922;
-  padding: 10px 18px;
-  border-radius: 10px;
-  min-width: 110px;
+.stat{
+  background:#191922;
+  padding:10px 18px;
+  border-radius:10px;
+  min-width:110px;
 }
 
-.stat span {
-  display: block;
-  color: #c77dff;
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 4px;
+.stat span{
+  display:block;
+  color:#c77dff;
+  font-size:20px;
+  font-weight:bold;
+  margin-top:4px;
 }
 
-.board {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  background: #15151d;
-  padding: 10px;
-  border-radius: 15px;
+.board{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  background:#15151d;
+  padding:10px;
+  border-radius:15px;
 }
 
-.tile {
-  aspect-ratio: 1;
-  background: #252535;
-  border: 0;
-  border-radius: 10px;
-  color: white;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
+.tile{
+  aspect-ratio:1;
+  background:#252535;
+  border:0;
+  border-radius:10px;
+  color:white;
+  font-size:28px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-.tile:hover {
-  background: #7139a8;
+.tile:hover{
+  background:#7139a8;
 }
 
-.empty {
-  background: #09090d;
-  cursor: default;
+.empty{
+  background:#09090d;
+  cursor:default;
 }
 
-button.restart {
-  margin-top: 20px;
-  padding: 12px 25px;
-  border: 0;
-  border-radius: 10px;
-  background: #9b4dca;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
+button.restart{
+  margin-top:20px;
+  padding:12px 25px;
+  border:0;
+  border-radius:10px;
+  background:#9b4dca;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
 }
 
-button.restart:hover {
-  background: #b96be8;
+button.restart:hover{
+  background:#b96be8;
 }
 
-#win {
-  color: #70e000;
-  font-weight: bold;
-  margin-top: 15px;
-  min-height: 24px;
-  font-size: 18px;
+#win{
+  color:#70e000;
+  font-weight:bold;
+  margin-top:15px;
+  min-height:24px;
+  font-size:18px;
 }
 
-@media (max-width: 500px) {
+/* SEO CONTENT */
 
-  body {
-    padding: 12px;
+.seo-content{
+  width:min(95vw,700px);
+  margin:35px auto;
+  text-align:left;
+  background:#191922;
+  padding:25px;
+  border-radius:15px;
+  line-height:1.7;
+}
+
+.seo-content h2{
+  color:#c77dff;
+  margin-top:30px;
+}
+
+.seo-content h3{
+  color:#70e000;
+}
+
+.seo-content p,
+.seo-content li{
+  color:#d5d5dd;
+}
+
+.seo-content ul{
+  padding-left:22px;
+}
+
+@media(max-width:500px){
+
+  body{
+    padding:12px;
   }
 
-  .tile {
-    font-size: 22px;
+  .tile{
+    font-size:22px;
+  }
+
+  .seo-content{
+    padding:18px;
+  }
+
+  .seo-content h2{
+    font-size:22px;
   }
 
 }
 
-</style>
-
-</head>
-
-<body>
-
-<div class="game">
-
-<h1>🧩 Puzzle Master</h1>
-
-<div class="info">
+</style></head><body><div class="game"><h1>🧩 Puzzle Master</h1><div class="info">
 Arrange the numbers from 1 to 15
-</div>
-
-<div class="stats">
-
-<div class="stat">
+</div><div class="stats"><div class="stat">
 Moves
 <span id="moves">0</span>
-</div>
-
-<div class="stat">
+</div><div class="stat">
 Time
 <span id="time">00:00</span>
-</div>
-
-</div>
-
-<div class="board" id="board"></div>
-
-<button class="restart" onclick="startGame()">
+</div></div><div class="board" id="board"></div><button class="restart" onclick="startGame()">
 🔄 New Game
-</button>
+</button><div id="win"></div></div><!-- SEO CONTENT --><div class="seo-content"><h2>About Puzzle Master</h2><p>
+Puzzle Master is a fun and challenging free online number puzzle game. Your goal is to arrange the numbers from 1 to 15 in the correct order by moving the puzzle tiles.
+</p><p>
+This classic sliding puzzle game tests your logic, planning and problem-solving skills. Try to solve the puzzle using as few moves as possible and beat your best time.
+</p><h2>How to Play Puzzle Master</h2><p>
+The puzzle begins with the numbers shuffled across a 4 by 4 board. One space is empty, allowing you to move nearby tiles.
+</p><ul>
+<li>Click a numbered tile next to the empty space.</li>
+<li>Move the tiles one step at a time.</li>
+<li>Arrange the numbers from 1 to 15.</li>
+<li>Try to complete the puzzle in fewer moves.</li>
+<li>Finish the game as quickly as possible.</li>
+</ul><h2>Puzzle Master Game Controls</h2><h3>Move a Tile</h3><p>
+Click on a numbered tile next to the empty space to move it into the empty position.
+</p><h3>Track Your Moves</h3><p>
+The Moves counter shows how many tile movements you have made while solving the puzzle.
+</p><h3>Track Your Time</h3><p>
+The timer records how long it takes you to solve the number puzzle.
+</p><h3>Start a New Game</h3><p>
+Press the New Game button to shuffle the puzzle and start a new challenge.
+</p><h2>Puzzle Master Tips and Tricks</h2><ul>
+<li>Start by arranging the numbers in the top row.</li>
+<li>Plan your moves before moving multiple tiles.</li>
+<li>Avoid moving tiles randomly.</li>
+<li>Try to use fewer moves to solve the puzzle.</li>
+<li>Practice regularly to improve your speed and puzzle-solving skills.</li>
+</ul><h2>Play Free Puzzle Games Online</h2><p>
+Puzzle Master is completely free to play in your web browser. No downloads, installations or registrations are required.
+</p><p>
+Play this fun brain game on your mobile phone, tablet or computer and challenge yourself to solve the puzzle faster every time.
+</p></div><script>
 
-<div id="win"></div>
+let tiles=[];
+let moves=0;
+let seconds=0;
+let timer=null;
 
-</div>
-
-<script>
-
-let tiles = [];
-let moves = 0;
-let seconds = 0;
-let timer = null;
-
-function startGame() {
+function startGame(){
 
   clearInterval(timer);
 
-  moves = 0;
-  seconds = 0;
+  moves=0;
+  seconds=0;
 
-  document.getElementById("moves").textContent = "0";
-  document.getElementById("time").textContent = "00:00";
-  document.getElementById("win").textContent = "";
+  document.getElementById("moves").textContent="0";
+  document.getElementById("time").textContent="00:00";
+  document.getElementById("win").textContent="";
 
-  tiles = [...Array(15).keys()].map(x => x + 1);
+  tiles=[...Array(15).keys()].map(x=>x+1);
   tiles.push(0);
 
-  // Shuffle
-  for (let i = 0; i < 300; i++) {
+  /* Shuffle */
 
-    let empty = tiles.indexOf(0);
-    let possible = [];
+  for(let i=0;i<300;i++){
 
-    if (empty >= 4)
-      possible.push(empty - 4);
+    let empty=tiles.indexOf(0);
+    let possible=[];
 
-    if (empty < 12)
-      possible.push(empty + 4);
+    if(empty>=4)
+      possible.push(empty-4);
 
-    if (empty % 4 !== 0)
-      possible.push(empty - 1);
+    if(empty<12)
+      possible.push(empty+4);
 
-    if (empty % 4 !== 3)
-      possible.push(empty + 1);
+    if(empty%4!==0)
+      possible.push(empty-1);
 
-    let move =
-      possible[Math.floor(Math.random() * possible.length)];
+    if(empty%4!==3)
+      possible.push(empty+1);
 
-    [tiles[empty], tiles[move]] =
-    [tiles[move], tiles[empty]];
+    let move=
+      possible[Math.floor(Math.random()*possible.length)];
+
+    [tiles[empty],tiles[move]]=
+      [tiles[move],tiles[empty]];
+
   }
 
   draw();
 
-  timer = setInterval(function() {
+  timer=setInterval(function(){
 
     seconds++;
 
-    let min = Math.floor(seconds / 60);
-    let sec = seconds % 60;
+    let min=Math.floor(seconds/60);
+    let sec=seconds%60;
 
-    document.getElementById("time").textContent =
-      String(min).padStart(2, "0") + ":" +
-      String(sec).padStart(2, "0");
+    document.getElementById("time").textContent=
+      String(min).padStart(2,"0")+":"+
+      String(sec).padStart(2,"0");
 
-  }, 1000);
+  },1000);
 
 }
 
-function draw() {
+function draw(){
 
-  const board = document.getElementById("board");
+  const board=document.getElementById("board");
 
-  board.innerHTML = "";
+  board.innerHTML="";
 
-  tiles.forEach((n, i) => {
+  tiles.forEach((n,i)=>{
 
-    const b = document.createElement("button");
+    const b=document.createElement("button");
 
-    b.className =
-      n === 0 ? "tile empty" : "tile";
+    b.className=
+      n===0 ? "tile empty" : "tile";
 
-    b.textContent =
-      n === 0 ? "" : n;
+    b.textContent=
+      n===0 ? "" : n;
 
-    if (n !== 0) {
+    if(n!==0){
 
-      b.onclick = () => moveTile(i);
+      b.onclick=()=>moveTile(i);
 
     }
 
@@ -266,35 +291,36 @@ function draw() {
 
 }
 
-function moveTile(i) {
+function moveTile(i){
 
-  const empty = tiles.indexOf(0);
+  const empty=tiles.indexOf(0);
 
-  const valid =
-    i === empty - 1 ||
-    i === empty + 1 ||
-    i === empty - 4 ||
-    i === empty + 4;
+  const valid=
+    i===empty-1 ||
+    i===empty+1 ||
+    i===empty-4 ||
+    i===empty+4;
 
-  // Prevent left/right crossing
-  if (
-    Math.floor(i / 4) !== Math.floor(empty / 4) &&
-    Math.abs(i - empty) === 1
-  ) {
+  /* Prevent left/right crossing */
+
+  if(
+    Math.floor(i/4)!==Math.floor(empty/4) &&
+    Math.abs(i-empty)===1
+  ){
 
     return;
 
   }
 
-  if (!valid)
+  if(!valid)
     return;
 
-  [tiles[i], tiles[empty]] =
-  [tiles[empty], tiles[i]];
+  [tiles[i],tiles[empty]]=
+    [tiles[empty],tiles[i]];
 
   moves++;
 
-  document.getElementById("moves").textContent =
+  document.getElementById("moves").textContent=
     moves;
 
   draw();
@@ -303,25 +329,23 @@ function moveTile(i) {
 
 }
 
-function checkWin() {
+function checkWin(){
 
-  for (let i = 0; i < 15; i++) {
+  for(let i=0;i<15;i++){
 
-    if (tiles[i] !== i + 1)
+    if(tiles[i]!==i+1)
       return;
 
   }
 
   clearInterval(timer);
 
-  document.getElementById("win").textContent =
+  document.getElementById("win").textContent=
     "🏆 Congratulations! You solved it!";
 
 }
 
 startGame();
 
-</script>
-
-</body>
+</script></body>
 </html>
