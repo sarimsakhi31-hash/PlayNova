@@ -1,9 +1,91 @@
-<!DOCTYPE html><html lang="en">
-<head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Puzzle Master - Free Online Puzzle Game | PlayNova</title><meta name="description" content="Play Puzzle Master for free on PlayNova. Arrange the numbers from 1 to 15, challenge your brain and solve the puzzle as quickly as possible. No download required."><meta name="keywords" content="Puzzle Master, 15 puzzle, number puzzle, free puzzle game, online puzzle game, brain game, browser puzzle game, sliding puzzle, PlayNova"><meta name="robots" content="index, follow"><link rel="canonical" href="https://sarimsakhi31-hash.github.io/PlayNova/games/puzzle-master.html"><meta property="og:title" content="Puzzle Master - Free Online Puzzle Game | PlayNova">
-<meta property="og:description" content="Arrange the numbers from 1 to 15 and solve Puzzle Master for free on PlayNova.">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Puzzle Master - Free Online Puzzle Game | PlayNova</title>
+
+<meta name="description" content="Play Puzzle Master free online on PlayNova. Arrange the numbers from 1 to 15, challenge your brain and solve this classic sliding puzzle. No download required.">
+
+<meta name="keywords" content="Puzzle Master, 15 puzzle, sliding puzzle, number puzzle, free puzzle game, online puzzle game, brain game, browser puzzle game, PlayNova">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://sarimsakhi31-hash.github.io/PlayNova/games/puzzle-master.html">
+
+<!-- Open Graph -->
+
+<meta property="og:title" content="Puzzle Master - Free Online Puzzle Game | PlayNova">
+
+<meta property="og:description" content="Arrange the numbers from 1 to 15 and solve this fun free sliding puzzle game on PlayNova.">
+
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://sarimsakhi31-hash.github.io/PlayNova/games/puzzle-master.html"><style>
+
+<meta property="og:url" content="https://sarimsakhi31-hash.github.io/PlayNova/games/puzzle-master.html">
+
+<!-- Twitter -->
+
+<meta name="twitter:card" content="summary">
+
+<meta name="twitter:title" content="Puzzle Master - Free Online Puzzle Game | PlayNova">
+
+<meta name="twitter:description" content="Challenge your brain and solve Puzzle Master free online on PlayNova.">
+
+<!-- GAME STRUCTURED DATA -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Puzzle Master",
+  "description": "Puzzle Master is a free online sliding number puzzle game where players arrange the numbers from 1 to 15 in the correct order.",
+  "url": "https://sarimsakhi31-hash.github.io/PlayNova/games/puzzle-master.html",
+  "genre": "Puzzle",
+  "gamePlatform": "Web Browser",
+  "applicationCategory": "Game",
+  "operatingSystem": "Web Browser",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "Organization",
+    "name": "PlayNova",
+    "url": "https://sarimsakhi31-hash.github.io/PlayNova/"
+  }
+}
+</script>
+
+<!-- BREADCRUMB STRUCTURED DATA -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://sarimsakhi31-hash.github.io/PlayNova/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Games",
+      "item": "https://sarimsakhi31-hash.github.io/PlayNova/games.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Puzzle Master",
+      "item": "https://sarimsakhi31-hash.github.io/PlayNova/games/puzzle-master.html"
+    }
+  ]
+}
+</script>
+
+<style>
 
 *{
   box-sizing:border-box;
@@ -108,6 +190,18 @@ button.restart:hover{
   font-size:18px;
 }
 
+.back{
+  display:inline-block;
+  margin-top:15px;
+  color:#c77dff;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.back:hover{
+  text-decoration:underline;
+}
+
 /* SEO CONTENT */
 
 .seo-content{
@@ -138,6 +232,10 @@ button.restart:hover{
   padding-left:22px;
 }
 
+.seo-content a{
+  color:#c77dff;
+}
+
 @media(max-width:500px){
 
   body{
@@ -158,47 +256,151 @@ button.restart:hover{
 
 }
 
-</style></head><body><div class="game"><h1>🧩 Puzzle Master</h1><div class="info">
-Arrange the numbers from 1 to 15
-</div><div class="stats"><div class="stat">
+</style>
+
+</head>
+
+<body>
+
+<div class="game">
+
+<h1>🧩 Puzzle Master</h1>
+
+<div class="info">
+Arrange the numbers from 1 to 15 and solve the puzzle!
+</div>
+
+<div class="stats">
+
+<div class="stat">
 Moves
 <span id="moves">0</span>
-</div><div class="stat">
+</div>
+
+<div class="stat">
 Time
 <span id="time">00:00</span>
-</div></div><div class="board" id="board"></div><button class="restart" onclick="startGame()">
+</div>
+
+</div>
+
+<div class="board" id="board"></div>
+
+<button class="restart" onclick="startGame()">
 🔄 New Game
-</button><div id="win"></div></div><!-- SEO CONTENT --><div class="seo-content"><h2>About Puzzle Master</h2><p>
+</button>
+
+<div id="win"></div>
+
+<a class="back" href="../games.html">
+← Back to PlayNova Games
+</a>
+
+</div>
+
+
+<!-- SEO CONTENT -->
+
+<div class="seo-content">
+
+<h2>About Puzzle Master</h2>
+
+<p>
 Puzzle Master is a fun and challenging free online number puzzle game. Your goal is to arrange the numbers from 1 to 15 in the correct order by moving the puzzle tiles.
-</p><p>
-This classic sliding puzzle game tests your logic, planning and problem-solving skills. Try to solve the puzzle using as few moves as possible and beat your best time.
-</p><h2>How to Play Puzzle Master</h2><p>
-The puzzle begins with the numbers shuffled across a 4 by 4 board. One space is empty, allowing you to move nearby tiles.
-</p><ul>
+</p>
+
+<p>
+This classic sliding puzzle game challenges your logic, planning and problem-solving skills. Try to solve the puzzle using fewer moves and complete it as quickly as possible.
+</p>
+
+
+<h2>How to Play Puzzle Master</h2>
+
+<p>
+The game starts with the numbers shuffled across a 4 by 4 puzzle board. One empty space allows nearby numbered tiles to move.
+</p>
+
+<ul>
 <li>Click a numbered tile next to the empty space.</li>
 <li>Move the tiles one step at a time.</li>
 <li>Arrange the numbers from 1 to 15.</li>
-<li>Try to complete the puzzle in fewer moves.</li>
-<li>Finish the game as quickly as possible.</li>
-</ul><h2>Puzzle Master Game Controls</h2><h3>Move a Tile</h3><p>
-Click on a numbered tile next to the empty space to move it into the empty position.
-</p><h3>Track Your Moves</h3><p>
-The Moves counter shows how many tile movements you have made while solving the puzzle.
-</p><h3>Track Your Time</h3><p>
-The timer records how long it takes you to solve the number puzzle.
-</p><h3>Start a New Game</h3><p>
-Press the New Game button to shuffle the puzzle and start a new challenge.
-</p><h2>Puzzle Master Tips and Tricks</h2><ul>
+<li>Try to use fewer moves.</li>
+<li>Complete the puzzle as quickly as possible.</li>
+</ul>
+
+
+<h2>Puzzle Master Game Controls</h2>
+
+<h3>Move a Tile</h3>
+
+<p>
+Click on a numbered tile next to the empty space to move it into the available position.
+</p>
+
+<h3>Track Your Moves</h3>
+
+<p>
+The Moves counter shows the total number of tile movements you have made while solving the puzzle.
+</p>
+
+<h3>Track Your Time</h3>
+
+<p>
+The timer records how long it takes you to complete the number puzzle.
+</p>
+
+<h3>Start a New Game</h3>
+
+<p>
+Press the New Game button to shuffle the tiles and begin a new puzzle challenge.
+</p>
+
+
+<h2>Puzzle Master Tips and Tricks</h2>
+
+<ul>
 <li>Start by arranging the numbers in the top row.</li>
 <li>Plan your moves before moving multiple tiles.</li>
 <li>Avoid moving tiles randomly.</li>
-<li>Try to use fewer moves to solve the puzzle.</li>
-<li>Practice regularly to improve your speed and puzzle-solving skills.</li>
-</ul><h2>Play Free Puzzle Games Online</h2><p>
-Puzzle Master is completely free to play in your web browser. No downloads, installations or registrations are required.
-</p><p>
+<li>Focus on completing one row at a time.</li>
+<li>Practice regularly to improve your puzzle-solving speed.</li>
+</ul>
+
+
+<h2>Play Free Puzzle Games Online</h2>
+
+<p>
+Puzzle Master is completely free to play directly in your web browser. No downloads, installations or registrations are required.
+</p>
+
+<p>
 Play this fun brain game on your mobile phone, tablet or computer and challenge yourself to solve the puzzle faster every time.
-</p></div><script>
+</p>
+
+
+<h2>More Free Games on PlayNova</h2>
+
+<p>
+Discover more free browser games by visiting the
+<a href="../games.html">PlayNova Games page</a>.
+</p>
+
+<p>
+You can also explore different
+<a href="../categories.html">game categories</a>
+and discover more exciting games.
+</p>
+
+<p>
+Visit the
+<a href="../index.html">PlayNova homepage</a>
+to find more free online browser games.
+</p>
+
+</div>
+
+
+<script>
 
 let tiles=[];
 let moves=0;
@@ -347,5 +549,7 @@ function checkWin(){
 
 startGame();
 
-</script></body>
+</script>
+
+</body>
 </html>
