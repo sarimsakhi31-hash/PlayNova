@@ -1,571 +1,285 @@
-<!DOCTYPE html>
+here<!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-<title>Zombie Survival - Free Zombie Game | PlayNova</title>
+<title>Zombie Survival - Free Zombie Shooting Game | PlayNova</title>
 
-<meta name="description" content="Play Zombie Survival for free on PlayNova. Survive incoming zombies, shoot enemies and try to achieve the highest score in this exciting browser game.">
+<meta name="description" content="Play Zombie Survival free on PlayNova! Fight zombie waves, unlock weapons, collect ammo and survive the apocalypse in this exciting browser shooting game.">
 
-<meta name="keywords" content="Zombie Survival, zombie game, free zombie game, online zombie game, survival game, browser game, shooting game, PlayNova">
+<meta name="keywords" content="Zombie Survival, zombie shooting game, free zombie game, browser games, survival game, online shooting game, PlayNova">
 
 <meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0b120d">
 
 <link rel="canonical" href="https://sarimsakhi31-hash.github.io/PlayNova/games/zombie-survival.html">
 
-<meta property="og:title" content="Zombie Survival - Free Zombie Game | PlayNova">
-<meta property="og:description" content="Survive the zombies, shoot enemies and get the highest score in Zombie Survival on PlayNova.">
+<meta property="og:title" content="Zombie Survival | PlayNova">
+<meta property="og:description" content="Fight endless zombie waves and survive the apocalypse. Play free on PlayNova!">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sarimsakhi31-hash.github.io/PlayNova/games/zombie-survival.html">
 
 <style>
+*{box-sizing:border-box}
 
-*{
-  box-sizing:border-box;
+:root{
+  --green:#65ff72;
+  --dark:#080d09;
+  --panel:#121b14;
+  --red:#ff4545;
+  --gold:#ffe36a;
 }
 
 body{
   margin:0;
-  background:#080b08;
+  padding:12px;
+  background:var(--dark);
   color:#fff;
   font-family:Arial,sans-serif;
   text-align:center;
-  padding:15px;
+  user-select:none;
+  -webkit-user-select:none;
 }
 
+button{touch-action:manipulation}
+
 .game{
-  width:min(95vw,600px);
+  width:min(100%,720px);
   margin:auto;
 }
 
-h1{
-  color:#65ff72;
-  margin:8px 0;
+header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  margin-bottom:12px;
 }
 
-.info{
-  color:#aaa;
-  margin-bottom:12px;
+h1{
+  font-size:clamp(20px,5vw,30px);
+  color:var(--green);
+  margin:6px 0;
+}
+
+.brand{
+  color:#a9b5aa;
+  font-size:12px;
+}
+
+#best{
+  color:var(--gold);
+  font-weight:bold;
 }
 
 .stats{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  margin-bottom:12px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:7px;
+  margin-bottom:10px;
 }
 
 .stat{
-  background:#151b15;
-  padding:9px 18px;
+  padding:10px 3px;
+  background:var(--panel);
+  border:1px solid #253729;
   border-radius:10px;
+  font-size:12px;
 }
 
-.stat span{
-  color:#65ff72;
-  font-weight:bold;
+.stat strong{
+  display:block;
+  color:var(--green);
+  font-size:18px;
+  margin-top:5px;
+}
+
+.health-box{
+  padding:10px;
+  background:var(--panel);
+  border-radius:10px;
+  margin-bottom:10px;
+  text-align:left;
+}
+
+.health-label{
+  display:flex;
+  justify-content:space-between;
+  font-size:12px;
+  margin-bottom:6px;
+}
+
+.health-track{
+  height:12px;
+  background:#333;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+#healthBar{
+  height:100%;
+  width:100%;
+  background:#43e65d;
+  transition:width .15s;
 }
 
 .arena{
   position:relative;
   width:100%;
-  height:520px;
-  max-height:70vh;
+  height:min(68vh,560px);
+  min-height:350px;
   overflow:hidden;
-  background:#111814;
-  border:3px solid #65ff72;
-  border-radius:15px;
+  border:2px solid #416a43;
+  border-radius:14px;
+  background:#101a13;
+  box-shadow:0 0 25px #142c18;
+  touch-action:none;
 }
 
-.player{
+canvas{
+  width:100%;
+  height:100%;
+  display:block;
+  touch-action:none;
+}
+
+.overlay{
   position:absolute;
-  width:42px;
-  height:42px;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
-  background:#39a9ff;
-  border:3px solid white;
-  border-radius:50%;
-  box-shadow:0 0 15px #39a9ff;
-  z-index:3;
-}
-
-.zombie{
-  position:absolute;
-  width:38px;
-  height:38px;
-  background:#79a832;
-  border:2px solid #d9ff7a;
-  border-radius:50%;
-  z-index:2;
-}
-
-.bullet{
-  position:absolute;
-  width:7px;
-  height:7px;
-  background:#ffe600;
-  border-radius:50%;
-  box-shadow:0 0 10px #ffe600;
-  z-index:4;
-}
-
-.controls{
-  margin-top:15px;
+  inset:0;
   display:flex;
+  flex-direction:column;
+  align-items:center;
   justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
+  padding:24px;
+  background:rgba(3,8,4,.88);
+  z-index:10;
 }
+
+.overlay h2{
+  color:var(--green);
+  font-size:30px;
+  margin:0 0 12px;
+}
+
+.overlay p{
+  color:#cbd4cb;
+  line-height:1.6;
+  max-width:360px;
+}
+
+.hidden{display:none!important}
 
 button{
-  border:0;
+  border:1px solid #39523b;
+  background:#1b2b1d;
+  color:white;
   border-radius:10px;
-  padding:13px 22px;
-  background:#1b271b;
-  color:#fff;
-  font-size:18px;
+  padding:12px 15px;
+  font-size:14px;
+  font-weight:bold;
   cursor:pointer;
 }
 
-button:hover{
-  background:#304630;
+button:active{transform:scale(.96)}
+
+button:disabled{
+  opacity:.4;
+  cursor:not-allowed;
 }
 
-.shoot{
-  margin-top:12px;
-  background:#a32626;
+.primary{
+  background:#278e37;
+  border-color:var(--green);
 }
 
-.restart{
+.danger{
+  background:#792525;
+}
+
+.controls{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
   margin-top:10px;
-  background:#287c32;
 }
 
-#message{
-  min-height:25px;
-  margin-top:12px;
-  color:#ffe600;
-  font-weight:bold;
+.control-panel{
+  background:var(--panel);
+  border:1px solid #253729;
+  padding:10px;
+  border-radius:12px;
 }
 
-.gameover{
-  color:#ff4444!important;
+.control-panel h3{
+  color:var(--green);
+  font-size:13px;
+  margin:0 0 10px;
 }
 
-@media(max-width:500px){
-
-  .arena{
-    height:500px;
-  }
-
-  button{
-    padding:12px 18px;
-  }
-
+.dpad{
+  display:grid;
+  grid-template-columns:repeat(3,45px);
+  grid-template-rows:repeat(2,42px);
+  justify-content:center;
+  gap:5px;
 }
 
+.dpad button{
+  padding:4px;
+  font-size:20px;
+}
+
+.dpad .up{grid-column:2;grid-row:1}
+.dpad .left{grid-column:1;grid-row:2}
+.dpad .down{grid-column:2;grid-row:2}
+.dpad .right{grid-column:3;grid-row:2}
+
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:7px;
+}
+
+.actions button{
+  flex:1 1 75px;
+  min-width:70px;
+  padding:12px 5px;
+}
+
+#shootBtn{
+  background:#a62a2a;
+  border-color:#ff6565;
+}
+
+#reloadBtn{background:#67521b}
+#weaponBtn{background:#234f83}
+
+.hint{
+  color:#87988a;
+  font-size:12px;
+  line-height:1.6;
+  margin:12px 0;
+}
+
+@media(max-width:430px){
+  body{padding:8px}
+  .arena{min-height:340px;height:52vh}
+  .stat{font-size:11px}
+  .stat strong{font-size:16px}
+  .controls{grid-template-columns:1fr}
+}
 </style>
-
 </head>
 
 <body>
 
 <div class="game">
 
-<h1>🧟 Zombie Survival</h1>
-
-<div class="info">
-Survive the zombies and get the highest score!
-</div>
-
-<div class="stats">
-
-<div class="stat">
-Score: <span id="score">0</span>
-</div>
-
-<div class="stat">
-Lives: <span id="lives">3</span>
-</div>
-
-</div>
-
-<div class="arena" id="arena">
-
-<div class="player" id="player"></div>
-
-</div>
-
-<div class="controls">
-
-<button onclick="move(-1,0)">⬅️</button>
-<button onclick="move(1,0)">➡️</button>
-<button onclick="move(0,-1)">⬆️</button>
-<button onclick="move(0,1)">⬇️</button>
-
-</div>
-
-<button class="shoot" onclick="shoot()">
-🔫 SHOOT
-</button>
-
-<br>
-
-<button class="restart" onclick="startGame()">
-🔄 Restart
-</button>
-
-<div id="message"></div>
-
-</div>
-
-<script>
-
-const arena=document.getElementById("arena");
-const player=document.getElementById("player");
-
-let px=50;
-let py=50;
-
-let score=0;
-let lives=3;
-let running=false;
-
-let zombies=[];
-let bullets=[];
-
-let loop;
-let spawnTimer;
-
-function setPlayer(){
-
-  player.style.left=px+"%";
-  player.style.top=py+"%";
-
-}
-
-function move(x,y){
-
-  if(!running)return;
-
-  px+=x*4;
-  py+=y*4;
-
-  px=Math.max(5,Math.min(95,px));
-  py=Math.max(7,Math.min(93,py));
-
-  setPlayer();
-
-}
-
-document.addEventListener("keydown",e=>{
-
-  if(e.key==="ArrowLeft")
-    move(-1,0);
-
-  if(e.key==="ArrowRight")
-    move(1,0);
-
-  if(e.key==="ArrowUp")
-    move(0,-1);
-
-  if(e.key==="ArrowDown")
-    move(0,1);
-
-  if(e.code==="Space"){
-
-    e.preventDefault();
-    shoot();
-
-  }
-
-});
-
-function shoot(){
-
-  if(!running)return;
-
-  let b=document.createElement("div");
-
-  b.className="bullet";
-
-  b.style.left=px+"%";
-  b.style.top=py+"%";
-
-  arena.appendChild(b);
-
-  let nearest=null;
-  let distance=Infinity;
-
-  zombies.forEach(z=>{
-
-    let dx=z.x-px;
-    let dy=z.y-py;
-
-    let d=Math.sqrt(dx*dx+dy*dy);
-
-    if(d<distance){
-
-      distance=d;
-      nearest=z;
-
-    }
-
-  });
-
-  if(nearest){
-
-    let dx=nearest.x-px;
-    let dy=nearest.y-py;
-
-    let d=Math.sqrt(dx*dx+dy*dy);
-
-    bullets.push({
-      element:b,
-      x:px,
-      y:py,
-      dx:dx/d,
-      dy:dy/d
-    });
-
-  }else{
-
-    bullets.push({
-      element:b,
-      x:px,
-      y:py,
-      dx:1,
-      dy:0
-    });
-
-  }
-
-}
-
-function createZombie(){
-
-  if(!running)return;
-
-  let z=document.createElement("div");
-
-  z.className="zombie";
-
-  let side=Math.floor(Math.random()*4);
-
-  let x,y;
-
-  if(side===0){
-    x=Math.random()*100;
-    y=-5;
-  }
-
-  if(side===1){
-    x=Math.random()*100;
-    y=105;
-  }
-
-  if(side===2){
-    x=-5;
-    y=Math.random()*100;
-  }
-
-  if(side===3){
-    x=105;
-    y=Math.random()*100;
-  }
-
-  z.style.left=x+"%";
-  z.style.top=y+"%";
-
-  arena.appendChild(z);
-
-  zombies.push({
-    element:z,
-    x:x,
-    y:y,
-    speed:.35+Math.random()*.25
-  });
-
-}
-
-function hit(a,b){
-
-  let r1=a.getBoundingClientRect();
-  let r2=b.getBoundingClientRect();
-
-  return !(
-    r1.right<r2.left ||
-    r1.left>r2.right ||
-    r1.bottom<r2.top ||
-    r1.top>r2.bottom
-  );
-
-}
-
-function update(){
-
-  if(!running)return;
-
-  /* Bullets */
-
-  bullets.forEach((b,bi)=>{
-
-    b.x+=b.dx*3;
-    b.y+=b.dy*3;
-
-    b.element.style.left=b.x+"%";
-    b.element.style.top=b.y+"%";
-
-    if(
-      b.x<0 ||
-      b.x>100 ||
-      b.y<0 ||
-      b.y>100
-    ){
-
-      b.element.remove();
-      bullets.splice(bi,1);
-
-      return;
-
-    }
-
-    zombies.forEach((z,zi)=>{
-
-      if(
-        b.element &&
-        z.element &&
-        hit(b.element,z.element)
-      ){
-
-        z.element.remove();
-        b.element.remove();
-
-        zombies.splice(zi,1);
-        bullets.splice(bi,1);
-
-        score+=10;
-
-        document.getElementById("score")
-          .textContent=score;
-
-      }
-
-    });
-
-  });
-
-  /* Zombies */
-
-  zombies.forEach((z,zi)=>{
-
-    let dx=px-z.x;
-    let dy=py-z.y;
-
-    let d=Math.sqrt(dx*dx+dy*dy);
-
-    if(d>0){
-
-      z.x+=(dx/d)*z.speed;
-      z.y+=(dy/d)*z.speed;
-
-    }
-
-    z.element.style.left=z.x+"%";
-    z.element.style.top=z.y+"%";
-
-    if(d<6){
-
-      z.element.remove();
-
-      zombies.splice(zi,1);
-
-      lives--;
-
-      document.getElementById("lives")
-        .textContent=lives;
-
-      if(lives<=0){
-
-        endGame();
-
-      }
-
-    }
-
-  });
-
-  loop=requestAnimationFrame(update);
-
-}
-
-function startGame(){
-
-  cancelAnimationFrame(loop);
-
-  clearInterval(spawnTimer);
-
-  zombies.forEach(z=>z.element.remove());
-  bullets.forEach(b=>b.element.remove());
-
-  zombies=[];
-  bullets=[];
-
-  px=50;
-  py=50;
-
-  score=0;
-  lives=3;
-
-  document.getElementById("score")
-    .textContent="0";
-
-  document.getElementById("lives")
-    .textContent="3";
-
-  document.getElementById("message")
-    .textContent="";
-
-  document.getElementById("message")
-    .className="";
-
-  setPlayer();
-
-  running=true;
-
-  spawnTimer=setInterval(createZombie,900);
-
-  loop=requestAnimationFrame(update);
-
-}
-
-function endGame(){
-
-  if(!running)return;
-
-  running=false;
-
-  clearInterval(spawnTimer);
-
-  cancelAnimationFrame(loop);
-
-  let m=document.getElementById("message");
-
-  m.textContent=
-    "💀 Game Over! Final Score: "+score;
-
-  m.className="gameover";
-
-}
-
-setPlayer();
-startGame();
-
-</script>
-
-</body>
-  </html>
+<header>
+  <div style="text-align:left">
+    <div class="brand">PLAYNOVA ORIGINAL</div>
+    <h1>🧟 Zombie Survival</h1>
+  </div>
+  <div id="
