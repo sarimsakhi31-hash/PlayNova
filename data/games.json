@@ -1,56 +1,62 @@
-[
-  {
-    "id": 1,
-    "title": "Neon Racer",
-    "category": "Racing",
-    "image": "images/games/neon-racer.svg",
-    "url": "games/neon-racer.html",
-    "featured": true,
-    "trending": true
-  },
-  {
-    "id": 2,
-    "title": "Space Defender",
-    "category": "Action",
-    "image": "images/games/space-defender.svg",
-    "url": "games/space-defender.html",
-    "featured": true,
-    "trending": true
-  },
-  {
-    "id": 3,
-    "title": "Puzzle Master",
-    "category": "Puzzle",
-    "image": "images/games/puzzle-master.svg",
-    "url": "games/puzzle-master.html",
-    "featured": true,
-    "trending": false
-  },
-  {
-    "id": 4,
-    "title": "Football Star",
-    "category": "Sports",
-    "image": "images/games/football-star.svg",
-    "url": "games/football-star.html",
-    "featured": true,
-    "trending": true
-  },
-  {
-    "id": 5,
-    "title": "Zombie Survival",
-    "category": "Action",
-    "image": "images/games/zombie-survival.svg",
-    "url": "games/zombie-survival.html",
-    "featured": true,
-    "trending": true
-  },
-  {
-    "id": 6,
-    "title": "Jungle Adventure",
-    "category": "Adventure",
-    "image": "images/games/jungle-adventure.svg",
-    "url": "games/jungle-adventure.html",
-    "featured": true,
-    "trending": false
-  }
+here[
+{
+"id": 1,
+"title": "Neon Racer",
+"category": "Racing",
+"description": "Race through glowing neon tracks, avoid obstacles, and test your driving skills in this exciting free browser racing game.",
+"image": "images/games/neon-racer.svg",
+"url": "games/neon-racer.html",
+"featured": true,
+"trending": true
+},
+{
+"id": 2,
+"title": "Space Defender",
+"category": "Action",
+"description": "Defend your spacecraft against incoming enemies in this action-packed space shooter. Test your reflexes and aim for a high score.",
+"image": "images/games/space-defender.svg",
+"url": "games/space-defender.html",
+"featured": true,
+"trending": true
+},
+{
+"id": 3,
+"title": "Puzzle Master",
+"category": "Puzzle",
+"description": "Challenge your brain with Puzzle Master, a fun number puzzle game. Solve the puzzle, improve your logic, and enjoy free browser gameplay.",
+"image": "images/games/puzzle-master.svg",
+"url": "games/puzzle-master.html",
+"featured": true,
+"trending": false
+},
+{
+"id": 4,
+"title": "Football Star",
+"category": "Sports",
+"description": "Step onto the field in Football Star. Test your football skills, aim carefully, and enjoy this free online sports game on PlayNova.",
+"image": "images/games/football-star.svg",
+"url": "games/football-star.html",
+"featured": true,
+"trending": true
+},
+{
+"id": 5,
+"title": "Zombie Survival",
+"category": "Action",
+"description": "Survive waves of approaching zombies in this free action game. Move strategically, shoot enemies, earn points, and beat your highest score in Zombie Survival on PlayNova.",
+"image": "images/games/zombie-survival.svg",
+"url": "games/zombie-survival.html",
+"featured": true,
+"trending": true
+},
+{
+"id": 6,
+"title": "Jungle Adventure",
+"category": "Adventure",
+"description": "Explore a mysterious jungle, face challenging obstacles, and embark on an exciting adventure in this free browser game on PlayNova.",
+"image": "images/games/jungle-adventure.svg",
+"url": "games/jungle-adventure.html",
+"featured": true,
+"trending": false
+}
 ]
