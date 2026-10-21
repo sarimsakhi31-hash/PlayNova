@@ -3,29 +3,101 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Play Game — PlayNova</title>
+<meta name="description" content="Play free browser games on PlayNova. Explore exciting action, racing, puzzle, sports, and adventure games.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#9d4edd">
+
 <link rel="icon" href="images/icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="css/style.css">
+
+<style>
+.game-description {
+  margin-top: 24px;
+  padding: 24px;
+  border-radius: 16px;
+  background: #171523;
+  color: #f5f3ff;
+  line-height: 1.7;
+}
+.game-description h2 {
+  margin: 20px 0 10px;
+  color: #c9a4ff;
+}
+.game-description h2:first-of-type {
+  margin-top: 10px;
+}
+.game-description p,
+.game-description li {
+  color: #ded9e9;
+}
+.game-description ul {
+  padding-left: 24px;
+}
+.game-description .favorite-action {
+  margin-bottom: 10px;
+}
+</style>
 </head>
+
 <body>
+
 <header class="site-header">
-<a class="logo" href="index.html">🎮 <span>PlayNova</span></a>
-<nav><a href="index.html">Home</a><a href="games.html">Games</a><a href="categories.html">Categories</a><a href="favorites.html">❤️ Favorites</a></nav>
+  <a class="logo" href="index.html">🎮 <span>PlayNova</span></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="games.html">Games</a>
+    <a href="categories.html">Categories</a>
+    <a href="favorites.html">❤️ Favorites</a>
+  </nav>
 </header>
+
 <main class="player-page">
-<a class="back-btn" href="games.html">← Back to Games</a>
-<div class="player-title"><span class="section-label" id="gameCategory"></span><h1 id="gameTitle">Loading...</h1></div>
-<div class="game-player">
-  <iframe id="gameFrame" title="PlayNova Game" allow="fullscreen; gamepad" allowfullscreen></iframe>
-  <button id="fullscreenBtn">⛶ Fullscreen</button>
-</div>
-<div class="game-description">
-  <button class="favorite-action" id="favoriteBtn">♡ Add to Favorites</button>
-  <h2 id="gameHeading">Game</h2>
-  <p>Play this browser game directly on PlayNova. Replace the sample URL in <code>data/games.json</code> with a game URL you are legally allowed to embed.</p>
-</div>
+
+  <a class="back-btn" href="games.html">← Back to Games</a>
+
+  <div class="player-title">
+    <span class="section-label" id="gameCategory"></span>
+    <h1 id="gameTitle">Loading...</h1>
+  </div>
+
+  <div class="game-player">
+    <iframe
+      id="gameFrame"
+      title="PlayNova Game"
+      allow="fullscreen; gamepad"
+      allowfullscreen>
+    </iframe>
+    <button id="fullscreenBtn">⛶ Fullscreen</button>
+  </div>
+
+  <section class="game-description">
+    <button class="favorite-action" id="favoriteBtn">
+      ♡ Add to Favorites
+    </button>
+
+    <h2 id="gameHeading">About This Game</h2>
+    <p id="gameDescription">
+      Discover exciting free browser games on PlayNova.
+    </p>
+
+    <h2>How to Play</h2>
+    <p id="gameInstructions">
+      Follow the instructions displayed inside the game to get started.
+    </p>
+
+    <p>
+      Play free browser games on PlayNova directly in your browser.
+      No separate game application is required.
+    </p>
+  </section>
+
 </main>
+
 <footer>© 2026 PlayNova — Play. Explore. Enjoy.</footer>
+
 <script src="js/game.js"></script>
+
 </body>
 </html>
