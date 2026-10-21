@@ -1,484 +1,605 @@
-<!DOCTYPE html><html lang="en">
-<head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Space Defender - Free Online Space Game | PlayNova</title><meta name="description" content="Play Space Defender for free on PlayNova. Pilot your spaceship, stop incoming enemies and survive as long as possible in this exciting browser space game. No download required."><meta name="keywords" content="Space Defender, space game, free online space game, spaceship game, arcade space game, browser game, action game, PlayNova"><meta name="robots" content="index, follow"><link rel="canonical" href="https://sarimsakhi31-hash.github.io/PlayNova/games/space-defender.html"><meta property="og:title" content="Space Defender - Free Online Space Game | PlayNova">
-<meta property="og:description" content="Pilot your spaceship and stop incoming enemies in this free browser space game on PlayNova.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://sarimsakhi31-hash.github.io/PlayNova/games/space-defender.html"><style>
 
-*{
-  box-sizing:border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-body{
-  margin:0;
-  background:#03030a;
-  color:white;
-  font-family:Arial,sans-serif;
-  text-align:center;
-  padding:15px;
-}
+  <title>Space Defender – Play Free Space Shooter Game | PlayNova</title>
+  <meta name="description" content="Play Space Defender free on PlayNova! Pilot your spaceship, shoot incoming enemies, protect your lives and beat your high score in this fun space shooter game. No download needed.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#050515">
+  <link rel="canonical" href="https://sarimsakhi31-hash.github.io/PlayNova/games/space-defender.html">
 
-.game{
-  width:min(95vw,600px);
-  margin:auto;
-}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Space Defender – Free Space Shooter Game | PlayNova">
+  <meta property="og:description" content="Control your spaceship, shoot enemies and beat your high score in this free browser game on PlayNova.">
+  <meta property="og:url" content="https://sarimsakhi31-hash.github.io/PlayNova/games/space-defender.html">
+  <meta property="og:site_name" content="PlayNova">
 
-h1{
-  color:#66e6ff;
-  margin:8px 0;
-}
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Space Defender | PlayNova">
+  <meta name="twitter:description" content="Play this free space shooter game online. Defeat enemies and beat your high score!">
 
-.info{
-  color:#aaa;
-  margin-bottom:12px;
-}
-
-.stats{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  margin-bottom:12px;
-}
-
-.stat{
-  background:#111525;
-  padding:9px 18px;
-  border-radius:10px;
-}
-
-.stat span{
-  color:#66e6ff;
-  font-weight:bold;
-}
-
-.space{
-  position:relative;
-  width:100%;
-  height:520px;
-  max-height:70vh;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 20% 20%,#fff 0 1px,transparent 2px),
-    radial-gradient(circle at 70% 30%,#fff 0 1px,transparent 2px),
-    radial-gradient(circle at 40% 70%,#fff 0 1px,transparent 2px),
-    radial-gradient(circle at 85% 80%,#fff 0 1px,transparent 2px),
-    #050515;
-  border:3px solid #303bff;
-  border-radius:15px;
-}
-
-.player{
-  position:absolute;
-  bottom:20px;
-  left:50%;
-  transform:translateX(-50%);
-  width:50px;
-  height:55px;
-  background:#00d9ff;
-  clip-path:polygon(50% 0,100% 100%,50% 75%,0 100%);
-  box-shadow:0 0 20px #00d9ff;
-}
-
-.enemy{
-  position:absolute;
-  width:42px;
-  height:30px;
-  background:#ff3158;
-  border-radius:50% 50% 40% 40%;
-  box-shadow:0 0 15px #ff3158;
-}
-
-.bullet{
-  position:absolute;
-  width:5px;
-  height:18px;
-  background:#ffe600;
-  border-radius:5px;
-  box-shadow:0 0 10px #ffe600;
-}
-
-.controls{
-  margin-top:15px;
-  display:flex;
-  justify-content:center;
-  gap:12px;
-}
-
-.controls button,
-.shoot,
-.restart{
-  border:0;
-  border-radius:10px;
-  padding:13px 22px;
-  background:#151a30;
-  color:white;
-  font-size:18px;
-  cursor:pointer;
-}
-
-.controls button:hover,
-.shoot:hover,
-.restart:hover{
-  background:#29315c;
-}
-
-.shoot{
-  margin-top:12px;
-  background:#006b8f;
-}
-
-.restart{
-  margin-top:10px;
-  background:#303bff;
-}
-
-#message{
-  min-height:25px;
-  margin-top:12px;
-  color:#ffe600;
-  font-weight:bold;
-}
-
-.gameover{
-  color:#ff3158 !important;
-}
-
-/* SEO CONTENT */
-
-.seo-content{
-  width:min(95vw,700px);
-  margin:35px auto;
-  text-align:left;
-  background:#111525;
-  padding:25px;
-  border-radius:15px;
-  line-height:1.7;
-}
-
-.seo-content h2{
-  color:#66e6ff;
-  margin-top:30px;
-}
-
-.seo-content h3{
-  color:#ffe600;
-}
-
-.seo-content p,
-.seo-content li{
-  color:#d5d8e5;
-}
-
-.seo-content ul{
-  padding-left:22px;
-}
-
-@media(max-width:500px){
-
-  .space{
-    height:500px;
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Space Defender",
+    "url": "https://sarimsakhi31-hash.github.io/PlayNova/games/space-defender.html",
+    "description": "A free browser-based space shooter game where players pilot a spaceship, shoot incoming enemies and protect their lives.",
+    "genre": ["Arcade", "Action", "Space Shooter"],
+    "gamePlatform": ["Web Browser", "Mobile Browser"],
+    "applicationCategory": "Game",
+    "isAccessibleForFree": true,
+    "inLanguage": "en",
+    "publisher": {
+      "@type": "Organization",
+      "name": "PlayNova",
+      "url": "https://sarimsakhi31-hash.github.io/PlayNova/"
+    }
   }
+  </script>
 
-  .seo-content{
-    padding:18px;
-  }
+  <style>
+    * { box-sizing: border-box; }
 
-  .seo-content h2{
-    font-size:22px;
-  }
-
-}
-
-</style></head><body><div class="game"><h1>🚀 Space Defender</h1><div class="info">
-Defend your ship and stop the incoming enemies!
-</div><div class="stats"><div class="stat">
-Score: <span id="score">0</span>
-</div><div class="stat">
-Lives: <span id="lives">3</span>
-</div></div><div class="space" id="space"><div class="player" id="player"></div></div><div class="controls"><button onclick="moveLeft()">⬅️</button>
-<button onclick="moveRight()">➡️</button>
-
-</div><button class="shoot" onclick="shoot()">
-🚀 SHOOT
-</button><br><button class="restart" onclick="startGame()">
-🔄 Restart
-</button><div id="message"></div></div><!-- SEO CONTENT --><div class="seo-content"><h2>About Space Defender</h2><p>
-Space Defender is a fast-paced free online space game where you pilot a spaceship and protect your area from incoming enemies.
-</p><p>
-Move your spaceship across the screen, launch energy shots and earn points by stopping incoming enemies. Stay alert and try to survive for as long as possible while protecting your lives.
-</p><h2>How to Play Space Defender</h2><p>
-Space Defender is easy to start but becomes more challenging as more enemies appear.
-</p><ul>
-<li>Move your spaceship left and right.</li>
-<li>Watch for incoming enemies.</li>
-<li>Use the Shoot button to launch energy shots.</li>
-<li>Stop enemies to increase your score.</li>
-<li>Protect your lives and survive as long as possible.</li>
-</ul><h2>Space Defender Game Controls</h2><h3>Move Left</h3><p>
-Use the left arrow button or the left arrow key on your keyboard to move your spaceship to the left.
-</p><h3>Move Right</h3><p>
-Use the right arrow button or the right arrow key on your keyboard to move your spaceship to the right.
-</p><h3>Launch Energy Shots</h3><p>
-Press the SHOOT button or use the spacebar on your keyboard to launch an energy shot.
-</p><h3>Restart the Game</h3><p>
-Press the Restart button to begin a new Space Defender challenge and try to achieve a higher score.
-</p><h2>Space Defender Tips and Tricks</h2><ul>
-<li>Keep moving to stay away from incoming enemies.</li>
-<li>Watch the position of each enemy carefully.</li>
-<li>Use quick reactions to launch energy shots at the right time.</li>
-<li>Try to protect all your lives for as long as possible.</li>
-<li>Practice regularly to improve your score and reaction time.</li>
-</ul><h2>Play Free Space Games Online</h2><p>
-Space Defender is completely free to play directly in your web browser. No downloads, installations or registrations are required.
-</p><p>
-Play this exciting browser space game on your mobile phone, tablet or computer and challenge yourself to achieve the highest score.
-</p></div><script>
-
-const space=document.getElementById("space");
-const player=document.getElementById("player");
-
-let playerX=50;
-let score=0;
-let lives=3;
-let running=false;
-
-let enemies=[];
-let bullets=[];
-
-let enemyTimer;
-let gameLoop;
-
-function setPlayer(){
-
-  player.style.left=playerX+"%";
-
-}
-
-function moveLeft(){
-
-  if(!running)return;
-
-  playerX-=7;
-
-  if(playerX<7)
-    playerX=7;
-
-  setPlayer();
-
-}
-
-function moveRight(){
-
-  if(!running)return;
-
-  playerX+=7;
-
-  if(playerX>93)
-    playerX=93;
-
-  setPlayer();
-
-}
-
-document.addEventListener("keydown",function(e){
-
-  if(e.key==="ArrowLeft")
-    moveLeft();
-
-  if(e.key==="ArrowRight")
-    moveRight();
-
-  if(e.code==="Space"){
-    e.preventDefault();
-    shoot();
-  }
-
-});
-
-function shoot(){
-
-  if(!running)return;
-
-  const bullet=document.createElement("div");
-
-  bullet.className="bullet";
-
-  bullet.style.left=playerX+"%";
-  bullet.style.bottom="70px";
-
-  space.appendChild(bullet);
-
-  bullets.push({
-    element:bullet,
-    x:playerX,
-    y:space.clientHeight-70
-  });
-
-}
-
-function createEnemy(){
-
-  if(!running)return;
-
-  const enemy=document.createElement("div");
-
-  enemy.className="enemy";
-
-  const x=8+Math.random()*84;
-
-  enemy.style.left=x+"%";
-  enemy.style.top="-40px";
-
-  space.appendChild(enemy);
-
-  enemies.push({
-    element:enemy,
-    x:x,
-    y:-40,
-    speed:1.5+Math.random()*1.5
-  });
-
-}
-
-function hit(a,b){
-
-  const r1=a.getBoundingClientRect();
-  const r2=b.getBoundingClientRect();
-
-  return !(
-    r1.right<r2.left ||
-    r1.left>r2.right ||
-    r1.bottom<r2.top ||
-    r1.top>r2.bottom
-  );
-
-}
-
-function update(){
-
-  if(!running)return;
-
-  bullets.forEach((b,i)=>{
-
-    b.y-=8;
-
-    b.element.style.bottom=
-      (space.clientHeight-b.y)+"px";
-
-    if(b.y<0){
-
-      b.element.remove();
-      bullets.splice(i,1);
-      return;
-
+    body {
+      margin: 0;
+      padding: 16px;
+      background: #050510;
+      color: #f4f5ff;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+      line-height: 1.6;
     }
 
-    enemies.forEach((e,j)=>{
+    a { color: #74e8ff; }
 
-      if(
-        e.element &&
-        b.element &&
-        hit(b.element,e.element)
-      ){
+    .game {
+      width: 100%;
+      max-width: 620px;
+      margin: auto;
+    }
 
-        e.element.remove();
-        b.element.remove();
+    .back {
+      display: inline-block;
+      margin-bottom: 12px;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-        enemies.splice(j,1);
-        bullets.splice(i,1);
+    h1 {
+      margin: 4px 0;
+      color: #72eaff;
+      font-size: clamp(27px, 6vw, 36px);
+      line-height: 1.25;
+    }
 
-        score+=10;
+    .intro {
+      color: #c3c8df;
+      margin: 10px 0 16px;
+    }
 
-        document.getElementById("score")
-          .textContent=score;
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
 
+    .stat {
+      min-width: 105px;
+      background: #15172d;
+      border: 1px solid #30345d;
+      border-radius: 10px;
+      padding: 8px 15px;
+    }
+
+    .stat strong { color: #72eaff; }
+
+    .space {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      max-height: 65vh;
+      min-height: 350px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 12% 15%, white 1px, transparent 2px),
+        radial-gradient(circle at 78% 25%, #9ebaff 1px, transparent 2px),
+        radial-gradient(circle at 45% 48%, white 1px, transparent 2px),
+        radial-gradient(circle at 88% 67%, white 1px, transparent 2px),
+        radial-gradient(circle at 25% 82%, #a8b9ff 1px, transparent 2px),
+        #07091e;
+      border: 2px solid #454cff;
+      border-radius: 14px;
+      box-shadow: 0 0 22px #353d8938;
+      touch-action: manipulation;
+    }
+
+    .player {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      width: 42px;
+      height: 48px;
+      transform: translateX(-50%);
+      background: linear-gradient(#c9fbff, #00bde9 65%, #555cff);
+      clip-path: polygon(50% 0, 100% 100%, 50% 78%, 0 100%);
+      filter: drop-shadow(0 0 8px #00d9ff);
+    }
+
+    .enemy {
+      position: absolute;
+      width: 38px;
+      height: 28px;
+      background: linear-gradient(#ff8b9e, #ff244f);
+      border: 1px solid #ffb0bd;
+      border-radius: 50% 50% 38% 38%;
+      box-shadow: 0 0 12px #ff315866;
+    }
+
+    .bullet {
+      position: absolute;
+      width: 5px;
+      height: 17px;
+      background: #fff36b;
+      border-radius: 5px;
+      box-shadow: 0 0 10px #ffe600;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    button {
+      min-height: 46px;
+      padding: 11px 19px;
+      border: 1px solid #414773;
+      border-radius: 10px;
+      background: #191d3b;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    button:hover { background: #303967; }
+    button:focus-visible { outline: 3px solid #72eaff; outline-offset: 3px; }
+
+    .shoot {
+      background: #006d91;
+      border-color: #25c8f5;
+      min-width: 150px;
+    }
+
+    .restart {
+      background: #343bd0;
+      border-color: #747aff;
+    }
+
+    #message {
+      min-height: 28px;
+      margin-top: 12px;
+      color: #fff36b;
+      font-weight: bold;
+    }
+
+    .gameover { color: #ff718c !important; }
+
+    .seo-content {
+      width: 100%;
+      max-width: 760px;
+      margin: 35px auto 15px;
+      padding: 22px;
+      text-align: left;
+      background: #111428;
+      border: 1px solid #272d50;
+      border-radius: 14px;
+      overflow-wrap: anywhere;
+    }
+
+    .seo-content h2 {
+      margin-top: 24px;
+      color: #72eaff;
+      line-height: 1.35;
+    }
+
+    .seo-content h2:first-child { margin-top: 0; }
+    .seo-content h3 { color: #fff36b; }
+    .seo-content p, .seo-content li { color: #d5d9eb; }
+    .seo-content li { margin-bottom: 7px; }
+
+    .site-link {
+      display: inline-block;
+      margin: 16px 0;
+      font-weight: bold;
+    }
+
+    @media (max-width: 500px) {
+      body { padding: 12px; }
+      .space { height: 470px; min-height: 350px; }
+      .seo-content { padding: 17px; }
+      button { padding: 10px 15px; }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section class="game" aria-label="Space Defender browser game">
+      <a class="back" href="../games.html">← Browse All Games</a>
+
+      <h1>Space Defender – Free Space Shooter</h1>
+      <p class="intro">
+        Pilot your spaceship, shoot incoming enemies and protect your lives!
+        Play this free arcade game directly in your browser.
+      </p>
+
+      <div class="stats" aria-live="polite">
+        <div class="stat">Score: <strong id="score">0</strong></div>
+        <div class="stat">Lives: <strong id="lives">3</strong></div>
+        <div class="stat">Best: <strong id="best">0</strong></div>
+      </div>
+
+      <div class="space" id="space" aria-label="Space Defender game area">
+        <div class="player" id="player"></div>
+      </div>
+
+      <div class="controls">
+        <button id="leftBtn" type="button" aria-label="Move spaceship left">⬅ Left</button>
+        <button id="rightBtn" type="button" aria-label="Move spaceship right">Right ➡</button>
+        <button class="shoot" id="shootBtn" type="button">🚀 SHOOT</button>
+      </div>
+
+      <div class="controls">
+        <button class="restart" id="restartBtn" type="button">↻ Restart Game</button>
+      </div>
+
+      <div id="message" role="status" aria-live="polite">
+        Get ready to defend your spaceship!
+      </div>
+    </section>
+
+    <article class="seo-content">
+      <h2>About Space Defender</h2>
+      <p>
+        Space Defender is a free online space shooter game on PlayNova.
+        Control your spaceship, fire energy shots at incoming enemies and
+        try to achieve the highest score. You have three lives, so stay alert
+        and protect your ship as long as you can.
+      </p>
+
+      <h2>How to Play Space Defender</h2>
+      <ol>
+        <li>Start the game and watch for enemy ships entering the arena.</li>
+        <li>Move your spaceship left or right to line up your shots.</li>
+        <li>Press SHOOT to fire at approaching enemies.</li>
+        <li>Earn 10 points for each enemy you destroy.</li>
+        <li>Keep your lives safe and try to beat your best score.</li>
+      </ol>
+
+      <h2>Space Defender Controls</h2>
+      <ul>
+        <li><strong>Left Arrow or A:</strong> Move the spaceship left.</li>
+        <li><strong>Right Arrow or D:</strong> Move the spaceship right.</li>
+        <li><strong>Spacebar:</strong> Fire an energy shot.</li>
+        <li><strong>Touch controls:</strong> Use the on-screen buttons on mobile.</li>
+        <li><strong>Restart Game:</strong> Start a fresh round with three lives.</li>
+      </ul>
+
+      <h2>Tips for a Higher Space Defender Score</h2>
+      <ul>
+        <li>Keep moving instead of staying in one place.</li>
+        <li>Watch enemy positions before firing.</li>
+        <li>Move into a clear line of fire when possible.</li>
+        <li>Fire regularly and avoid letting enemies reach your ship.</li>
+        <li>Practise to improve your reactions and beat your personal best.</li>
+      </ul>
+
+      <h2>Play Free Space Shooter Games Online</h2>
+      <p>
+        Enjoy Space Defender on a mobile phone, tablet or desktop browser.
+        The game is free to play and does not require a download, installation
+        or account. Open the game and start defending your spaceship.
+      </p>
+
+      <p>
+        Looking for more browser games? Visit the
+        <a href="../games.html">PlayNova game library</a> to explore more games.
+      </p>
+    </article>
+  </main>
+
+  <script>
+    "use strict";
+
+    const space = document.getElementById("space");
+    const player = document.getElementById("player");
+    const scoreDisplay = document.getElementById("score");
+    const livesDisplay = document.getElementById("lives");
+    const bestDisplay = document.getElementById("best");
+    const message = document.getElementById("message");
+
+    let playerX = 50;
+    let score = 0;
+    let lives = 3;
+    let running = false;
+    let enemies = [];
+    let bullets = [];
+    let enemyTimer = null;
+    let animationId = null;
+    let lastFrame = 0;
+    let lastEnemy = 0;
+
+    let best = 0;
+    try {
+      best = Number(localStorage.getItem("playnovaSpaceDefenderBest")) || 0;
+    } catch (_) {}
+    bestDisplay.textContent = best;
+
+    function setPlayer() {
+      player.style.left = playerX + "%";
+    }
+
+    function moveLeft() {
+      if (!running) return;
+      playerX = Math.max(5, playerX - 6);
+      setPlayer();
+    }
+
+    function moveRight() {
+      if (!running) return;
+      playerX = Math.min(95, playerX + 6);
+      setPlayer();
+    }
+
+    function shoot() {
+      if (!running) return;
+
+      const bullet = document.createElement("div");
+      bullet.className = "bullet";
+
+      const x = player.offsetLeft + player.offsetWidth / 2 - 2;
+      const y = player.offsetTop - 17;
+
+      bullet.style.left = x + "px";
+      bullet.style.top = y + "px";
+      space.appendChild(bullet);
+
+      bullets.push({ element: bullet, x, y });
+    }
+
+    function createEnemy() {
+      if (!running) return;
+
+      const enemy = document.createElement("div");
+      enemy.className = "enemy";
+
+      const maxX = Math.max(0, space.clientWidth - 38);
+      const x = Math.random() * maxX;
+
+      enemy.style.left = x + "px";
+      enemy.style.top = "-32px";
+      space.appendChild(enemy);
+
+      enemies.push({
+        element: enemy,
+        x,
+        y: -32,
+        speed: 1.4 + Math.random() * 1.3
+      });
+    }
+
+    function overlaps(a, b) {
+      return (
+        a.x < b.x + b.width &&
+        a.x + a.width > b.x &&
+        a.y < b.y + b.height &&
+        a.y + a.height > b.y
+      );
+    }
+
+    function update(timestamp) {
+      if (!running) return;
+
+      if (!lastFrame) lastFrame = timestamp;
+      const delta = Math.min((timestamp - lastFrame) / 16.67, 2);
+      lastFrame = timestamp;
+
+      if (timestamp - lastEnemy > 850) {
+        createEnemy();
+        lastEnemy = timestamp;
       }
 
+      const width = space.clientWidth;
+      const height = space.clientHeight;
+
+      // Move bullets from top to bottom coordinates.
+      for (let i = bullets.length - 1; i >= 0; i--) {
+        const b = bullets[i];
+        b.y -= 8 * delta;
+        b.element.style.top = b.y + "px";
+
+        if (b.y + 17 < 0) {
+          b.element.remove();
+          bullets.splice(i, 1);
+        }
+      }
+
+      // Move enemies and remove escaped enemies.
+      for (let i = enemies.length - 1; i >= 0; i--) {
+        const e = enemies[i];
+        e.y += e.speed * delta;
+        e.element.style.top = e.y + "px";
+
+        if (e.y > height) {
+          e.element.remove();
+          enemies.splice(i, 1);
+          lives--;
+          livesDisplay.textContent = lives;
+
+          if (lives <= 0) {
+            endGame();
+            return;
+          }
+        }
+      }
+
+      // Detect bullet-enemy collisions without skipping array entries.
+      for (let i = bullets.length - 1; i >= 0; i--) {
+        const b = bullets[i];
+        let bulletHit = false;
+
+        const bulletRect = {
+          x: b.x,
+          y: b.y,
+          width: 5,
+          height: 17
+        };
+
+        for (let j = enemies.length - 1; j >= 0; j--) {
+          const e = enemies[j];
+          const enemyRect = {
+            x: e.x,
+            y: e.y,
+            width: e.element.offsetWidth,
+            height: e.element.offsetHeight
+          };
+
+          if (overlaps(bulletRect, enemyRect)) {
+            e.element.remove();
+            enemies.splice(j, 1);
+            bulletHit = true;
+
+            score += 10;
+            scoreDisplay.textContent = score;
+
+            if (score > best) {
+              best = score;
+              bestDisplay.textContent = best;
+              try {
+                localStorage.setItem("playnovaSpaceDefenderBest", String(best));
+              } catch (_) {}
+            }
+            break;
+          }
+        }
+
+        if (bulletHit) {
+          b.element.remove();
+          bullets.splice(i, 1);
+        }
+      }
+
+      // Stop an enemy that reaches the player's ship.
+      const playerRect = {
+        x: player.offsetLeft,
+        y: player.offsetTop,
+        width: player.offsetWidth,
+        height: player.offsetHeight
+      };
+
+      for (let i = enemies.length - 1; i >= 0; i--) {
+        const e = enemies[i];
+        const enemyRect = {
+          x: e.x,
+          y: e.y,
+          width: e.element.offsetWidth,
+          height: e.element.offsetHeight
+        };
+
+        if (overlaps(playerRect, enemyRect)) {
+          e.element.remove();
+          enemies.splice(i, 1);
+          lives--;
+          livesDisplay.textContent = lives;
+
+          if (lives <= 0) {
+            endGame();
+            return;
+          }
+        }
+      }
+
+      animationId = requestAnimationFrame(update);
+    }
+
+    function clearObjects() {
+      enemies.forEach(e => e.element.remove());
+      bullets.forEach(b => b.element.remove());
+      enemies = [];
+      bullets = [];
+    }
+
+    function startGame() {
+      running = false;
+      clearInterval(enemyTimer);
+
+      if (animationId !== null) {
+        cancelAnimationFrame(animationId);
+      }
+
+      clearObjects();
+
+      score = 0;
+      lives = 3;
+      playerX = 50;
+      lastFrame = 0;
+      lastEnemy = 0;
+
+      scoreDisplay.textContent = "0";
+      livesDisplay.textContent = "3";
+      message.textContent = "Defend your spaceship! Good luck!";
+      message.className = "";
+
+      setPlayer();
+      running = true;
+      animationId = requestAnimationFrame(update);
+    }
+
+    function endGame() {
+      running = false;
+      clearInterval(enemyTimer);
+
+      if (animationId !== null) {
+        cancelAnimationFrame(animationId);
+      }
+
+      message.textContent = "Game Over! Final Score: " + score + ". Press Restart to play again.";
+      message.className = "gameover";
+    }
+
+    document.getElementById("leftBtn").addEventListener("click", moveLeft);
+    document.getElementById("rightBtn").addEventListener("click", moveRight);
+    document.getElementById("shootBtn").addEventListener("click", shoot);
+    document.getElementById("restartBtn").addEventListener("click", startGame);
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowLeft" || event.key.toLowerCase() === "a") {
+        event.preventDefault();
+        moveLeft();
+      }
+
+      if (event.key === "ArrowRight" || event.key.toLowerCase() === "d") {
+        event.preventDefault();
+        moveRight();
+      }
+
+      if (event.code === "Space") {
+        event.preventDefault();
+        shoot();
+      }
     });
 
-  });
-
-  enemies.forEach((e,i)=>{
-
-    e.y+=e.speed;
-
-    e.element.style.top=e.y+"px";
-
-    if(e.y>space.clientHeight-80){
-
-      e.element.remove();
-
-      enemies.splice(i,1);
-
-      lives--;
-
-      document.getElementById("lives")
-        .textContent=lives;
-
-      if(lives<=0){
-
-        endGame();
-
-      }
-
-    }
-
-  });
-
-  gameLoop=requestAnimationFrame(update);
-
-}
-
-function startGame(){
-
-  cancelAnimationFrame(gameLoop);
-  clearInterval(enemyTimer);
-
-  enemies.forEach(e=>e.element.remove());
-  bullets.forEach(b=>b.element.remove());
-
-  enemies=[];
-  bullets=[];
-
-  score=0;
-  lives=3;
-  playerX=50;
-
-  document.getElementById("score").textContent="0";
-  document.getElementById("lives").textContent="3";
-  document.getElementById("message").textContent="";
-  document.getElementById("message").className="";
-
-  setPlayer();
-
-  running=true;
-
-  enemyTimer=setInterval(createEnemy,900);
-
-  gameLoop=requestAnimationFrame(update);
-
-}
-
-function endGame(){
-
-  if(!running)return;
-
-  running=false;
-
-  clearInterval(enemyTimer);
-  cancelAnimationFrame(gameLoop);
-
-  const message=document.getElementById("message");
-
-  message.textContent=
-    "Game Over! Final Score: "+score;
-
-  message.className="gameover";
-
-}
-
-setPlayer();
-startGame();
-
-</script></body>
+    setPlayer();
+    startGame();
+  </script>
+</body>
 </html>
