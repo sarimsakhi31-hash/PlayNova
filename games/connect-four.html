@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connect Four - Play Connect Four Strategy Game Online Free | PlayNova</title>
+<meta name="description" content="Play Connect Four online free on PlayNova. Drop your discs, get four in a row before the computer does, and win this classic strategy game. No downloads required.">
+<meta name="keywords" content="connect four game, play connect four online, free strategy game, four in a row game, PlayNova">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sarimsakhi31-hash.github.io/PlayNova/games/connect-four.html">
+<meta property="og:title" content="Connect Four - Play Connect Four Strategy Game Online Free | PlayNova">
+<meta property="og:description" content="Drop your discs and get four in a row before the computer does. Play Connect Four free on PlayNova.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sarimsakhi31-hash.github.io/PlayNova/games/connect-four.html">
+<link rel="icon" href="../images/icon.svg" type="image/svg+xml">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#09090d;color:#fff;font-family:Arial,Helvetica,sans-serif;line-height:1.5}
+a{color:inherit}
+.site-header{display:flex;align-items:center;gap:28px;padding:16px 6%;background:rgba(15,15,20,.96);border-bottom:1px solid rgba(255,255,255,.06);position:sticky;top:0;z-index:1000}
+.logo{text-decoration:none;font-size:26px;font-weight:900;white-space:nowrap}
+.logo span{background:linear-gradient(90deg,#c77dff,#3a86ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.site-header nav{display:flex;gap:20px;flex:1}
+.site-header nav a{text-decoration:none;color:#c8c8d0;font-size:14px}
+.site-header nav a:hover{color:#fff}
+.container{max-width:900px;margin:auto;padding:35px 6%}
+.back{display:inline-block;color:#b77aff;text-decoration:none;margin-bottom:14px}
+h1{font-size:38px;margin:5px 0 8px}
+.subtitle{color:#9a9aa6;margin-bottom:20px}
+.stats{display:flex;gap:14px;margin-bottom:18px}
+.stat{background:#15151b;border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:10px 18px;text-align:center}
+.stat span{display:block;font-size:11px;color:#8f8f9c;text-transform:uppercase}
+.stat strong{font-size:22px}
+.game-box{background:#050507;border:1px solid rgba(157,78,221,.35);border-radius:17px;padding:18px;box-shadow:0 20px 60px rgba(0,0,0,.4);text-align:center}
+.game-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+button.primary,button.secondary{border:0;border-radius:10px;padding:11px 20px;font-weight:800;cursor:pointer}
+button.primary{background:linear-gradient(135deg,#9d4edd,#3a86ff);color:#fff}
+button.secondary{background:rgba(255,255,255,.07);color:#fff;border:1px solid rgba(255,255,255,.1)}
+#status{color:#b4b4bf;margin:14px 0;text-align:center;min-height:22px}
+.board-wrap{max-width:480px;margin:10px auto 4px}
+.col-btns{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:6px}
+.col-btns button{background:#17171d;color:#fff;border:1px solid rgba(255,255,255,.15);border-radius:8px;font-size:18px;padding:6px 0;cursor:pointer}
+.col-btns button:hover{background:#26262e}
+.col-btns button:disabled{opacity:.4;cursor:default}
+.board{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;background:#1d4ed8;border-radius:12px;padding:10px}
+.cell{aspect-ratio:1;border-radius:50%;background:#0d1117;border:1px solid rgba(255,255,255,.1)}
+.cell.you{background:#ff4d5e;box-shadow:inset 0 -4px 8px rgba(0,0,0,.4)}
+.cell.cpu{background:#f5c518;box-shadow:inset 0 -4px 8px rgba(0,0,0,.4)}
+.cell.win{outline:3px solid #4ade80;outline-offset:-3px}
+.legend{display:flex;gap:18px;justify-content:center;margin-top:12px;color:#9a9aa6;font-size:14px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.dot{width:14px;height:14px;border-radius:50%;display:inline-block}
+.dot.you{background:#ff4d5e}
+.dot.cpu{background:#f5c518}
+.info{background:#15151b;border-radius:15px;padding:24px;margin-top:24px}
+.info h2{margin:15px 0 5px}
+.info h2:first-child{margin-top:0}
+.info p,.info li{color:#999}
+.info ul{padding-left:20px}
+footer{text-align:center;padding:30px 20px;background:#111116;color:#777;font-size:13px}
+footer a{text-decoration:none}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoGame","name":"Connect Four","description":"Play Connect Four online free on PlayNova. Drop your discs, get four in a row before the computer does, and win this classic strategy game.","url":"https://sarimsakhi31-hash.github.io/PlayNova/games/connect-four.html","genre":"Strategy","applicationCategory":"GameApplication","operatingSystem":"Web Browser","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+</head>
+<body>
+<header class="site-header">
+<a class="logo" href="../index.html">🎮 <span>PlayNova</span></a>
+<nav>
+<a href="../index.html">Home</a>
+<a href="../games.html">Games</a>
+<a href="../categories.html">Categories</a>
+<a href="../favorites.html">♥ Favorites</a>
+</nav>
+</header>
+<main class="container">
+<a class="back" href="../games.html">← Back to Games</a>
+<h1>Connect Four</h1>
+<p class="subtitle">You are red, the computer is yellow. Four in a row wins!</p>
+<div class="stats">
+<div class="stat"><span>You Win</span><strong id="youWins">0</strong></div>
+<div class="stat"><span>Computer Wins</span><strong id="cpuWins">0</strong></div>
+<div class="stat"><span>Draws</span><strong id="draws">0</strong></div>
+</div>
+<section class="game-box" aria-label="Connect Four game">
+<div class="board-wrap">
+<div class="col-btns" id="colBtns"></div>
+<div class="board" id="board"></div>
+<div class="legend"><span><span class="dot you"></span> You</span><span><span class="dot cpu"></span> Computer</span></div>
+</div>
+<div class="game-actions">
+<button class="primary" id="startBtn">New Game</button>
+<button class="secondary" id="restartBtn">Restart Scores</button>
+</div>
+</section>
+<p id="status">Press New Game to begin.</p>
+<section class="info">
+<h2>About Connect Four</h2>
+<p>Connect Four is the classic strategy game, free on PlayNova. Take turns dropping discs into the grid and be the first to line up four of your color horizontally, vertically, or diagonally.</p>
+<h2>How to Play Connect Four</h2>
+<ul>
+<li>Click a column arrow to drop your red disc into that column.</li>
+<li>The computer answers with a yellow disc. Block its lines while building your own.</li>
+<li>Get four in a row to win. If the board fills up with no winner, the game is a draw.</li>
+</ul>
+<h2>Play Free on PlayNova</h2>
+<p>Connect Four is a free browser game on PlayNova. Play directly in your browser without downloading a separate game application.</p>
+</section>
+</main>
+<footer>
+<p>© 2026 PlayNova • Play. Explore. Enjoy.</p>
+<p><a href="../index.html">Home</a> | <a href="../games.html">Games</a> | <a href="../categories.html">Categories</a> | <a href="../favorites.html">Favorites</a></p>
+</footer>
+<script>
+(function () {
+  const ROWS = 6, COLS = 7;
+  const boardEl = document.getElementById("board");
+  const colBtnsEl = document.getElementById("colBtns");
+  const statusEl = document.getElementById("status");
+  const youWinsEl = document.getElementById("youWins");
+  const cpuWinsEl = document.getElementById("cpuWins");
+  const drawsEl = document.getElementById("draws");
+  const YOU = 1, CPU = 2;
+  let board, playing, busy;
+  let youWins = Number(localStorage.getItem("playnovaC4_you") || 0);
+  let cpuWins = Number(localStorage.getItem("playnovaC4_cpu") || 0);
+  let draws = Number(localStorage.getItem("playnovaC4_draws") || 0);
+
+  function updateScores() {
+    youWinsEl.textContent = youWins;
+    cpuWinsEl.textContent = cpuWins;
+    drawsEl.textContent = draws;
+    localStorage.setItem("playnovaC4_you", youWins);
+    localStorage.setItem("playnovaC4_cpu", cpuWins);
+    localStorage.setItem("playnovaC4_draws", draws);
+  }
+
+  function emptyBoard() {
+    return Array.from({ length: ROWS }, () => Array(COLS).fill(0));
+  }
+
+  function render(winCells) {
+    boardEl.innerHTML = "";
+    const winSet = new Set((winCells || []).map(c => c[0] + "," + c[1]));
+    for (let r = 0; r < ROWS; r++) {
+      for (let c = 0; c < COLS; c++) {
+        const d = document.createElement("div");
+        d.className = "cell" + (board[r][c] === YOU ? " you" : board[r][c] === CPU ? " cpu" : "") + (winSet.has(r + "," + c) ? " win" : "");
+        boardEl.appendChild(d);
+      }
+    }
+    colBtnsEl.innerHTML = "";
+    for (let c = 0; c < COLS; c++) {
+      const b = document.createElement("button");
+      b.textContent = "▼";
+      b.disabled = !playing || busy || board[0][c] !== 0;
+      b.onclick = () => playColumn(c);
+      colBtnsEl.appendChild(b);
+    }
+  }
+
+  function dropOn(bd, col, player) {
+    for (let r = ROWS - 1; r >= 0; r--) {
+      if (bd[r][col] === 0) { bd[r][col] = player; return r; }
+    }
+    return -1;
+  }
+
+  function findWin(bd, player) {
+    const dirs = [[0, 1], [1, 0], [1, 1], [1, -1]];
+    for (let r = 0; r < ROWS; r++) {
+      for (let c = 0; c < COLS; c++) {
+        if (bd[r][c] !== player) continue;
+        for (const [dr, dc] of dirs) {
+          const cells = [[r, c]];
+          for (let k = 1; k < 4; k++) {
+            const nr = r + dr * k, nc = c + dc * k;
+            if (nr < 0 || nr >= ROWS || nc < 0 || nc >= COLS || bd[nr][nc] !== player) break;
+            cells.push([nr, nc]);
+          }
+          if (cells.length === 4) return cells;
+        }
+      }
+    }
+    return null;
+  }
+
+  function isFull(bd) {
+    return bd[0].every(v => v !== 0);
+  }
+
+  function endGame(message, winCells) {
+    playing = false; busy = false;
+    statusEl.textContent = message;
+    render(winCells);
+  }
+
+  function cpuMove() {
+    busy = true; render();
+    statusEl.textContent = "Computer is thinking…";
+    setTimeout(() => {
+      const order = [3, 2, 4, 1, 5, 0, 6];
+      let pick = -1;
+      for (const c of order) {
+        if (board[0][c] !== 0) continue;
+        const test = board.map(r => r.slice());
+        if (dropOn(test, c, CPU) !== -1 && findWin(test, CPU)) { pick = c; break; }
+      }
+      if (pick === -1) {
+        for (const c of order) {
+          if (board[0][c] !== 0) continue;
+          const test = board.map(r => r.slice());
+          if (dropOn(test, c, YOU) !== -1 && findWin(test, YOU)) { pick = c; break; }
+        }
+      }
+      if (pick === -1) {
+        const open = order.filter(c => board[0][c] === 0);
+        pick = open[Math.floor(Math.random() * open.length)];
+      }
+      dropOn(board, pick, CPU);
+      const win = findWin(board, CPU);
+      if (win) { cpuWins++; updateScores(); endGame("Computer wins! Press New Game to try again.", win); return; }
+      if (isFull(board)) { draws++; updateScores(); endGame("Draw! The board is full. Press New Game.", null); return; }
+      busy = false;
+      statusEl.textContent = "Your turn — click a column.";
+      render();
+    }, 450);
+  }
+
+  function playColumn(col) {
+    if (!playing || busy || board[0][col] !== 0) return;
+    dropOn(board, col, YOU);
+    const win = findWin(board, YOU);
+    if (win) { youWins++; updateScores(); endGame("You win! Four in a row! Press New Game.", win); return; }
+    if (isFull(board)) { draws++; updateScores(); endGame("Draw! The board is full. Press New Game.", null); return; }
+    cpuMove();
+  }
+
+  function newGame() {
+    board = emptyBoard(); playing = true; busy = false;
+    statusEl.textContent = "Your turn — click a column.";
+    render();
+  }
+
+  document.getElementById("startBtn").onclick = newGame;
+  document.getElementById("restartBtn").onclick = () => {
+    youWins = 0; cpuWins = 0; draws = 0; updateScores();
+    board = emptyBoard(); playing = false; busy = false;
+    statusEl.textContent = "Scores reset. Press New Game to begin.";
+    render();
+  };
+
+  board = emptyBoard(); playing = false; busy = false;
+  updateScores(); render();
+
+  // When this page is shown inside the PlayNova game player, its own
+  // site header, footer and back link would duplicate the player's chrome.
+  if (window.self !== window.top) {
+    document.querySelector(".site-header")?.remove();
+    document.querySelector("footer")?.remove();
+    document.querySelector(".back")?.remove();
+  }
+})();
+</script>
+</body>
+</html>
