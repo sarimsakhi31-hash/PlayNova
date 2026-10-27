@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snake - Play Classic Snake Game Online Free | PlayNova</title>
+<meta name="description" content="Play Snake online free on PlayNova. Guide the snake, eat the food, grow longer, and avoid the walls and your own tail in this classic arcade game. No downloads required.">
+<meta name="keywords" content="snake game, play snake online, free snake game, classic arcade game, browser snake game, PlayNova">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sarimsakhi31-hash.github.io/PlayNova/games/snake.html">
+<meta property="og:title" content="Snake - Play Classic Snake Game Online Free | PlayNova">
+<meta property="og:description" content="Guide the snake, eat the food, grow longer, and avoid the walls and your own tail. Play Snake free on PlayNova.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sarimsakhi31-hash.github.io/PlayNova/games/snake.html">
+<link rel="icon" href="../images/icon.svg" type="image/svg+xml">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#09090d;color:#fff;font-family:Arial,Helvetica,sans-serif;line-height:1.5}
+a{color:inherit}
+.site-header{display:flex;align-items:center;gap:28px;padding:16px 6%;background:rgba(15,15,20,.96);border-bottom:1px solid rgba(255,255,255,.06);position:sticky;top:0;z-index:1000}
+.logo{text-decoration:none;font-size:26px;font-weight:900;white-space:nowrap}
+.logo span{background:linear-gradient(90deg,#c77dff,#3a86ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.site-header nav{display:flex;gap:20px;flex:1}
+.site-header nav a{text-decoration:none;color:#c8c8d0;font-size:14px}
+.site-header nav a:hover{color:#fff}
+.container{max-width:900px;margin:auto;padding:35px 6%}
+.back{display:inline-block;color:#b77aff;text-decoration:none;margin-bottom:14px}
+h1{font-size:38px;margin:5px 0 8px}
+.subtitle{color:#9a9aa6;margin-bottom:20px}
+.stats{display:flex;gap:14px;margin-bottom:18px}
+.stat{background:#15151b;border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:10px 18px;text-align:center}
+.stat span{display:block;font-size:11px;color:#8f8f9c;text-transform:uppercase}
+.stat strong{font-size:22px}
+.game-box{background:#050507;border:1px solid rgba(157,78,221,.35);border-radius:17px;padding:18px;box-shadow:0 20px 60px rgba(0,0,0,.4);text-align:center}
+canvas{background:#0d1117;border-radius:10px;max-width:100%;height:auto;display:block;margin:auto}
+.game-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+button.primary,button.secondary{border:0;border-radius:10px;padding:11px 20px;font-weight:800;cursor:pointer}
+button.primary{background:linear-gradient(135deg,#9d4edd,#3a86ff);color:#fff}
+button.secondary{background:rgba(255,255,255,.07);color:#fff;border:1px solid rgba(255,255,255,.1)}
+#status{color:#b4b4bf;margin:14px 0;text-align:center;min-height:22px}
+.controls{display:flex;flex-direction:column;align-items:center;gap:6px;margin:10px 0 4px}
+.controls .row{display:flex;gap:6px}
+.controls button{width:52px;height:52px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:#17171d;color:#fff;font-size:20px;cursor:pointer}
+.info{background:#15151b;border-radius:15px;padding:24px;margin-top:24px}
+.info h2{margin:15px 0 5px}
+.info h2:first-child{margin-top:0}
+.info p,.info li{color:#999}
+.info ul{padding-left:20px}
+footer{text-align:center;padding:30px 20px;background:#111116;color:#777;font-size:13px}
+footer a{text-decoration:none}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoGame","name":"Snake","description":"Play Snake online free on PlayNova. Guide the snake, eat the food, grow longer, and avoid the walls and your own tail in this classic arcade game.","url":"https://sarimsakhi31-hash.github.io/PlayNova/games/snake.html","genre":"Arcade","applicationCategory":"GameApplication","operatingSystem":"Web Browser","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+</head>
+<body>
+<header class="site-header">
+<a class="logo" href="../index.html">🎮 <span>PlayNova</span></a>
+<nav>
+<a href="../index.html">Home</a>
+<a href="../games.html">Games</a>
+<a href="../categories.html">Categories</a>
+<a href="../favorites.html">♥ Favorites</a>
+</nav>
+</header>
+<main class="container">
+<a class="back" href="../games.html">← Back to Games</a>
+<h1>Snake</h1>
+<p class="subtitle">Eat, grow, and survive. Do not hit the walls or your own tail!</p>
+<div class="stats">
+<div class="stat"><span>Score</span><strong id="score">0</strong></div>
+<div class="stat"><span>Best Score</span><strong id="best">0</strong></div>
+<div class="stat"><span>Length</span><strong id="length">3</strong></div>
+</div>
+<section class="game-box" aria-label="Snake game">
+<canvas id="game" width="480" height="480" aria-label="Snake game arena"></canvas>
+<div class="game-actions">
+<button class="primary" id="startBtn">Start Game</button>
+<button class="secondary" id="pauseBtn">Pause</button>
+<button class="secondary" id="restartBtn">Restart</button>
+</div>
+</section>
+<p id="status">Press Start Game to begin.</p>
+<div class="controls" aria-label="On-screen controls">
+<div class="row"><button data-move="up">↑</button></div>
+<div class="row"><button data-move="left">←</button><button data-move="down">↓</button><button data-move="right">→</button></div>
+</div>
+<section class="info">
+<h2>About Snake</h2>
+<p>Snake is the classic arcade game, free on PlayNova. Guide your snake around the arena, eat the red food to grow longer, and earn points with every bite. The longer you get, the harder it becomes to avoid your own tail.</p>
+<h2>How to Play Snake</h2>
+<ul>
+<li>Move using the arrow keys, WASD, or the on-screen pad.</li>
+<li>Eat the red food to grow and score 10 points.</li>
+<li>Do not hit the walls or your own tail.</li>
+<li>The snake speeds up as you eat more food.</li>
+</ul>
+<h2>Play Free on PlayNova</h2>
+<p>Snake is a free browser game on PlayNova. Play directly in your browser without downloading a separate game application.</p>
+</section>
+</main>
+<footer>
+<p>© 2026 PlayNova • Play. Explore. Enjoy.</p>
+<p><a href="../index.html">Home</a> | <a href="../games.html">Games</a> | <a href="../categories.html">Categories</a> | <a href="../favorites.html">Favorites</a></p>
+</footer>
+<script>
+(function () {
+  const canvas = document.getElementById("game");
+  const ctx = canvas.getContext("2d");
+  const CELL = 24, COLS = 20, ROWS = 20;
+  const scoreEl = document.getElementById("score");
+  const bestEl = document.getElementById("best");
+  const lengthEl = document.getElementById("length");
+  const statusEl = document.getElementById("status");
+  let snake, dir, nextDir, food, score, best, timer, running, paused, speed;
+
+  best = Number(localStorage.getItem("playnovaBest_snake") || 0);
+  bestEl.textContent = best;
+
+  function reset() {
+    snake = [{ x: 10, y: 10 }, { x: 9, y: 10 }, { x: 8, y: 10 }];
+    dir = { x: 1, y: 0 }; nextDir = dir;
+    score = 0; speed = 130; running = false; paused = false;
+    placeFood(); updateHud(); draw();
+    statusEl.textContent = "Press Start Game to begin.";
+  }
+
+  function placeFood() {
+    do {
+      food = { x: Math.floor(Math.random() * COLS), y: Math.floor(Math.random() * ROWS) };
+    } while (snake.some(s => s.x === food.x && s.y === food.y));
+  }
+
+  function updateHud() {
+    scoreEl.textContent = score;
+    lengthEl.textContent = snake.length;
+    if (score > best) { best = score; bestEl.textContent = best; localStorage.setItem("playnovaBest_snake", best); }
+  }
+
+  function draw() {
+    ctx.fillStyle = "#0d1117"; ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = "rgba(255,255,255,0.05)";
+    for (let i = 1; i < COLS; i++) { ctx.beginPath(); ctx.moveTo(i * CELL, 0); ctx.lineTo(i * CELL, canvas.height); ctx.stroke(); }
+    for (let j = 1; j < ROWS; j++) { ctx.beginPath(); ctx.moveTo(0, j * CELL); ctx.lineTo(canvas.width, j * CELL); ctx.stroke(); }
+    ctx.fillStyle = "#ff4d5e";
+    ctx.beginPath(); ctx.arc(food.x * CELL + CELL / 2, food.y * CELL + CELL / 2, CELL / 2 - 3, 0, Math.PI * 2); ctx.fill();
+    snake.forEach((s, i) => {
+      ctx.fillStyle = i === 0 ? "#c77dff" : "#4ade80";
+      ctx.beginPath(); ctx.roundRect(s.x * CELL + 1, s.y * CELL + 1, CELL - 2, CELL - 2, 6); ctx.fill();
+    });
+  }
+
+  function step() {
+    if (!running || paused) return;
+    dir = nextDir;
+    const head = { x: snake[0].x + dir.x, y: snake[0].y + dir.y };
+    if (head.x < 0 || head.y < 0 || head.x >= COLS || head.y >= ROWS || snake.some(s => s.x === head.x && s.y === head.y)) {
+      running = false; clearInterval(timer);
+      statusEl.textContent = "Game over! Press Restart to play again.";
+      return;
+    }
+    snake.unshift(head);
+    if (head.x === food.x && head.y === food.y) {
+      score += 10; speed = Math.max(70, 130 - Math.floor(score / 50) * 10);
+      clearInterval(timer); timer = setInterval(step, speed);
+      placeFood();
+    } else { snake.pop(); }
+    updateHud(); draw();
+  }
+
+  function setDir(x, y) {
+    if (dir.x === -x && dir.y === -y) return;
+    if (dir.x === x && dir.y === y) return;
+    nextDir = { x, y };
+  }
+
+  document.getElementById("startBtn").onclick = () => {
+    if (running && !paused) return;
+    if (!running) { reset(); }
+    running = true; paused = false;
+    clearInterval(timer); timer = setInterval(step, speed);
+    statusEl.textContent = "Good luck! Eat the food and grow.";
+  };
+  document.getElementById("pauseBtn").onclick = () => {
+    if (!running) return;
+    paused = !paused;
+    document.getElementById("pauseBtn").textContent = paused ? "Resume" : "Pause";
+    statusEl.textContent = paused ? "Paused." : "Back in the game!";
+  };
+  document.getElementById("restartBtn").onclick = () => { clearInterval(timer); reset(); document.getElementById("pauseBtn").textContent = "Pause"; };
+
+  const keys = { ArrowUp: [0, -1], KeyW: [0, -1], ArrowDown: [0, 1], KeyS: [0, 1], ArrowLeft: [-1, 0], KeyA: [-1, 0], ArrowRight: [1, 0], KeyD: [1, 0] };
+  document.addEventListener("keydown", e => {
+    if (keys[e.code]) { e.preventDefault(); setDir(keys[e.code][0], keys[e.code][1]); }
+  });
+  document.querySelectorAll("[data-move]").forEach(b => {
+    b.onclick = () => {
+      const m = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] }[b.dataset.move];
+      setDir(m[0], m[1]);
+    };
+  });
+
+  reset();
+
+  // When this page is shown inside the PlayNova game player, its own
+  // site header, footer and back link would duplicate the player's chrome.
+  if (window.self !== window.top) {
+    document.querySelector(".site-header")?.remove();
+    document.querySelector("footer")?.remove();
+    document.querySelector(".back")?.remove();
+  }
+})();
+</script>
+</body>
+</html>

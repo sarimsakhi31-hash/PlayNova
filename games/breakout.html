@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Breakout - Play Classic Brick Breaker Game Online Free | PlayNova</title>
+<meta name="description" content="Play Breakout online free on PlayNova. Bounce the ball with your paddle, smash all the bricks, and clear every level in this addictive arcade classic.">
+<meta name="keywords" content="breakout game, brick breaker game, play breakout online, free arcade game, paddle game, PlayNova">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sarimsakhi31-hash.github.io/PlayNova/games/breakout.html">
+<meta property="og:title" content="Breakout - Play Classic Brick Breaker Game Online Free | PlayNova">
+<meta property="og:description" content="Bounce the ball, smash all the bricks, and clear every level. Play Breakout free on PlayNova.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sarimsakhi31-hash.github.io/PlayNova/games/breakout.html">
+<link rel="icon" href="../images/icon.svg" type="image/svg+xml">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#09090d;color:#fff;font-family:Arial,Helvetica,sans-serif;line-height:1.5}
+a{color:inherit}
+.site-header{display:flex;align-items:center;gap:28px;padding:16px 6%;background:rgba(15,15,20,.96);border-bottom:1px solid rgba(255,255,255,.06);position:sticky;top:0;z-index:1000}
+.logo{text-decoration:none;font-size:26px;font-weight:900;white-space:nowrap}
+.logo span{background:linear-gradient(90deg,#c77dff,#3a86ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.site-header nav{display:flex;gap:20px;flex:1}
+.site-header nav a{text-decoration:none;color:#c8c8d0;font-size:14px}
+.site-header nav a:hover{color:#fff}
+.container{max-width:900px;margin:auto;padding:35px 6%}
+.back{display:inline-block;color:#b77aff;text-decoration:none;margin-bottom:14px}
+h1{font-size:38px;margin:5px 0 8px}
+.subtitle{color:#9a9aa6;margin-bottom:20px}
+.stats{display:flex;gap:14px;margin-bottom:18px}
+.stat{background:#15151b;border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:10px 18px;text-align:center}
+.stat span{display:block;font-size:11px;color:#8f8f9c;text-transform:uppercase}
+.stat strong{font-size:22px}
+.game-box{background:#050507;border:1px solid rgba(157,78,221,.35);border-radius:17px;padding:18px;box-shadow:0 20px 60px rgba(0,0,0,.4);text-align:center}
+canvas{background:#0d1117;border-radius:10px;max-width:100%;height:auto;display:block;margin:auto}
+.game-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+button.primary,button.secondary{border:0;border-radius:10px;padding:11px 20px;font-weight:800;cursor:pointer}
+button.primary{background:linear-gradient(135deg,#9d4edd,#3a86ff);color:#fff}
+button.secondary{background:rgba(255,255,255,.07);color:#fff;border:1px solid rgba(255,255,255,.1)}
+#status{color:#b4b4bf;margin:14px 0;text-align:center;min-height:22px}
+.info{background:#15151b;border-radius:15px;padding:24px;margin-top:24px}
+.info h2{margin:15px 0 5px}
+.info h2:first-child{margin-top:0}
+.info p,.info li{color:#999}
+.info ul{padding-left:20px}
+footer{text-align:center;padding:30px 20px;background:#111116;color:#777;font-size:13px}
+footer a{text-decoration:none}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoGame","name":"Breakout","description":"Play Breakout online free on PlayNova. Bounce the ball with your paddle, smash all the bricks, and clear every level in this addictive arcade classic.","url":"https://sarimsakhi31-hash.github.io/PlayNova/games/breakout.html","genre":"Arcade","applicationCategory":"GameApplication","operatingSystem":"Web Browser","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+</head>
+<body>
+<header class="site-header">
+<a class="logo" href="../index.html">🎮 <span>PlayNova</span></a>
+<nav>
+<a href="../index.html">Home</a>
+<a href="../games.html">Games</a>
+<a href="../categories.html">Categories</a>
+<a href="../favorites.html">♥ Favorites</a>
+</nav>
+</header>
+<main class="container">
+<a class="back" href="../games.html">← Back to Games</a>
+<h1>Breakout</h1>
+<p class="subtitle">Bounce the ball, smash every brick, and do not let it past your paddle!</p>
+<div class="stats">
+<div class="stat"><span>Score</span><strong id="score">0</strong></div>
+<div class="stat"><span>Lives</span><strong id="lives">3</strong></div>
+<div class="stat"><span>Level</span><strong id="level">1</strong></div>
+<div class="stat"><span>Best Score</span><strong id="best">0</strong></div>
+</div>
+<section class="game-box" aria-label="Breakout game">
+<canvas id="game" width="480" height="400" aria-label="Breakout game arena"></canvas>
+<div class="game-actions">
+<button class="primary" id="startBtn">Start Game</button>
+<button class="secondary" id="pauseBtn">Pause</button>
+<button class="secondary" id="restartBtn">Restart</button>
+</div>
+</section>
+<p id="status">Press Start Game to begin. Move with mouse, arrow keys, or A/D.</p>
+<section class="info">
+<h2>About Breakout</h2>
+<p>Breakout is the classic brick breaker arcade game, free on PlayNova. Slide your paddle, keep the ball in play, and smash through rows of colorful bricks. Clear the whole wall to reach the next, faster level.</p>
+<h2>How to Play Breakout</h2>
+<ul>
+<li>Move the paddle with your mouse, arrow keys, or A/D keys.</li>
+<li>Bounce the ball to break bricks and score points.</li>
+<li>Do not let the ball fall past your paddle, or you lose a life.</li>
+<li>Clear all bricks to advance to a faster level.</li>
+</ul>
+<h2>Play Free on PlayNova</h2>
+<p>Breakout is a free browser game on PlayNova. Play directly in your browser without downloading a separate game application.</p>
+</section>
+</main>
+<footer>
+<p>© 2026 PlayNova • Play. Explore. Enjoy.</p>
+<p><a href="../index.html">Home</a> | <a href="../games.html">Games</a> | <a href="../categories.html">Categories</a> | <a href="../favorites.html">Favorites</a></p>
+</footer>
+<script>
+(function () {
+  const canvas = document.getElementById("game");
+  const ctx = canvas.getContext("2d");
+  const W = canvas.width, H = canvas.height;
+  const scoreEl = document.getElementById("score");
+  const livesEl = document.getElementById("lives");
+  const levelEl = document.getElementById("level");
+  const bestEl = document.getElementById("best");
+  const statusEl = document.getElementById("status");
+  const COLORS = ["#ff4d5e", "#ff9f1c", "#4ade80", "#3a86ff", "#c77dff"];
+  let paddle, ball, bricks, score, lives, level, best, raf, running, paused, left, right;
+
+  best = Number(localStorage.getItem("playnovaBest_breakout") || 0);
+  bestEl.textContent = best;
+
+  function buildBricks() {
+    bricks = [];
+    const rows = 5, cols = 8, bw = 52, bh = 18, gap = 6, x0 = 8, y0 = 14;
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        bricks.push({ x: x0 + c * (bw + gap), y: y0 + r * (bh + gap), w: bw, h: bh, color: COLORS[r], alive: true });
+      }
+    }
+  }
+
+  function resetBall() {
+    ball = { x: W / 2, y: H - 50, dx: 2.6 + level * 0.3, dy: -(2.6 + level * 0.3), r: 8 };
+  }
+
+  function reset(full) {
+    paddle = { x: W / 2 - 45, y: H - 24, w: 90, h: 12, speed: 6 };
+    if (full) { score = 0; lives = 3; level = 1; }
+    buildBricks(); resetBall();
+    running = false; paused = false;
+    document.getElementById("pauseBtn").textContent = "Pause";
+    updateHud(); draw();
+  }
+
+  function updateHud() {
+    scoreEl.textContent = score;
+    livesEl.textContent = lives;
+    levelEl.textContent = level;
+    if (score > best) { best = score; bestEl.textContent = best; localStorage.setItem("playnovaBest_breakout", best); }
+  }
+
+  function draw() {
+    ctx.fillStyle = "#0d1117"; ctx.fillRect(0, 0, W, H);
+    bricks.forEach(b => {
+      if (!b.alive) return;
+      ctx.fillStyle = b.color;
+      ctx.beginPath(); ctx.roundRect(b.x, b.y, b.w, b.h, 4); ctx.fill();
+    });
+    ctx.fillStyle = "#c77dff";
+    ctx.beginPath(); ctx.roundRect(paddle.x, paddle.y, paddle.w, paddle.h, 6); ctx.fill();
+    ctx.fillStyle = "#fff";
+    ctx.beginPath(); ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI * 2); ctx.fill();
+  }
+
+  function loop() {
+    if (!running || paused) return;
+    if (left) paddle.x = Math.max(0, paddle.x - paddle.speed);
+    if (right) paddle.x = Math.min(W - paddle.w, paddle.x + paddle.speed);
+    ball.x += ball.dx; ball.y += ball.dy;
+    if (ball.x - ball.r < 0 || ball.x + ball.r > W) ball.dx = -ball.dx;
+    if (ball.y - ball.r < 0) ball.dy = -ball.dy;
+    if (ball.y + ball.r >= paddle.y && ball.y + ball.r <= paddle.y + paddle.h + 8 &&
+        ball.x >= paddle.x - 4 && ball.x <= paddle.x + paddle.w + 4 && ball.dy > 0) {
+      const hit = (ball.x - (paddle.x + paddle.w / 2)) / (paddle.w / 2);
+      const speed = Math.hypot(ball.dx, ball.dy);
+      const angle = hit * 1.1;
+      ball.dx = speed * Math.sin(angle);
+      ball.dy = -Math.abs(speed * Math.cos(angle));
+    }
+    bricks.forEach(b => {
+      if (!b.alive) return;
+      if (ball.x + ball.r > b.x && ball.x - ball.r < b.x + b.w &&
+          ball.y + ball.r > b.y && ball.y - ball.r < b.y + b.h) {
+        b.alive = false; score += 10; ball.dy = -ball.dy; updateHud();
+      }
+    });
+    if (bricks.every(b => !b.alive)) {
+      level++; levelEl.textContent = level;
+      statusEl.textContent = "Level " + level + "! Faster ball.";
+      buildBricks(); resetBall();
+    }
+    if (ball.y - ball.r > H) {
+      lives--; updateHud();
+      if (lives <= 0) {
+        running = false;
+        statusEl.textContent = "Game over! Press Restart to play again.";
+        draw(); return;
+      }
+      resetBall();
+      statusEl.textContent = "Life lost. Ball reset.";
+    }
+    draw();
+    raf = requestAnimationFrame(loop);
+  }
+
+  document.getElementById("startBtn").onclick = () => {
+    if (running && !paused) return;
+    if (!running) reset(lives <= 0);
+    running = true; paused = false;
+    cancelAnimationFrame(raf); raf = requestAnimationFrame(loop);
+    statusEl.textContent = "Good luck!";
+  };
+  document.getElementById("pauseBtn").onclick = () => {
+    if (!running) return;
+    paused = !paused;
+    document.getElementById("pauseBtn").textContent = paused ? "Resume" : "Pause";
+    if (!paused) { cancelAnimationFrame(raf); raf = requestAnimationFrame(loop); }
+    statusEl.textContent = paused ? "Paused." : "Back in the game!";
+  };
+  document.getElementById("restartBtn").onclick = () => { cancelAnimationFrame(raf); reset(true); statusEl.textContent = "Press Start Game to begin."; };
+
+  canvas.addEventListener("mousemove", e => {
+    const rect = canvas.getBoundingClientRect();
+    const scale = W / rect.width;
+    paddle.x = Math.max(0, Math.min(W - paddle.w, (e.clientX - rect.left) * scale - paddle.w / 2));
+    if (!running) draw();
+  });
+  document.addEventListener("keydown", e => {
+    if (e.code === "ArrowLeft" || e.code === "KeyA") left = true;
+    if (e.code === "ArrowRight" || e.code === "KeyD") right = true;
+  });
+  document.addEventListener("keyup", e => {
+    if (e.code === "ArrowLeft" || e.code === "KeyA") left = false;
+    if (e.code === "ArrowRight" || e.code === "KeyD") right = false;
+  });
+
+  reset(true);
+  statusEl.textContent = "Press Start Game to begin. Move with mouse, arrow keys, or A/D.";
+
+  // When this page is shown inside the PlayNova game player, its own
+  // site header, footer and back link would duplicate the player's chrome.
+  if (window.self !== window.top) {
+    document.querySelector(".site-header")?.remove();
+    document.querySelector("footer")?.remove();
+    document.querySelector(".back")?.remove();
+  }
+})();
+</script>
+</body>
+</html>

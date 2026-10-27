@@ -3,11 +3,11 @@ let games = [], category = "All";
 const $ = id => document.getElementById(id);
 
 const esc = s => String(s).replace(/[&<>"']/g, m => ({
-"&": "&",
-"<": "<",
-">": ">",
-'"': """,
-"'": "'"
+"&": "&amp;",
+"<": "&lt;",
+">": "&gt;",
+'"': "&quot;",
+"'": "&#039;"
 }[m]));
 
 const card = g => {
@@ -45,7 +45,7 @@ if (!container) return;
 
 container.innerHTML = list.length
 ? list.map(card).join("")
-: "<div class="no-results"> <div>😔</div> <h2>No Games Found</h2> <p>Try another search.</p> </div>";
+: '<div class="no-results"> <div>😔</div> <h2>No Games Found</h2> <p>Try another search.</p> </div>';
 }
 
 function cats() {
@@ -57,7 +57,7 @@ const set = [...new Set(games.map(g => g.category))];
 filter.insertAdjacentHTML(
 "beforeend",
 set.map(c =>
-"<button class="filter-btn" data-cat="${esc(c)}">${esc(c)}</button>"
+`<button class="filter-btn" data-cat="${esc(c)}">${esc(c)}</button>`
 ).join("")
 );
 
