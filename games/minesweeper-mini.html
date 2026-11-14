@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minesweeper Mini - Play Minesweeper Online Free | PlayNova</title>
+<meta name="description" content="Play Minesweeper Mini online free on PlayNova. Clear the 8x8 minefield, flag the 10 hidden mines, and beat your best time in this classic puzzle game. No downloads required.">
+<meta name="keywords" content="minesweeper game, play minesweeper online, free puzzle game, minefield game, PlayNova">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sarimsakhi31-hash.github.io/PlayNova/games/minesweeper-mini.html">
+<meta property="og:title" content="Minesweeper Mini - Play Minesweeper Online Free | PlayNova">
+<meta property="og:description" content="Clear the minefield and flag all 10 mines in Minesweeper Mini. Play free on PlayNova.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sarimsakhi31-hash.github.io/PlayNova/games/minesweeper-mini.html">
+<link rel="icon" href="../images/icon.svg" type="image/svg+xml">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#09090d;color:#fff;font-family:Arial,Helvetica,sans-serif;line-height:1.5}
+a{color:inherit}
+.site-header{display:flex;align-items:center;gap:28px;padding:16px 6%;background:rgba(15,15,20,.96);border-bottom:1px solid rgba(255,255,255,.06);position:sticky;top:0;z-index:1000}
+.logo{text-decoration:none;font-size:26px;font-weight:900;white-space:nowrap}
+.logo span{background:linear-gradient(90deg,#c77dff,#3a86ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.site-header nav{display:flex;gap:20px;flex:1}
+.site-header nav a{text-decoration:none;color:#c8c8d0;font-size:14px}
+.site-header nav a:hover{color:#fff}
+.container{max-width:900px;margin:auto;padding:35px 6%}
+.back{display:inline-block;color:#b77aff;text-decoration:none;margin-bottom:14px}
+h1{font-size:38px;margin:5px 0 8px}
+.subtitle{color:#9a9aa6;margin-bottom:20px}
+.stats{display:flex;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+.stat{background:#15151b;border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:10px 18px;text-align:center}
+.stat span{display:block;font-size:11px;color:#8f8f9c;text-transform:uppercase}
+.stat strong{font-size:22px}
+.game-box{background:#050507;border:1px solid rgba(157,78,221,.35);border-radius:17px;padding:18px;box-shadow:0 20px 60px rgba(0,0,0,.4);text-align:center}
+.game-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+button.primary,button.secondary{border:0;border-radius:10px;padding:11px 20px;font-weight:800;cursor:pointer}
+button.primary{background:linear-gradient(135deg,#9d4edd,#3a86ff);color:#fff}
+button.secondary{background:rgba(255,255,255,.07);color:#fff;border:1px solid rgba(255,255,255,.1)}
+button.secondary.active{background:#9d4edd;color:#fff}
+#status{color:#b4b4bf;margin:14px 0;text-align:center;min-height:22px}
+#grid{display:grid;grid-template-columns:repeat(8,42px);gap:3px;justify-content:center;margin:10px auto}
+.cell{width:42px;height:42px;border:0;border-radius:6px;background:#23232e;color:#fff;font-weight:800;font-size:16px;cursor:pointer}
+.cell:hover{background:#2e2e3d}
+.cell.open{background:#15151b;cursor:default}
+.cell.mine{background:#ff4d5e}
+.info{background:#15151b;border-radius:15px;padding:24px;margin-top:24px}
+.info h2{margin:15px 0 5px}
+.info h2:first-child{margin-top:0}
+.info p,.info li{color:#999}
+.info ul{padding-left:20px}
+footer{text-align:center;padding:30px 20px;background:#111116;color:#777;font-size:13px}
+footer a{text-decoration:none}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoGame","name":"Minesweeper Mini","description":"Play Minesweeper Mini online free on PlayNova. Clear the 8x8 minefield, flag the 10 hidden mines, and beat your best time in this classic puzzle game.","url":"https://sarimsakhi31-hash.github.io/PlayNova/games/minesweeper-mini.html","genre":"Puzzle","applicationCategory":"GameApplication","operatingSystem":"Web Browser","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+</head>
+<body>
+<header class="site-header">
+<a class="logo" href="../index.html">🎮 <span>PlayNova</span></a>
+<nav>
+<a href="../index.html">Home</a>
+<a href="../games.html">Games</a>
+<a href="../categories.html">Categories</a>
+<a href="../favorites.html">♥ Favorites</a>
+</nav>
+</header>
+<main class="container">
+<a class="back" href="../games.html">← Back to Games</a>
+<h1>Minesweeper Mini</h1>
+<p class="subtitle">An 8x8 minefield with 10 hidden mines. Reveal every safe cell without blowing up!</p>
+<div class="stats">
+<div class="stat"><span>Mines Left</span><strong id="mines">10</strong></div>
+<div class="stat"><span>Time</span><strong id="time">0s</strong></div>
+<div class="stat"><span>Best Time</span><strong id="best">—</strong></div>
+</div>
+<section class="game-box" aria-label="Minesweeper Mini game">
+<div id="grid"></div>
+<div class="game-actions">
+<button class="primary" id="startBtn">New Game</button>
+<button class="secondary" id="flagBtn">🚩 Flag Mode: Off</button>
+</div>
+</section>
+<p id="status">Press New Game, then click a cell to reveal it. Right-click (or Flag Mode on touch) to flag a mine.</p>
+<section class="info">
+<h2>About Minesweeper Mini</h2>
+<p>Minesweeper Mini is the classic minefield puzzle, free on PlayNova. Numbers tell you how many mines touch that cell — use logic, not luck, to clear the board.</p>
+<h2>How to Play Minesweeper Mini</h2>
+<ul>
+<li>Click a cell to reveal it. A number shows how many mines are next to it; an empty cell opens its neighbours automatically.</li>
+<li>Right-click a cell, or turn on Flag Mode and tap it, to mark a suspected mine with a flag.</li>
+<li>Reveal all 54 safe cells to win. Clicking a mine ends the game.</li>
+</ul>
+<h2>Play Free on PlayNova</h2>
+<p>Minesweeper Mini is a free browser game on PlayNova. Play directly in your browser without downloading a separate game application.</p>
+</section>
+</main>
+<footer>
+<p>© 2026 PlayNova • Play. Explore. Enjoy.</p>
+<p><a href="../index.html">Home</a> | <a href="../games.html">Games</a> | <a href="../categories.html">Categories</a> | <a href="../favorites.html">Favorites</a></p>
+</footer>
+<script>
+(function () {
+  const SIZE = 8, MINES = 10;
+  const gridEl = document.getElementById("grid");
+  const minesEl = document.getElementById("mines");
+  const timeEl = document.getElementById("time");
+  const bestEl = document.getElementById("best");
+  const statusEl = document.getElementById("status");
+  const flagBtn = document.getElementById("flagBtn");
+  let board, playing, started, seconds, timer, flagMode, flags;
+  const bestStored = localStorage.getItem("playnovaBest_minesweeper-mini");
+  let best = bestStored ? Number(bestStored) : null;
+  bestEl.textContent = best === null ? "—" : best + "s";
+
+  function neighbours(i) {
+    const r = Math.floor(i / SIZE), c = i % SIZE, out = [];
+    for (let dr = -1; dr <= 1; dr++) for (let dc = -1; dc <= 1; dc++) {
+      if (!dr && !dc) continue;
+      const nr = r + dr, nc = c + dc;
+      if (nr >= 0 && nr < SIZE && nc >= 0 && nc < SIZE) out.push(nr * SIZE + nc);
+    }
+    return out;
+  }
+  function newGame() {
+    clearInterval(timer);
+    board = [];
+    for (let i = 0; i < SIZE * SIZE; i++) board.push({ mine: false, open: false, flag: false, n: 0 });
+    const spots = [];
+    while (spots.length < MINES) {
+      const s = Math.floor(Math.random() * SIZE * SIZE);
+      if (!spots.includes(s)) spots.push(s);
+    }
+    spots.forEach(s => { board[s].mine = true; neighbours(s).forEach(n => board[n].n++); });
+    playing = true; started = false; seconds = 0; flags = 0; flagMode = false;
+    flagBtn.textContent = "🚩 Flag Mode: Off"; flagBtn.classList.remove("active");
+    minesEl.textContent = MINES; timeEl.textContent = "0s";
+    statusEl.textContent = "Good luck! Click a cell to start.";
+    render();
+  }
+  function render() {
+    gridEl.innerHTML = "";
+    board.forEach((cell, i) => {
+      const b = document.createElement("button");
+      b.className = "cell" + (cell.open ? " open" : "") + (cell.open && cell.mine ? " mine" : "");
+      b.setAttribute("aria-label", "Cell " + (i + 1));
+      if (cell.open) {
+        b.textContent = cell.mine ? "💣" : (cell.n ? cell.n : "");
+        const colors = ["", "#3a86ff", "#4ade80", "#ff4d5e", "#b77aff", "#ff9f1c", "#4dd0e1", "#fff", "#999"];
+        if (cell.n) b.style.color = colors[cell.n];
+      } else if (cell.flag) b.textContent = "🚩";
+      b.onclick = () => clickCell(i);
+      b.oncontextmenu = e => { e.preventDefault(); toggleFlag(i); };
+      gridEl.appendChild(b);
+    });
+  }
+  function startTimer() {
+    if (started) return;
+    started = true;
+    timer = setInterval(() => { seconds++; timeEl.textContent = seconds + "s"; }, 1000);
+  }
+  function toggleFlag(i) {
+    if (!playing || board[i].open) return;
+    startTimer();
+    board[i].flag = !board[i].flag;
+    flags += board[i].flag ? 1 : -1;
+    minesEl.textContent = MINES - flags;
+    render();
+  }
+  function clickCell(i) {
+    if (!playing) return;
+    if (flagMode) { toggleFlag(i); return; }
+    const cell = board[i];
+    if (cell.open || cell.flag) return;
+    startTimer();
+    if (cell.mine) {
+      board.forEach(c => { if (c.mine) c.open = true; });
+      playing = false; clearInterval(timer);
+      statusEl.textContent = "BOOM! You hit a mine. Press New Game to try again.";
+      render(); return;
+    }
+    reveal(i);
+    if (board.filter(c => !c.mine && c.open).length === SIZE * SIZE - MINES) {
+      playing = false; clearInterval(timer);
+      statusEl.textContent = "You cleared the minefield in " + seconds + " seconds!";
+      if (best === null || seconds < best) {
+        best = seconds; localStorage.setItem("playnovaBest_minesweeper-mini", best);
+        bestEl.textContent = best + "s";
+        statusEl.textContent += " New best time!";
+      }
+    }
+    render();
+  }
+  function reveal(i) {
+    const cell = board[i];
+    if (cell.open || cell.flag) return;
+    cell.open = true;
+    if (cell.n === 0 && !cell.mine) neighbours(i).forEach(reveal);
+  }
+  document.getElementById("startBtn").onclick = newGame;
+  flagBtn.onclick = () => {
+    flagMode = !flagMode;
+    flagBtn.textContent = "🚩 Flag Mode: " + (flagMode ? "On" : "Off");
+    flagBtn.classList.toggle("active", flagMode);
+  };
+  newGame();
+  if (window.self !== window.top) {
+    document.querySelector(".site-header")?.remove();
+    document.querySelector("footer")?.remove();
+    document.querySelector(".back")?.remove();
+  }
+})();
+</script>
+</body>
+</html>
