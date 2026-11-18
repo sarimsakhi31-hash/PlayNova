@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crystal Caverns - Play Crystal Caverns Game Online Free | PlayNova</title>
+<meta name="description" content="Play Crystal Caverns online free on PlayNova. Explore the glowing cave, collect all 8 crystals, dodge the bats, and escape through the exit in this fun adventure game. No downloads required.">
+<meta name="keywords" content="crystal caverns game, cave adventure game, free adventure game, collect game, PlayNova">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sarimsakhi31-hash.github.io/PlayNova/games/crystal-caverns.html">
+<meta property="og:title" content="Crystal Caverns - Play Crystal Caverns Game Online Free | PlayNova">
+<meta property="og:description" content="Explore the glowing cave, collect all 8 crystals and escape in Crystal Caverns. Play free on PlayNova.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sarimsakhi31-hash.github.io/PlayNova/games/crystal-caverns.html">
+<link rel="icon" href="../images/icon.svg" type="image/svg+xml">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#09090d;color:#fff;font-family:Arial,Helvetica,sans-serif;line-height:1.5}
+a{color:inherit}
+.site-header{display:flex;align-items:center;gap:28px;padding:16px 6%;background:rgba(15,15,20,.96);border-bottom:1px solid rgba(255,255,255,.06);position:sticky;top:0;z-index:1000}
+.logo{text-decoration:none;font-size:26px;font-weight:900;white-space:nowrap}
+.logo span{background:linear-gradient(90deg,#c77dff,#3a86ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.site-header nav{display:flex;gap:20px;flex:1}
+.site-header nav a{text-decoration:none;color:#c8c8d0;font-size:14px}
+.site-header nav a:hover{color:#fff}
+.container{max-width:900px;margin:auto;padding:35px 6%}
+.back{display:inline-block;color:#b77aff;text-decoration:none;margin-bottom:14px}
+h1{font-size:38px;margin:5px 0 8px}
+.subtitle{color:#9a9aa6;margin-bottom:20px}
+.stats{display:flex;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+.stat{background:#15151b;border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:10px 18px;text-align:center}
+.stat span{display:block;font-size:11px;color:#8f8f9c;text-transform:uppercase}
+.stat strong{font-size:22px}
+.game-box{background:#050507;border:1px solid rgba(157,78,221,.35);border-radius:17px;padding:18px;box-shadow:0 20px 60px rgba(0,0,0,.4);text-align:center}
+.game-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+button.primary,button.secondary{border:0;border-radius:10px;padding:11px 20px;font-weight:800;cursor:pointer}
+button.primary{background:linear-gradient(135deg,#9d4edd,#3a86ff);color:#fff}
+button.secondary{background:rgba(255,255,255,.07);color:#fff;border:1px solid rgba(255,255,255,.1)}
+.pad{display:grid;grid-template-columns:repeat(3,54px);gap:6px;justify-content:center;margin-top:14px}
+.pad button{border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.07);color:#fff;border-radius:10px;padding:10px 0;font-size:18px;font-weight:800;cursor:pointer}
+#status{color:#b4b4bf;margin:14px 0;text-align:center;min-height:22px}
+canvas{background:#0d0d1a;border-radius:12px;max-width:100%;touch-action:none}
+.info{background:#15151b;border-radius:15px;padding:24px;margin-top:24px}
+.info h2{margin:15px 0 5px}
+.info h2:first-child{margin-top:0}
+.info p,.info li{color:#999}
+.info ul{padding-left:20px}
+footer{text-align:center;padding:30px 20px;background:#111116;color:#777;font-size:13px}
+footer a{text-decoration:none}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoGame","name":"Crystal Caverns","description":"Play Crystal Caverns online free on PlayNova. Explore the glowing cave, collect all 8 crystals, dodge the bats, and escape through the exit in this fun adventure game.","url":"https://sarimsakhi31-hash.github.io/PlayNova/games/crystal-caverns.html","genre":"Adventure","applicationCategory":"GameApplication","operatingSystem":"Web Browser","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+</head>
+<body>
+<header class="site-header">
+<a class="logo" href="../index.html">🎮 <span>PlayNova</span></a>
+<nav>
+<a href="../index.html">Home</a>
+<a href="../games.html">Games</a>
+<a href="../categories.html">Categories</a>
+<a href="../favorites.html">♥ Favorites</a>
+</nav>
+</header>
+<main class="container">
+<a class="back" href="../games.html">← Back to Games</a>
+<h1>Crystal Caverns</h1>
+<p class="subtitle">Explore the glowing cave, collect all 8 crystals, dodge the bats, and escape through the exit!</p>
+<div class="stats">
+<div class="stat"><span>Crystals</span><strong id="crystals">0 / 8</strong></div>
+<div class="stat"><span>Time</span><strong id="time">0s</strong></div>
+<div class="stat"><span>Lives</span><strong id="lives">3</strong></div>
+<div class="stat"><span>Best Score</span><strong id="best">0</strong></div>
+</div>
+<section class="game-box" aria-label="Crystal Caverns game">
+<canvas id="board" width="360" height="360"></canvas>
+<div class="pad">
+<span></span><button data-dir="up" aria-label="Move up">▲</button><span></span>
+<button data-dir="left" aria-label="Move left">◀</button><button data-dir="down" aria-label="Move down">▼</button><button data-dir="right" aria-label="Move right">▶</button>
+</div>
+<div class="game-actions">
+<button class="primary" id="startBtn">Start Game</button>
+<button class="secondary" id="restartBtn">Restart</button>
+</div>
+</section>
+<p id="status">Press Start Game, then move with the arrow keys, WASD, or the on-screen pad.</p>
+<section class="info">
+<h2>About Crystal Caverns</h2>
+<p>Crystal Caverns is a cave-exploration adventure game, free on PlayNova. Deep underground, eight glowing crystals wait to be found — but bats patrol the tunnels, and only a careful explorer makes it out.</p>
+<h2>How to Play Crystal Caverns</h2>
+<ul>
+<li>Move with the arrow keys, WASD, or the on-screen pad. Gray blocks are solid rock — you cannot pass through them.</li>
+<li>Collect all 8 crystals to unlock the golden exit in the bottom-right corner, then step on it to escape.</li>
+<li>Touching a bat costs one life and sends you back to the entrance. You have 3 lives. Faster escapes earn a bigger time bonus.</li>
+</ul>
+<h2>Play Free on PlayNova</h2>
+<p>Crystal Caverns is a free browser game on PlayNova. Play directly in your browser without downloading a separate game application.</p>
+</section>
+</main>
+<footer>
+<p>© 2026 PlayNova • Play. Explore. Enjoy.</p>
+<p><a href="../index.html">Home</a> | <a href="../games.html">Games</a> | <a href="../categories.html">Categories</a> | <a href="../favorites.html">Favorites</a></p>
+</footer>
+<script>
+(function () {
+  const canvas = document.getElementById("board");
+  const ctx = canvas.getContext("2d");
+  const crystalsEl = document.getElementById("crystals");
+  const timeEl = document.getElementById("time");
+  const livesEl = document.getElementById("lives");
+  const bestEl = document.getElementById("best");
+  const statusEl = document.getElementById("status");
+  const CELL = 36, N = 10;
+  const WALLS = [
+    [2, 2], [3, 2], [6, 2], [7, 2],
+    [2, 3], [7, 3],
+    [2, 4], [5, 4], [7, 4],
+    [4, 5], [5, 5],
+    [2, 6], [3, 6], [6, 6], [7, 6],
+    [2, 7], [7, 7]
+  ];
+  const CRYSTAL_SPOTS = [[8, 1], [1, 8], [5, 1], [1, 4], [8, 4], [5, 8], [4, 2], [3, 7]];
+  const BAT_SPOTS = [[4, 4], [6, 3], [3, 5]];
+  const START = { x: 1, y: 1 };
+  const EXIT = { x: 8, y: 8 };
+  let player, crystals, bats, lives, best, playing, startTime, elapsed, batTimer, score;
+  best = Number(localStorage.getItem("playnovaBest_crystal-caverns") || 0);
+  bestEl.textContent = best;
+
+  function isWall(x, y) {
+    if (x < 0 || y < 0 || x >= N || y >= N) return true;
+    return WALLS.some(w => w[0] === x && w[1] === y);
+  }
+  function key(x, y) { return x + "," + y; }
+  function updateHud() {
+    const got = CRYSTAL_SPOTS.length - crystals.size;
+    crystalsEl.textContent = got + " / 8";
+    timeEl.textContent = Math.floor(elapsed) + "s";
+    livesEl.textContent = lives;
+    if (score > best) { best = score; bestEl.textContent = best; localStorage.setItem("playnovaBest_crystal-caverns", best); }
+  }
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let y = 0; y < N; y++) {
+      for (let x = 0; x < N; x++) {
+        ctx.fillStyle = isWall(x, y) ? "#3a3a4a" : "#17172a";
+        ctx.fillRect(x * CELL, y * CELL, CELL, CELL);
+        if (isWall(x, y)) {
+          ctx.fillStyle = "#55556a";
+          ctx.fillRect(x * CELL + 4, y * CELL + 4, CELL - 8, CELL - 8);
+        }
+      }
+    }
+    const exitOpen = crystals.size === 0;
+    ctx.fillStyle = exitOpen ? "#ffd43b" : "#6b6b3a";
+    ctx.fillRect(EXIT.x * CELL + 3, EXIT.y * CELL + 3, CELL - 6, CELL - 6);
+    ctx.fillStyle = "#222"; ctx.font = "bold 11px Arial"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.fillText(exitOpen ? "EXIT" : "LOCK", EXIT.x * CELL + CELL / 2, EXIT.y * CELL + CELL / 2);
+    crystals.forEach(k => {
+      const parts = k.split(",");
+      const cx = Number(parts[0]) * CELL + CELL / 2, cy = Number(parts[1]) * CELL + CELL / 2;
+      ctx.fillStyle = "#4dd0e1";
+      ctx.beginPath();
+      ctx.moveTo(cx, cy - 12); ctx.lineTo(cx + 9, cy); ctx.lineTo(cx, cy + 12); ctx.lineTo(cx - 9, cy);
+      ctx.closePath(); ctx.fill();
+      ctx.fillStyle = "#fff";
+      ctx.beginPath(); ctx.arc(cx, cy, 3, 0, Math.PI * 2); ctx.fill();
+    });
+    bats.forEach(b => {
+      const bx = b.x * CELL + CELL / 2, by = b.y * CELL + CELL / 2;
+      ctx.fillStyle = "#9775fa";
+      ctx.beginPath(); ctx.arc(bx, by, 11, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.moveTo(bx - 10, by - 2); ctx.lineTo(bx - 20, by - 10); ctx.lineTo(bx - 16, by + 4); ctx.closePath(); ctx.fill();
+      ctx.beginPath(); ctx.moveTo(bx + 10, by - 2); ctx.lineTo(bx + 20, by - 10); ctx.lineTo(bx + 16, by + 4); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = "#ff6b6b";
+      ctx.beginPath(); ctx.arc(bx - 4, by - 2, 2, 0, Math.PI * 2); ctx.arc(bx + 4, by - 2, 2, 0, Math.PI * 2); ctx.fill();
+    });
+    const px = player.x * CELL + CELL / 2, py = player.y * CELL + CELL / 2;
+    ctx.fillStyle = "#ffd43b";
+    ctx.beginPath(); ctx.arc(px, py, 13, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = "#222";
+    ctx.beginPath(); ctx.arc(px - 5, py - 3, 2.5, 0, Math.PI * 2); ctx.arc(px + 5, py - 3, 2.5, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = "#222"; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.arc(px, py + 3, 5, 0.2, Math.PI - 0.2); ctx.stroke();
+  }
+  function batHit() {
+    lives--;
+    player = { x: START.x, y: START.y };
+    updateHud(); draw();
+    if (lives <= 0) {
+      playing = false; clearInterval(batTimer);
+      statusEl.textContent = "Game over! A bat got you. Press Restart to explore again.";
+    } else {
+      statusEl.textContent = "A bat got you! " + lives + " " + (lives === 1 ? "life" : "lives") + " left. Back to the entrance.";
+    }
+  }
+  function checkBats() {
+    if (!playing) return;
+    if (bats.some(b => b.x === player.x && b.y === player.y)) batHit();
+  }
+  function moveBats() {
+    if (!playing) return;
+    const dirs = [[1, 0], [-1, 0], [0, 1], [0, -1]];
+    bats.forEach(b => {
+      const options = dirs.filter(d => !isWall(b.x + d[0], b.y + d[1]));
+      if (options.length) {
+        const d = options[Math.floor(Math.random() * options.length)];
+        b.x += d[0]; b.y += d[1];
+      }
+    });
+    draw();
+    checkBats();
+  }
+  function move(dx, dy) {
+    if (!playing) return;
+    const nx = player.x + dx, ny = player.y + dy;
+    if (isWall(nx, ny)) return;
+    player.x = nx; player.y = ny;
+    const k = key(nx, ny);
+    if (crystals.has(k)) {
+      crystals.delete(k);
+      score += 100;
+      if (crystals.size === 0) statusEl.textContent = "All crystals found! The exit is open — head to the golden square!";
+    }
+    if (nx === EXIT.x && ny === EXIT.y && crystals.size === 0) {
+      playing = false; clearInterval(batTimer);
+      const bonus = Math.max(0, 300 - Math.floor(elapsed)) * 5;
+      score += bonus;
+      updateHud(); draw();
+      statusEl.textContent = "You escaped! Crystals: 800 + time bonus " + bonus + ". Total score: " + score + ". Press Restart to play again.";
+      return;
+    }
+    updateHud(); draw();
+    checkBats();
+  }
+  function reset() {
+    player = { x: START.x, y: START.y };
+    crystals = new Set(CRYSTAL_SPOTS.map(p => key(p[0], p[1])));
+    bats = BAT_SPOTS.map(p => ({ x: p[0], y: p[1] }));
+    lives = 3; score = 0; elapsed = 0; playing = false;
+    clearInterval(batTimer);
+    updateHud(); draw();
+    statusEl.textContent = "Press Start Game, then move with the arrow keys, WASD, or the on-screen pad.";
+  }
+  document.getElementById("startBtn").onclick = () => {
+    if (playing) return;
+    reset(); playing = true;
+    startTime = Date.now();
+    batTimer = setInterval(() => { elapsed = (Date.now() - startTime) / 1000; timeEl.textContent = Math.floor(elapsed) + "s"; moveBats(); }, 550);
+    statusEl.textContent = "Find all 8 crystals, then reach the golden exit!";
+  };
+  document.getElementById("restartBtn").onclick = reset;
+  document.querySelectorAll(".pad button").forEach(btn => {
+    btn.onclick = () => {
+      const d = btn.getAttribute("data-dir");
+      if (d === "up") move(0, -1);
+      if (d === "down") move(0, 1);
+      if (d === "left") move(-1, 0);
+      if (d === "right") move(1, 0);
+    };
+  });
+  document.addEventListener("keydown", e => {
+    if (e.code === "ArrowUp" || e.code === "KeyW") { e.preventDefault(); move(0, -1); }
+    if (e.code === "ArrowDown" || e.code === "KeyS") { e.preventDefault(); move(0, 1); }
+    if (e.code === "ArrowLeft" || e.code === "KeyA") { e.preventDefault(); move(-1, 0); }
+    if (e.code === "ArrowRight" || e.code === "KeyD") { e.preventDefault(); move(1, 0); }
+  });
+  reset();
+  if (window.self !== window.top) {
+    document.querySelector(".site-header")?.remove();
+    document.querySelector("footer")?.remove();
+    document.querySelector(".back")?.remove();
+  }
+})();
+</script>
+</body>
+</html>

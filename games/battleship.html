@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battleship - Play Battleship Game Online Free | PlayNova</title>
+<meta name="description" content="Play Battleship online free on PlayNova. Hunt the hidden fleet on the 8x8 sea, sink all 5 ships in 40 shots, and chase your best score in this classic strategy game. No downloads required.">
+<meta name="keywords" content="battleship game, naval strategy game, free strategy game, sea battle game, PlayNova">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sarimsakhi31-hash.github.io/PlayNova/games/battleship.html">
+<meta property="og:title" content="Battleship - Play Battleship Game Online Free | PlayNova">
+<meta property="og:description" content="Hunt the hidden fleet and sink all 5 ships in Battleship. Play free on PlayNova.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sarimsakhi31-hash.github.io/PlayNova/games/battleship.html">
+<link rel="icon" href="../images/icon.svg" type="image/svg+xml">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#09090d;color:#fff;font-family:Arial,Helvetica,sans-serif;line-height:1.5}
+a{color:inherit}
+.site-header{display:flex;align-items:center;gap:28px;padding:16px 6%;background:rgba(15,15,20,.96);border-bottom:1px solid rgba(255,255,255,.06);position:sticky;top:0;z-index:1000}
+.logo{text-decoration:none;font-size:26px;font-weight:900;white-space:nowrap}
+.logo span{background:linear-gradient(90deg,#c77dff,#3a86ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.site-header nav{display:flex;gap:20px;flex:1}
+.site-header nav a{text-decoration:none;color:#c8c8d0;font-size:14px}
+.site-header nav a:hover{color:#fff}
+.container{max-width:900px;margin:auto;padding:35px 6%}
+.back{display:inline-block;color:#b77aff;text-decoration:none;margin-bottom:14px}
+h1{font-size:38px;margin:5px 0 8px}
+.subtitle{color:#9a9aa6;margin-bottom:20px}
+.stats{display:flex;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+.stat{background:#15151b;border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:10px 18px;text-align:center}
+.stat span{display:block;font-size:11px;color:#8f8f9c;text-transform:uppercase}
+.stat strong{font-size:22px}
+.game-box{background:#050507;border:1px solid rgba(157,78,221,.35);border-radius:17px;padding:18px;box-shadow:0 20px 60px rgba(0,0,0,.4);text-align:center}
+.game-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+button.primary,button.secondary{border:0;border-radius:10px;padding:11px 20px;font-weight:800;cursor:pointer}
+button.primary{background:linear-gradient(135deg,#9d4edd,#3a86ff);color:#fff}
+button.secondary{background:rgba(255,255,255,.07);color:#fff;border:1px solid rgba(255,255,255,.1)}
+#status{color:#b4b4bf;margin:14px 0;text-align:center;min-height:22px}
+.sea{display:grid;grid-template-columns:repeat(8,52px);gap:5px;justify-content:center;margin:6px auto}
+.sea button{width:52px;height:52px;border:1px solid rgba(255,255,255,.12);border-radius:8px;background:#1971c2;color:#fff;font-size:20px;font-weight:800;cursor:pointer}
+.sea button:hover{background:#1c7ed6}
+.sea button:focus{outline:3px solid #ffd43b;outline-offset:1px}
+.sea button.miss{background:#0b3d66;color:#74c0fc}
+.sea button.hit{background:#e03131}
+.sea button.sunk{background:#862e9c}
+.sea button:disabled{cursor:default}
+.fleet{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.fleet span{background:#15151b;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:6px 12px;font-size:13px;color:#c8c8d0}
+.fleet span.sunk{color:#9775fa;text-decoration:line-through}
+.info{background:#15151b;border-radius:15px;padding:24px;margin-top:24px}
+.info h2{margin:15px 0 5px}
+.info h2:first-child{margin-top:0}
+.info p,.info li{color:#999}
+.info ul{padding-left:20px}
+footer{text-align:center;padding:30px 20px;background:#111116;color:#777;font-size:13px}
+footer a{text-decoration:none}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoGame","name":"Battleship","description":"Play Battleship online free on PlayNova. Hunt the hidden fleet on the 8x8 sea, sink all 5 ships in 40 shots, and chase your best score in this classic strategy game.","url":"https://sarimsakhi31-hash.github.io/PlayNova/games/battleship.html","genre":"Strategy","applicationCategory":"GameApplication","operatingSystem":"Web Browser","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+</head>
+<body>
+<header class="site-header">
+<a class="logo" href="../index.html">🎮 <span>PlayNova</span></a>
+<nav>
+<a href="../index.html">Home</a>
+<a href="../games.html">Games</a>
+<a href="../categories.html">Categories</a>
+<a href="../favorites.html">♥ Favorites</a>
+</nav>
+</header>
+<main class="container">
+<a class="back" href="../games.html">← Back to Games</a>
+<h1>Battleship</h1>
+<p class="subtitle">Hunt the hidden fleet on the 8×8 sea. Sink all 5 ships before your 40 shots run out!</p>
+<div class="stats">
+<div class="stat"><span>Score</span><strong id="score">0</strong></div>
+<div class="stat"><span>Shots Left</span><strong id="shots">40</strong></div>
+<div class="stat"><span>Ships Left</span><strong id="shipsLeft">5</strong></div>
+<div class="stat"><span>Best Score</span><strong id="best">0</strong></div>
+</div>
+<section class="game-box" aria-label="Battleship game">
+<div class="sea" id="sea" role="grid" aria-label="Battleship sea grid"></div>
+<div class="fleet" id="fleet"></div>
+<div class="game-actions">
+<button class="primary" id="startBtn">Start Game</button>
+<button class="secondary" id="restartBtn">Restart</button>
+</div>
+</section>
+<p id="status">Press Start Game, then click a square to fire. Arrow keys move the aim, Enter or Space fires.</p>
+<section class="info">
+<h2>About Battleship</h2>
+<p>Battleship is the classic naval strategy game, free on PlayNova. An enemy fleet of 5 ships is hiding on the sea grid — use smart guessing and pattern hunting to sink them all.</p>
+<h2>How to Play Battleship</h2>
+<ul>
+<li>Click any blue square to fire at it. A red square is a hit, a dark square with a dot is a miss.</li>
+<li>The fleet has 5 ships: lengths 4, 3, 3, 2 and 2. When every part of a ship is hit, it sinks and turns purple.</li>
+<li>You have 40 shots. Each hit is worth 100 points, and leftover shots add 10 points each when you win. Sink the whole fleet to win!</li>
+<li>Keyboard: use the arrow keys to move the aim and press Enter or Space to fire.</li>
+</ul>
+<h2>Play Free on PlayNova</h2>
+<p>Battleship is a free browser game on PlayNova. Play directly in your browser without downloading a separate game application.</p>
+</section>
+</main>
+<footer>
+<p>© 2026 PlayNova • Play. Explore. Enjoy.</p>
+<p><a href="../index.html">Home</a> | <a href="../games.html">Games</a> | <a href="../categories.html">Categories</a> | <a href="../favorites.html">Favorites</a></p>
+</footer>
+<script>
+(function () {
+  const seaEl = document.getElementById("sea");
+  const fleetEl = document.getElementById("fleet");
+  const scoreEl = document.getElementById("score");
+  const shotsEl = document.getElementById("shots");
+  const shipsLeftEl = document.getElementById("shipsLeft");
+  const bestEl = document.getElementById("best");
+  const statusEl = document.getElementById("status");
+  const SIZE = 8, MAX_SHOTS = 40;
+  const SHIP_DEFS = [
+    { name: "Carrier", len: 4 },
+    { name: "Battleship", len: 3 },
+    { name: "Cruiser", len: 3 },
+    { name: "Submarine", len: 2 },
+    { name: "Patrol Boat", len: 2 }
+  ];
+  let ships, fired, shotsLeft, score, best, playing, focusCell;
+  best = Number(localStorage.getItem("playnovaBest_battleship") || 0);
+  bestEl.textContent = best;
+
+  const cells = [];
+  for (let r = 0; r < SIZE; r++) {
+    for (let c = 0; c < SIZE; c++) {
+      const b = document.createElement("button");
+      b.setAttribute("role", "gridcell");
+      b.setAttribute("aria-label", "Row " + (r + 1) + ", column " + (c + 1));
+      b.dataset.r = r; b.dataset.c = c;
+      b.addEventListener("click", () => fire(r, c));
+      seaEl.appendChild(b);
+      cells.push(b);
+    }
+  }
+  function cellAt(r, c) { return cells[r * SIZE + c]; }
+  function key(r, c) { return r + "," + c; }
+
+  function placeShips() {
+    const placed = [];
+    const occupied = new Set();
+    SHIP_DEFS.forEach(def => {
+      let cellsForShip = null;
+      while (!cellsForShip) {
+        const horizontal = Math.random() < 0.5;
+        const r = Math.floor(Math.random() * (horizontal ? SIZE : SIZE - def.len + 1));
+        const c = Math.floor(Math.random() * (horizontal ? SIZE - def.len + 1 : SIZE));
+        const trial = [];
+        for (let i = 0; i < def.len; i++) trial.push([horizontal ? r : r + i, horizontal ? c + i : c]);
+        if (trial.every(p => !occupied.has(key(p[0], p[1])))) {
+          cellsForShip = trial;
+          trial.forEach(p => occupied.add(key(p[0], p[1])));
+        }
+      }
+      placed.push({ name: def.name, cells: cellsForShip, hits: new Set(), sunk: false });
+    });
+    return placed;
+  }
+  function updateHud() {
+    scoreEl.textContent = score;
+    shotsEl.textContent = shotsLeft;
+    shipsLeftEl.textContent = ships.filter(s => !s.sunk).length;
+    if (score > best) { best = score; bestEl.textContent = best; localStorage.setItem("playnovaBest_battleship", best); }
+  }
+  function renderFleet() {
+    fleetEl.innerHTML = "";
+    ships.forEach(s => {
+      const span = document.createElement("span");
+      span.textContent = (s.sunk ? "☠ " : "🚢 ") + s.name + " (" + s.cells.length + ")";
+      if (s.sunk) span.className = "sunk";
+      fleetEl.appendChild(span);
+    });
+  }
+  function fire(r, c) {
+    if (!playing) return;
+    const k = key(r, c);
+    if (fired.has(k)) return;
+    fired.add(k);
+    shotsLeft--;
+    const btn = cellAt(r, c);
+    btn.disabled = true;
+    let hitShip = null;
+    ships.forEach(s => {
+      if (s.cells.some(p => p[0] === r && p[1] === c)) hitShip = s;
+    });
+    if (hitShip) {
+      score += 100;
+      hitShip.hits.add(k);
+      btn.className = "hit";
+      btn.textContent = "💥";
+      if (hitShip.hits.size === hitShip.cells.length) {
+        hitShip.sunk = true;
+        hitShip.cells.forEach(p => {
+          const b = cellAt(p[0], p[1]);
+          b.className = "sunk"; b.textContent = "☠";
+        });
+        statusEl.textContent = "You sunk the " + hitShip.name + "!";
+      } else {
+        statusEl.textContent = "Hit! Keep firing around that spot.";
+      }
+    } else {
+      btn.className = "miss";
+      btn.textContent = "•";
+      statusEl.textContent = "Miss. Try another square.";
+    }
+    updateHud(); renderFleet();
+    if (ships.every(s => s.sunk)) {
+      playing = false;
+      const bonus = shotsLeft * 10;
+      score += bonus;
+      updateHud();
+      statusEl.textContent = "Victory! You sank the whole fleet. Shots bonus: +" + bonus + ". Total score: " + score + ". Press Restart to play again.";
+      return;
+    }
+    if (shotsLeft <= 0) {
+      playing = false;
+      statusEl.textContent = "Out of shots! The fleet survived. Press Restart to try again.";
+    }
+  }
+  function reset() {
+    ships = placeShips();
+    fired = new Set();
+    shotsLeft = MAX_SHOTS;
+    score = 0;
+    playing = false;
+    focusCell = { r: 0, c: 0 };
+    cells.forEach(b => { b.className = ""; b.textContent = ""; b.disabled = false; });
+    updateHud(); renderFleet();
+    statusEl.textContent = "Press Start Game, then click a square to fire. Arrow keys move the aim, Enter or Space fires.";
+  }
+  document.getElementById("startBtn").onclick = () => {
+    if (playing) return;
+    reset(); playing = true;
+    statusEl.textContent = "Fire away! 5 enemy ships are hiding out there.";
+    cellAt(0, 0).focus();
+  };
+  document.getElementById("restartBtn").onclick = reset;
+  document.addEventListener("keydown", e => {
+    if (!playing) return;
+    const f = document.activeElement;
+    if (!f || !f.dataset || f.dataset.r === undefined) return;
+    let r = Number(f.dataset.r), c = Number(f.dataset.c);
+    if (e.code === "ArrowUp") { e.preventDefault(); r = Math.max(0, r - 1); }
+    else if (e.code === "ArrowDown") { e.preventDefault(); r = Math.min(SIZE - 1, r + 1); }
+    else if (e.code === "ArrowLeft") { e.preventDefault(); c = Math.max(0, c - 1); }
+    else if (e.code === "ArrowRight") { e.preventDefault(); c = Math.min(SIZE - 1, c + 1); }
+    else if (e.code === "Enter" || e.code === "Space") { e.preventDefault(); fire(r, c); return; }
+    else return;
+    cellAt(r, c).focus();
+  });
+  reset();
+  if (window.self !== window.top) {
+    document.querySelector(".site-header")?.remove();
+    document.querySelector("footer")?.remove();
+    document.querySelector(".back")?.remove();
+  }
+})();
+</script>
+</body>
+</html>
