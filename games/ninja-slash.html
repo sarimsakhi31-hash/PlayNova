@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ninja Slash - Play Ninja Slash Game Online Free | PlayNova</title>
+<meta name="description" content="Play Ninja Slash online free on PlayNova. Slash targets as they pop up, dodge the bombs, and chase your best score in this fast action game. No downloads required.">
+<meta name="keywords" content="ninja slash game, ninja game, free action game, slash game, PlayNova">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sarimsakhi31-hash.github.io/PlayNova/games/ninja-slash.html">
+<meta property="og:title" content="Ninja Slash - Play Ninja Slash Game Online Free | PlayNova">
+<meta property="og:description" content="Slash targets as they pop up and dodge the bombs in Ninja Slash. Play free on PlayNova.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sarimsakhi31-hash.github.io/PlayNova/games/ninja-slash.html">
+<link rel="icon" href="../images/icon.svg" type="image/svg+xml">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#09090d;color:#fff;font-family:Arial,Helvetica,sans-serif;line-height:1.5}
+a{color:inherit}
+.site-header{display:flex;align-items:center;gap:28px;padding:16px 6%;background:rgba(15,15,20,.96);border-bottom:1px solid rgba(255,255,255,.06);position:sticky;top:0;z-index:1000}
+.logo{text-decoration:none;font-size:26px;font-weight:900;white-space:nowrap}
+.logo span{background:linear-gradient(90deg,#c77dff,#3a86ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.site-header nav{display:flex;gap:20px;flex:1}
+.site-header nav a{text-decoration:none;color:#c8c8d0;font-size:14px}
+.site-header nav a:hover{color:#fff}
+.container{max-width:900px;margin:auto;padding:35px 6%}
+.back{display:inline-block;color:#b77aff;text-decoration:none;margin-bottom:14px}
+h1{font-size:38px;margin:5px 0 8px}
+.subtitle{color:#9a9aa6;margin-bottom:20px}
+.stats{display:flex;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+.stat{background:#15151b;border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:10px 18px;text-align:center}
+.stat span{display:block;font-size:11px;color:#8f8f9c;text-transform:uppercase}
+.stat strong{font-size:22px}
+.game-box{background:#050507;border:1px solid rgba(157,78,221,.35);border-radius:17px;padding:18px;box-shadow:0 20px 60px rgba(0,0,0,.4);text-align:center}
+.game-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+button.primary,button.secondary{border:0;border-radius:10px;padding:11px 20px;font-weight:800;cursor:pointer}
+button.primary{background:linear-gradient(135deg,#9d4edd,#3a86ff);color:#fff}
+button.secondary{background:rgba(255,255,255,.07);color:#fff;border:1px solid rgba(255,255,255,.1)}
+#status{color:#b4b4bf;margin:14px 0;text-align:center;min-height:22px}
+canvas{background:#1b1b22;border-radius:12px;max-width:100%;touch-action:none;cursor:crosshair}
+.info{background:#15151b;border-radius:15px;padding:24px;margin-top:24px}
+.info h2{margin:15px 0 5px}
+.info h2:first-child{margin-top:0}
+.info p,.info li{color:#999}
+.info ul{padding-left:20px}
+footer{text-align:center;padding:30px 20px;background:#111116;color:#777;font-size:13px}
+footer a{text-decoration:none}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoGame","name":"Ninja Slash","description":"Play Ninja Slash online free on PlayNova. Slash targets as they pop up, dodge the bombs, and chase your best score in this fast action game.","url":"https://sarimsakhi31-hash.github.io/PlayNova/games/ninja-slash.html","genre":"Action","applicationCategory":"GameApplication","operatingSystem":"Web Browser","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+</head>
+<body>
+<header class="site-header">
+<a class="logo" href="../index.html">🎮 <span>PlayNova</span></a>
+<nav>
+<a href="../index.html">Home</a>
+<a href="../games.html">Games</a>
+<a href="../categories.html">Categories</a>
+<a href="../favorites.html">♥ Favorites</a>
+</nav>
+</header>
+<main class="container">
+<a class="back" href="../games.html">← Back to Games</a>
+<h1>Ninja Slash</h1>
+<p class="subtitle">Slash the targets as they pop up, dodge the bombs, and keep your ninja streak alive!</p>
+<div class="stats">
+<div class="stat"><span>Score</span><strong id="score">0</strong></div>
+<div class="stat"><span>Hits</span><strong id="hits">0</strong></div>
+<div class="stat"><span>Lives</span><strong id="lives">3</strong></div>
+<div class="stat"><span>Best Score</span><strong id="best">0</strong></div>
+</div>
+<section class="game-box" aria-label="Ninja Slash game">
+<canvas id="board" width="520" height="360"></canvas>
+<div class="game-actions">
+<button class="primary" id="startBtn">Start Game</button>
+<button class="secondary" id="restartBtn">Restart</button>
+</div>
+</section>
+<p id="status">Press Start Game, then click or tap the red targets to slash them. Never slash a bomb!</p>
+<section class="info">
+<h2>About Ninja Slash</h2>
+<p>Ninja Slash is a fast reaction action game, free on PlayNova. Targets pop up all over the dojo — slash them with a click or tap before they vanish, and prove your ninja reflexes.</p>
+<h2>How to Play Ninja Slash</h2>
+<ul>
+<li>Click or tap a red target to slash it. Each hit is worth 10 points, plus a speed bonus.</li>
+<li>Never slash a black bomb — it costs one life. Letting a target vanish also costs one life.</li>
+<li>You have 3 lives. Targets appear faster the longer you survive.</li>
+</ul>
+<h2>Play Free on PlayNova</h2>
+<p>Ninja Slash is a free browser game on PlayNova. Play directly in your browser without downloading a separate game application.</p>
+</section>
+</main>
+<footer>
+<p>© 2026 PlayNova • Play. Explore. Enjoy.</p>
+<p><a href="../index.html">Home</a> | <a href="../games.html">Games</a> | <a href="../categories.html">Categories</a> | <a href="../favorites.html">Favorites</a></p>
+</footer>
+<script>
+(function () {
+  const canvas = document.getElementById("board");
+  const ctx = canvas.getContext("2d");
+  const scoreEl = document.getElementById("score");
+  const hitsEl = document.getElementById("hits");
+  const livesEl = document.getElementById("lives");
+  const bestEl = document.getElementById("best");
+  const statusEl = document.getElementById("status");
+  let targets, score, hits, lives, best, playing, raf, spawnTimer, elapsed;
+  best = Number(localStorage.getItem("playnovaBest_ninja-slash") || 0);
+  bestEl.textContent = best;
+
+  function updateHud() {
+    scoreEl.textContent = score;
+    hitsEl.textContent = hits;
+    livesEl.textContent = lives;
+    if (score > best) { best = score; bestEl.textContent = best; localStorage.setItem("playnovaBest_ninja-slash", best); }
+  }
+  function spawnTarget() {
+    const isBomb = Math.random() < 0.22;
+    const r = 22 + Math.random() * 12;
+    targets.push({
+      x: 50 + Math.random() * (canvas.width - 100),
+      y: 50 + Math.random() * (canvas.height - 100),
+      r: r,
+      bomb: isBomb,
+      born: Date.now(),
+      life: Math.max(700, 1500 - elapsed * 12)
+    });
+  }
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#1b1b22";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = "rgba(255,255,255,.06)";
+    ctx.lineWidth = 1;
+    for (let gx = 0; gx <= canvas.width; gx += 40) { ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, canvas.height); ctx.stroke(); }
+    for (let gy = 0; gy <= canvas.height; gy += 40) { ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(canvas.width, gy); ctx.stroke(); }
+    const now = Date.now();
+    targets.forEach(t => {
+      const remain = 1 - (now - t.born) / t.life;
+      const r = t.r * (0.6 + 0.4 * remain);
+      if (t.bomb) {
+        ctx.beginPath(); ctx.arc(t.x, t.y, r, 0, Math.PI * 2);
+        ctx.fillStyle = "#212529"; ctx.fill();
+        ctx.strokeStyle = "#e03131"; ctx.lineWidth = 3; ctx.stroke();
+        ctx.fillStyle = "#e03131"; ctx.font = "bold " + Math.round(r) + "px Arial"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        ctx.fillText("💣", t.x, t.y + 1);
+      } else {
+        ctx.beginPath(); ctx.arc(t.x, t.y, r, 0, Math.PI * 2);
+        ctx.fillStyle = "#e03131"; ctx.fill();
+        ctx.strokeStyle = "#fff"; ctx.lineWidth = 3; ctx.stroke();
+        ctx.beginPath(); ctx.arc(t.x, t.y, r * 0.45, 0, Math.PI * 2);
+        ctx.fillStyle = "#ffd43b"; ctx.fill();
+      }
+      ctx.fillStyle = "rgba(255,255,255,.5)";
+      ctx.fillRect(t.x - r, t.y - r - 8, r * 2 * remain, 4);
+    });
+  }
+  function loseLife(reason) {
+    lives--;
+    updateHud();
+    if (lives <= 0) {
+      playing = false; cancelAnimationFrame(raf);
+      draw();
+      statusEl.textContent = "Game over! " + reason + " Final score: " + score + ". Press Restart to slash again.";
+    } else {
+      statusEl.textContent = reason + " Lives left: " + lives + ".";
+    }
+  }
+  function reset() {
+    targets = []; score = 0; hits = 0; lives = 3;
+    playing = false; spawnTimer = 0; elapsed = 0;
+    cancelAnimationFrame(raf);
+    updateHud(); draw();
+    statusEl.textContent = "Press Start Game, then click or tap the red targets to slash them. Never slash a bomb!";
+  }
+  function loop() {
+    if (!playing) return;
+    elapsed += 1 / 60;
+    spawnTimer -= 1;
+    if (spawnTimer <= 0) { spawnTarget(); spawnTimer = Math.max(28, 70 - elapsed); }
+    const now = Date.now();
+    for (let i = targets.length - 1; i >= 0; i--) {
+      if (now - targets[i].born > targets[i].life) {
+        const wasBomb = targets[i].bomb;
+        targets.splice(i, 1);
+        if (!wasBomb) loseLife("A target escaped!");
+        if (!playing) return;
+      }
+    }
+    draw();
+    raf = requestAnimationFrame(loop);
+  }
+  function slash(cx, cy) {
+    if (!playing) return;
+    const rect = canvas.getBoundingClientRect();
+    const x = (cx - rect.left) * (canvas.width / rect.width);
+    const y = (cy - rect.top) * (canvas.height / rect.height);
+    for (let i = targets.length - 1; i >= 0; i--) {
+      const t = targets[i];
+      const dx = x - t.x, dy = y - t.y;
+      if (dx * dx + dy * dy <= (t.r + 8) * (t.r + 8)) {
+        targets.splice(i, 1);
+        if (t.bomb) {
+          loseLife("Boom! You slashed a bomb.");
+        } else {
+          hits++;
+          score += 10 + Math.max(0, Math.round((t.life - (Date.now() - t.born)) / 100));
+          updateHud();
+        }
+        draw();
+        return;
+      }
+    }
+  }
+  canvas.addEventListener("pointerdown", e => slash(e.clientX, e.clientY));
+  document.getElementById("startBtn").onclick = () => {
+    if (playing) return;
+    reset(); playing = true;
+    statusEl.textContent = "Slash!";
+    raf = requestAnimationFrame(loop);
+  };
+  document.getElementById("restartBtn").onclick = reset;
+  reset();
+  if (window.self !== window.top) {
+    document.querySelector(".site-header")?.remove();
+    document.querySelector("footer")?.remove();
+    document.querySelector(".back")?.remove();
+  }
+})();
+</script>
+</body>
+</html>
